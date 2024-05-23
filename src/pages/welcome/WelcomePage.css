@@ -1,0 +1,13 @@
+.welcome-background {
+    background-color: rgba(170, 53, 170, 0.502);
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.w-text {
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: xx-large;
+}
