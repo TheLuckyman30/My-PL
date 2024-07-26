@@ -6,43 +6,7 @@ import {
   SelectChangeEvent,
 } from '@mui/material';
 import { useState } from 'react';
-
-class Team {
-  public name: string;
-  public goalsFor: number;
-  public goalsAgainst: number;
-  public goalDiff: number;
-  public points: number;
-  public Mathches: Match[];
-
-  constructor(name: string) {
-    this.name = name;
-    this.goalsFor = 0;
-    this.goalsAgainst = 0;
-    this.goalDiff = 0;
-    this.points = 0;
-    this.Mathches = [];
-  }
-}
-
-class Match {
-  public homeTeam: Team;
-  public awayTeam: Team;
-
-  constructor(homeTeam: Team, awayTeam: Team) {
-    this.homeTeam = homeTeam;
-    this.awayTeam = awayTeam;
-  }
-}
-
-const intitalTeams: Team[] = [
-  new Team('Tottenham Hotspur'),
-  new Team('Liverpool'),
-  new Team('Machester United'),
-  new Team('Manchester City'),
-  new Team('Chelsea'),
-  new Team('Arsenal'),
-];
+import { intitalTeams, Team } from './league_table_classes';
 
 function Teams({ team }: { team: Team }) {
   return (
@@ -84,8 +48,15 @@ function LeagueTable() {
   function changePoints(change: number) {
     const newTeams = teams.map((team: Team) =>
       team.name === selectedTeam.name
-        ? { ...team, points: team.points + change }
-        : { ...team }
+        ? new Team(
+            team.name,
+            team.goalsFor,
+            team.goalsAgainst,
+            team.goalDiff,
+            team.points + change,
+            team.mathches
+          )
+        : team
     );
     setTeams(teamSort(newTeams));
   }
