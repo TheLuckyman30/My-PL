@@ -13,6 +13,7 @@ class Team {
   public goalsAgainst: number;
   public goalDiff: number;
   public points: number;
+  public Mathches: Match[];
 
   constructor(name: string) {
     this.name = name;
@@ -20,6 +21,17 @@ class Team {
     this.goalsAgainst = 0;
     this.goalDiff = 0;
     this.points = 0;
+    this.Mathches = [];
+  }
+}
+
+class Match {
+  public homeTeam: Team;
+  public awayTeam: Team;
+
+  constructor(homeTeam: Team, awayTeam: Team) {
+    this.homeTeam = homeTeam;
+    this.awayTeam = awayTeam;
   }
 }
 
