@@ -7,42 +7,32 @@ import {
 } from '@mui/material';
 import { useState } from 'react';
 
-interface Team {
-  name: string;
-  goalsFor: number;
-  goalsAgainst: number;
-  goalDiff: number;
-  points: number;
+class Team {
+  public name: string;
+  public goalsFor: number;
+  public goalsAgainst: number;
+  public goalDiff: number;
+  public points: number;
+
+  constructor(name: string) {
+    this.name = name;
+    this.goalsFor = 0;
+    this.goalsAgainst = 0;
+    this.goalDiff = 0;
+    this.points = 0;
+  }
 }
 
 const intitalTeams: Team[] = [
-  {
-    name: 'Totttenham Hotspur',
-    goalsFor: 0,
-    goalsAgainst: 0,
-    goalDiff: 0,
-    points: 0,
-  },
-  { name: 'Liverpool', goalsFor: 0, goalsAgainst: 0, goalDiff: 0, points: 0 },
-  {
-    name: 'Manchester United',
-    goalsFor: 0,
-    goalsAgainst: 0,
-    goalDiff: 0,
-    points: 0,
-  },
-  {
-    name: 'Manchester City',
-    goalsFor: 0,
-    goalsAgainst: 0,
-    goalDiff: 0,
-    points: 0,
-  },
-  { name: 'Chelsea', goalsFor: 0, goalsAgainst: 0, goalDiff: 0, points: 0 },
-  { name: 'Arsenal', goalsFor: 0, goalsAgainst: 0, goalDiff: 0, points: 0 },
+  new Team('Tottenham Hotspur'),
+  new Team('Liverpool'),
+  new Team('Machester United'),
+  new Team('Manchester City'),
+  new Team('Chelsea'),
+  new Team('Arsenal'),
 ];
 
-function Team({ team }: { team: Team }) {
+function Teams({ team }: { team: Team }) {
   return (
     <div style={{ display: 'flex' }}>
       <div
@@ -123,7 +113,7 @@ function LeagueTable() {
       </Button>
       <div>
         {teams.map((team: Team, index: number) => (
-          <Team key={index} team={team}></Team>
+          <Teams key={index} team={team}></Teams>
         ))}
       </div>
       <div style={{ display: 'flex', margin: '10px' }}>
