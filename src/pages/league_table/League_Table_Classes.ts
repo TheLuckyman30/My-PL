@@ -5,6 +5,10 @@ export class Team {
   public goalDiff: number;
   public points: number;
   public mathches: Match[];
+  public played: number;
+  public won: number;
+  public drawn: number;
+  public lost: number;
 
   constructor(
     name: string,
@@ -12,7 +16,11 @@ export class Team {
     goalsAgainst: number = 0,
     goalDiff: number = 0,
     points: number = 0,
-    matches: Match[] = []
+    matches: Match[] = [],
+    played: number = 0,
+    won: number = 0,
+    drawn: number = 0,
+    lost: number = 0
   ) {
     this.name = name;
     this.goalsFor = goalsFor;
@@ -20,6 +28,10 @@ export class Team {
     this.goalDiff = goalDiff;
     this.points = points;
     this.mathches = matches;
+    this.played = played;
+    this.won = won;
+    this.drawn = drawn;
+    this.lost = lost;
   }
 
   addMatch(home: boolean, oppositon: Team) {
