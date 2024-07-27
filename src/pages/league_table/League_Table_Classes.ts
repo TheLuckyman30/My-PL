@@ -1,5 +1,6 @@
 export class Team {
   public name: string;
+  public shortName: string;
   public goalsFor: number;
   public goalsAgainst: number;
   public goalDiff: number;
@@ -9,9 +10,11 @@ export class Team {
   public won: number;
   public drawn: number;
   public lost: number;
+  public position: number;
 
   constructor(
     name: string,
+    shortName: string,
     goalsFor: number = 0,
     goalsAgainst: number = 0,
     goalDiff: number = 0,
@@ -20,9 +23,11 @@ export class Team {
     played: number = 0,
     won: number = 0,
     drawn: number = 0,
-    lost: number = 0
+    lost: number = 0,
+    position: number = 0
   ) {
     this.name = name;
+    this.shortName = shortName;
     this.goalsFor = goalsFor;
     this.goalsAgainst = goalsAgainst;
     this.goalDiff = goalDiff;
@@ -32,6 +37,7 @@ export class Team {
     this.won = won;
     this.drawn = drawn;
     this.lost = lost;
+    this.position = position;
   }
 
   addMatch(home: boolean, oppositon: Team) {
@@ -54,10 +60,10 @@ export class Match {
 }
 
 export const intitalTeams: Team[] = [
-  new Team('Tottenham Hotspur'),
-  new Team('Liverpool'),
-  new Team('Machester United'),
-  new Team('Manchester City'),
-  new Team('Chelsea'),
-  new Team('Arsenal'),
+  new Team('Tottenham Hotspur', 'TOT'),
+  new Team('Liverpool', 'LIV'),
+  new Team('Machester United', 'MUN'),
+  new Team('Manchester City', 'MCI'),
+  new Team('Chelsea', 'CHE'),
+  new Team('Arsenal', 'ARS'),
 ];

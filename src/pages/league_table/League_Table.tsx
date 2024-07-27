@@ -2,12 +2,13 @@ import { Button } from '@mui/material';
 import { useState } from 'react';
 import { intitalTeams, Team } from './League_Table_Classes';
 import Teams from './components/Teams';
+import './League_Table.css';
 
 function LeagueTable() {
   const [teams, setTeams] = useState<Team[]>(teamSort(intitalTeams));
 
   function teamSort(teams: Team[]): Team[] {
-    return teams.sort((a, b) => {
+    const sortedTeams: Team[] = teams.sort((a, b) => {
       if (b.points !== a.points) {
         return b.points - a.points;
       }
@@ -20,26 +21,31 @@ function LeagueTable() {
       if (b.goalsAgainst !== a.goalsAgainst) {
         return b.goalsAgainst - a.goalsAgainst;
       } else {
-        return a.name.localeCompare(b.name);
+        return a.shortName.localeCompare(b.shortName);
       }
     });
+    sortedTeams.forEach(
+      (team: Team, index: number) => (team.position = index + 1)
+    );
+    return sortedTeams;
   }
 
   return (
-    <div
-      style={{
-        justifyContent: 'center',
-        alignItems: 'center',
-        display: 'flex',
-        height: '100%',
-        width: '100vw',
-        flexDirection: 'column',
-      }}
-    >
+    <div className="lt-page">
       <Button variant="contained" href="/">
         Home
       </Button>
-      <div>
+      <div className="lt-table">
+        <div className="lt-table-header">
+          <div>POS</div>
+          <div>CLUB</div>
+          <div>PL</div>
+          <div>W</div>
+          <div>D</div>
+          <div>L</div>
+          <div>GD</div>
+          <div>PTS</div>
+        </div>
         {teams.map((team: Team, index: number) => (
           <Teams key={index} team={team}></Teams>
         ))}
