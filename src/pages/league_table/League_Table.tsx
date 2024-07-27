@@ -6,7 +6,7 @@ import {
   SelectChangeEvent,
 } from '@mui/material';
 import { useState } from 'react';
-import { intitalTeams, Team } from './League_Table_Classes';
+import { intitalTeams, Team } from './temp';
 import Teams from './components/Teams';
 import Matches from './components/Matches';
 
