@@ -6,8 +6,9 @@ import {
   SelectChangeEvent,
 } from '@mui/material';
 import { useState } from 'react';
-import { intitalTeams, Team } from './league_table_classes';
-import Teams from './Teams';
+import { intitalTeams, Team } from './League_Table_Classes';
+import Teams from './components/Teams';
+import Matches from './components/Matches';
 
 function LeagueTable() {
   const [teams, setTeams] = useState<Team[]>(teamSort(intitalTeams));
@@ -88,6 +89,11 @@ function LeagueTable() {
         </FormControl>
         <Button onClick={() => changePoints(1)}>Add</Button>
         <Button onClick={() => changePoints(-1)}>Subtract</Button>
+        <Matches
+          selectedTeam={selectedTeam}
+          teams={teams}
+          setTeams={setTeams}
+        ></Matches>
       </div>
     </div>
   );

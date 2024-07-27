@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import WelcomePage from './pages/welcome/WelcomePage';
-import LeagueTable from './pages/league_table/league_table';
+import LeagueTable from './pages/league_table/League_Table';
 
 const router = createBrowserRouter([
   {

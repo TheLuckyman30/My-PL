@@ -1,4 +1,4 @@
-import { Team } from './league_table_classes';
+import { Team } from '../League_Table_Classes';
 
 function Teams({ team }: { team: Team }) {
   return (
