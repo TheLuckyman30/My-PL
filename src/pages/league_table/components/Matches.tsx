@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import { Match, Team } from '../temp';
+import { Match, Team } from '../League_Table_Classes';
 import { useState } from 'react';
 
 interface MatchProps {

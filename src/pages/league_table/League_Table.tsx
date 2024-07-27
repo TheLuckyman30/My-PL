@@ -1,43 +1,10 @@
-import {
-  Button,
-  FormControl,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-} from '@mui/material';
+import { Button } from '@mui/material';
 import { useState } from 'react';
-import { intitalTeams, Team } from './temp';
+import { intitalTeams, Team } from './League_Table_Classes';
 import Teams from './components/Teams';
-import Matches from './components/Matches';
 
 function LeagueTable() {
   const [teams, setTeams] = useState<Team[]>(teamSort(intitalTeams));
-  const [selectedTeam, setSelectedTeam] = useState<Team>(intitalTeams[0]);
-
-  function changeSelectedTeam(event: SelectChangeEvent) {
-    const foundTeam = teams.find(
-      (team: Team) => team.name === event.target.value
-    );
-    if (foundTeam) {
-      setSelectedTeam(foundTeam);
-    }
-  }
-
-  function changePoints(change: number) {
-    const newTeams = teams.map((team: Team) =>
-      team.name === selectedTeam.name
-        ? new Team(
-            team.name,
-            team.goalsFor,
-            team.goalsAgainst,
-            team.goalDiff,
-            team.points + change,
-            team.mathches
-          )
-        : team
-    );
-    setTeams(teamSort(newTeams));
-  }
 
   function teamSort(teams: Team[]): Team[] {
     return teams.sort((a, b) => {
@@ -76,24 +43,6 @@ function LeagueTable() {
         {teams.map((team: Team, index: number) => (
           <Teams key={index} team={team}></Teams>
         ))}
-      </div>
-      <div style={{ display: 'flex', margin: '10px' }}>
-        <FormControl>
-          <Select value={selectedTeam.name} onChange={changeSelectedTeam}>
-            {teams.map((team: Team) => (
-              <MenuItem key={team.name} value={team.name}>
-                {team.name}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <Button onClick={() => changePoints(1)}>Add</Button>
-        <Button onClick={() => changePoints(-1)}>Subtract</Button>
-        <Matches
-          selectedTeam={selectedTeam}
-          teams={teams}
-          setTeams={setTeams}
-        ></Matches>
       </div>
     </div>
   );
