@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { intitalTeams, Team } from './League_Table_Classes';
 import Teams from './components/Teams';
 import './League_Table.css';
+import Calendar from './components/Calendar';
 
 function LeagueTable() {
   const [teams, setTeams] = useState<Team[]>(teamSort(intitalTeams));
@@ -50,6 +51,7 @@ function LeagueTable() {
           <Teams key={index} team={team}></Teams>
         ))}
       </div>
+      <Calendar></Calendar>
     </div>
   );
 }
