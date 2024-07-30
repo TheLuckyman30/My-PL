@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import './WelcomePage.css';
+import '../../css/pages/WelcomePage.css';
 
 function WelcomePage() {
   return (

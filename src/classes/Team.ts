@@ -1,3 +1,5 @@
+import { Match } from "./Match";
+
 export class Team {
   public name: string;
   public shortName: string;
@@ -46,34 +48,6 @@ export class Team {
     } else {
       this.mathches = [...this.mathches, new Match(oppositon, this)];
     }
-  }
-}
-
-export class Match {
-  public homeTeam: Team;
-  public awayTeam: Team;
-
-  constructor(homeTeam: Team, awayTeam: Team) {
-    this.homeTeam = homeTeam;
-    this.awayTeam = awayTeam;
-  }
-}
-
-export class Date {
-  public currentMonth: string;
-  public currentDay: string;
-  public currentYear: number;
-  public hasMatch: boolean;
-  public nextDate: Date | null;
-  public currentDayName: string;
-
-  constructor (currentMonth: string, currentDay: string, currentYear: number, hasMatch: boolean, nextDate: Date | null = null, currentDayName: string) {
-    this.currentMonth = currentMonth;
-    this.currentDay = currentDay;
-    this.currentYear = currentYear;
-    this.hasMatch = hasMatch;
-    this.nextDate = nextDate;
-    this.currentDayName = currentDayName;
   }
 }
 

@@ -1,5 +1,5 @@
-import { Team } from '../League_Table_Classes';
-import './Teams.css';
+import { Team } from '../../../classes/Team';
+import '../../../css/components/Teams.css';
 
 function Teams({ team }: { team: Team }) {
   return (

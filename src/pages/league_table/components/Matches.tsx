@@ -1,6 +1,7 @@
 import { Button } from '@mui/material';
-import { Match, Team } from '../League_Table_Classes';
 import { useState } from 'react';
+import { Team } from '../../../classes/Team';
+import { Match } from '../../../classes/Match';
 
 interface MatchProps {
   selectedTeam: Team;
