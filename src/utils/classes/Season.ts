@@ -25,7 +25,7 @@ const DAYS: Record<string, string> = {
   Saturday: 'Sunday',
 };
 
-class Season {
+export class Season {
   public startDate: Date | null;
   public endDate: Date | null;
   public calendarYear: number;
@@ -33,11 +33,11 @@ class Season {
   public willHaveLeapYear: boolean;
 
   constructor(calendarYear: number, initalDayName: string) {
+    this.startDate = null;
+    this.endDate = null;
     this.calendarYear = calendarYear;
     this.initalDayName = initalDayName;
     this.willHaveLeapYear = false;
-    this.startDate = null;
-    this.endDate = null;
     MONTHS.forEach((month) => {
       this.willHaveLeapYear =
         this.calendarYear % 4 === 0
@@ -69,7 +69,8 @@ class Season {
           this.calendarYear,
           false,
           null,
-          this.initalDayName
+          this.initalDayName,
+          currentDate ? currentDate.uniqueID + 1 : 0
         );
         if (currentDate) {
           currentDate.nextDate = newDate;

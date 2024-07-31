@@ -1,3 +1,4 @@
+import { Date } from "./Date";
 import { Match } from "./Match";
 
 export class Team {
@@ -13,6 +14,7 @@ export class Team {
   public drawn: number;
   public lost: number;
   public position: number;
+  public matchDates: number[];
 
   constructor(
     name: string,
@@ -26,7 +28,8 @@ export class Team {
     won: number = 0,
     drawn: number = 0,
     lost: number = 0,
-    position: number = 0
+    position: number = 0,
+    matchDates: number[] = []
   ) {
     this.name = name;
     this.shortName = shortName;
@@ -40,6 +43,7 @@ export class Team {
     this.drawn = drawn;
     this.lost = lost;
     this.position = position;
+    this.matchDates = matchDates;
   }
 
   addMatch(home: boolean, oppositon: Team) {
@@ -50,12 +54,3 @@ export class Team {
     }
   }
 }
-
-export const intitalTeams: Team[] = [
-  new Team('Tottenham Hotspur', 'TOT'),
-  new Team('Liverpool', 'LIV'),
-  new Team('Machester United', 'MUN'),
-  new Team('Manchester City', 'MCI'),
-  new Team('Chelsea', 'CHE'),
-  new Team('Arsenal', 'ARS'),
-];

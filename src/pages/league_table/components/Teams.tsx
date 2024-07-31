@@ -1,4 +1,4 @@
-import { Team } from '../../../classes/Team';
+import { Team } from '../../../utils/classes/Team';
 import '../../../css/components/Teams.css';
 
 function Teams({ team }: { team: Team }) {

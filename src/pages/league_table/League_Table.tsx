@@ -1,33 +1,21 @@
-import { Button } from '@mui/material';
+import { Button, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import { useState } from 'react';
 import Teams from './components/Teams';
 import '../../css/pages/League_Table.css';
-import { intitalTeams, Team } from '../../classes/Team';
+import { Team } from '../../utils/classes/Team';
+import { allTeams, generateAll } from '../../utils/helpers/League_Generation';
+import Matches from './components/Matches';
 
 function LeagueTable() {
-  const [teams, setTeams] = useState<Team[]>(teamSort(intitalTeams));
+  generateAll();
+  const [teams, setTeams] = useState<Team[]>(allTeams);
+  const [selectedTeam, setSelectedTeam] = useState<Team>(allTeams[0]);
 
-  function teamSort(teams: Team[]): Team[] {
-    const sortedTeams: Team[] = teams.sort((a, b) => {
-      if (b.points !== a.points) {
-        return b.points - a.points;
-      }
-      if (b.goalDiff !== a.goalDiff) {
-        return b.goalDiff - a.goalDiff;
-      }
-      if (b.goalsFor !== a.goalsFor) {
-        return b.goalsFor - a.goalsFor;
-      }
-      if (b.goalsAgainst !== a.goalsAgainst) {
-        return b.goalsAgainst - a.goalsAgainst;
-      } else {
-        return a.shortName.localeCompare(b.shortName);
-      }
-    });
-    sortedTeams.forEach(
-      (team: Team, index: number) => (team.position = index + 1)
-    );
-    return sortedTeams;
+  function selectTeam(event: SelectChangeEvent) {
+    const newTeam = teams.find((team) => team.name === event.target.value);
+    if (newTeam) {
+      setSelectedTeam(newTeam);
+    }
   }
 
   return (
@@ -50,6 +38,12 @@ function LeagueTable() {
           <Teams key={index} team={team}></Teams>
         ))}
       </div>
+      <Select onChange={selectTeam} value={selectedTeam.name}>
+        {teams.map((team: Team) => (
+          <MenuItem value={team.name}>{team.name}</MenuItem>
+        ))}
+      </Select>
+      <Matches selectedTeam={selectedTeam}></Matches>
     </div>
   );
 }
