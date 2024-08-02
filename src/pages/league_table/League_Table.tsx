@@ -16,6 +16,7 @@ function LeagueTable() {
   const [teams, setTeams] = useState<Team[]>(allTeams);
   const [selectedTeam, setSelectedTeam] = useState<Team>(allTeams[0]);
   const [matches, setMatches] = useState<Match[]>(allMatches);
+  const [openMatches, setOpenMatches] = useState<boolean>(false);
 
   function selectTeam(event: SelectChangeEvent) {
     const newTeam = teams.find((team) => team.name === event.target.value);
