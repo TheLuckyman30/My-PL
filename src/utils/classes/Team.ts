@@ -1,4 +1,3 @@
-import { Date } from "./Date";
 import { Match } from "./Match";
 
 export class Team {
@@ -15,6 +14,7 @@ export class Team {
   public lost: number;
   public position: number;
   public matchDates: number[];
+  facedTeams: string[];
 
   constructor(
     name: string,
@@ -29,7 +29,8 @@ export class Team {
     drawn: number = 0,
     lost: number = 0,
     position: number = 0,
-    matchDates: number[] = []
+    matchDates: number[] = [],
+    facedTeams: string[] = []
   ) {
     this.name = name;
     this.shortName = shortName;
@@ -44,6 +45,7 @@ export class Team {
     this.lost = lost;
     this.position = position;
     this.matchDates = matchDates;
+    this.facedTeams = facedTeams;
   }
 
   addMatch(home: boolean, oppositon: Team) {

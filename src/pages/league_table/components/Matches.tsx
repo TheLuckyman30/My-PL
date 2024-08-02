@@ -1,28 +1,34 @@
-import { Team } from '../../../utils/classes/Team';
 import { Match } from '../../../utils/classes/Match';
 
 interface MatchProps {
-  selectedTeam: Team;
+  match: Match;
 }
 
-function Matches({ selectedTeam }: MatchProps) {
+function Matches({ match }: MatchProps) {
   return (
-    <div>
-      <div>
-        {selectedTeam.mathches &&
-          selectedTeam.mathches.map((match: Match, index: number) => (
-            <div key={index}>
-              <div>{match.homeTeam.name + ' vs ' + match.awayTeam.name}</div>
-              <div>
-                {match.date?.currentMonth +
-                  ', ' +
-                  match.date?.currentDay +
-                  ' ' +
-                  match.date?.currentYear}
-              </div>
-            </div>
-          ))}
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '15vh',
+        width: '15vw',
+        background: 'linear-gradient(120deg, #f2f2f2, #efefef)',
+        borderRadius: '20px',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '30px',
+      }}
+    >
+      <div style={{ fontSize: '15px' }}>
+        {match.date?.currentMonth +
+          ' ' +
+          match.date?.currentDay +
+          ', ' +
+          match.date?.currentYear}
       </div>
+      {match.homeTeam.shortName}
+      {'  0  -  0  '}
+      {match.awayTeam.shortName}
     </div>
   );
 }

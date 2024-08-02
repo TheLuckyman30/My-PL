@@ -9,12 +9,12 @@ export let season: Season = new Season(2023, 'Thursday');
 let firstGameDate: Date | null = null;
 
 function generateSeason() {
-  // Find the second Friday of August
+  // Find the second Saturday of August
   let current = season.startDate;
   let fridayCounter: number = 0;
   while (current && fridayCounter !== 2) {
     if (
-      current.currentDayName === 'Friday' &&
+      current.currentDayName === 'Saturday' &&
       current.currentMonth === 'August'
     ) {
       fridayCounter++;
@@ -34,6 +34,20 @@ function generateTeams() {
     new Team('Manchester City', 'MCI'),
     new Team('Chelsea', 'CHE'),
     new Team('Arsenal', 'ARS'),
+    new Team ('Wolves', 'WOL'),
+    new Team ('Southampton', 'SOU'),
+    new Team ('Everton', 'EVE'),
+    new Team ('Fulham', 'FUL'),
+    new Team ('Crystal Palace', 'CRY'),
+    new Team ('Leicsetr City', 'LEI'),
+    new Team ('Ipswich Town', 'IPS'),
+    new Team ('Brentford', 'BRE'),
+    new Team ('West Ham', 'HAM'),
+    new Team ('Brighton', 'BRI'),
+    new Team ('Newcastle', 'NEW'),
+    new Team ('Nottingham Forrest', 'FOR'),
+    new Team ('Aston Villa', 'AST'),
+    new Team ('Bournemouth', 'BOU'),
   ];
   allTeams = teamSort(allTeams);
 }
@@ -52,7 +66,7 @@ function teamSort(teams: Team[]): Team[] {
     if (b.goalsAgainst !== a.goalsAgainst) {
       return b.goalsAgainst - a.goalsAgainst;
     } else {
-      return a.shortName.localeCompare(b.shortName);
+      return a.name.localeCompare(b.name);
     }
   });
   sortedTeams.forEach(
@@ -87,58 +101,52 @@ function generateMatches() {
   );
 
   // Assigns Dates to all of the matches
+  allTeams.forEach((team: Team) => {
+    for (let i = team.mathches.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [team.mathches[i], team.mathches[j]] = [
+        team.mathches[j],
+        team.mathches[i],
+      ];
+    }
+  });
   if (firstGameDate) {
-    allTeams.forEach((team: Team) => {
-      let gameDate: Date | null = firstGameDate;
-      for (let i = team.mathches.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [team.mathches[i], team.mathches[j]] = [
-          team.mathches[j],
-          team.mathches[i],
-        ];
-      }
-      while (team.mathches.some(match => !match.date)) {
-        const tmp = team.mathches.find(match => gameDate && !match.date && (!match.homeTeam.matchDates.includes(gameDate.uniqueID) && !match.awayTeam.matchDates.includes(gameDate.uniqueID)));
-        if (tmp) {
-          if (gameDate) {
-            tmp.date = gameDate;
-            tmp.homeTeam.matchDates = [...tmp.homeTeam.matchDates, gameDate.uniqueID];
-            tmp.awayTeam.matchDates = [...tmp.awayTeam.matchDates, gameDate.uniqueID];
-          }
-        }
-        for (let j = 0; j < 7; j++) {
-            if (gameDate) {
-              gameDate = gameDate.nextDate;
-            }
-        }
-      }
-      
-      /*team.mathches.forEach((match: Match) => {
-        if (!match.date) {
-          while (
+    let gameDate: Date | null = firstGameDate;
+    for (let k = 0; k < allTeams.length * 2 + 10; k++) {
+      allTeams.forEach((team: Team) => {
+        const match = team.mathches.find(
+          (match) =>
             gameDate &&
-            (match.homeTeam.matchDates.includes(gameDate.uniqueID) ||
-              match.awayTeam.matchDates.includes(gameDate.uniqueID))
-          ) {
-            for (let i = 0; i < 7; i++) {
-              if (gameDate) {
-                gameDate = gameDate.nextDate;
-              }
-            }
-          }
-          match.date = gameDate;
+            !match.date &&
+            !match.homeTeam.matchDates.includes(gameDate.uniqueID) &&
+            !match.awayTeam.matchDates.includes(gameDate.uniqueID)
+        );
+        if (match) {
           if (gameDate) {
-            match.homeTeam.matchDates = [...match.homeTeam.matchDates, gameDate.uniqueID];
-            match.awayTeam.matchDates = [...match.awayTeam.matchDates, gameDate.uniqueID];
+            match.date = gameDate;
+            match.homeTeam.matchDates = [
+              ...match.homeTeam.matchDates,
+              gameDate.uniqueID,
+            ];
+            match.awayTeam.matchDates = [
+              ...match.awayTeam.matchDates,
+              gameDate.uniqueID,
+            ];
           }
         }
-      }); */
-      console.log(team.name + " " + team.matchDates.map((date: number) => date))
-      team.mathches.sort((a, b) =>
-        a.date && b.date ? a.date.uniqueID - b.date.uniqueID : 0
-      );
-    });
+      });
+      for (let j = 0; j < 7; j++) {
+        if (gameDate) {
+          gameDate = gameDate.nextDate;
+        }
+      }
+    }
   }
+  allTeams.forEach((team: Team) =>
+    team.mathches.sort((a, b) =>
+      a.date && b.date ? a.date.uniqueID - b.date.uniqueID : 0
+    )
+  );
 }
 
 export function generateAll() {

@@ -3,13 +3,19 @@ import { useState } from 'react';
 import Teams from './components/Teams';
 import '../../css/pages/League_Table.css';
 import { Team } from '../../utils/classes/Team';
-import { allTeams, generateAll } from '../../utils/helpers/League_Generation';
+import {
+  allMatches,
+  allTeams,
+  generateAll,
+} from '../../utils/helpers/League_Generation';
+import { Match } from '../../utils/classes/Match';
 import Matches from './components/Matches';
 
 function LeagueTable() {
   generateAll();
   const [teams, setTeams] = useState<Team[]>(allTeams);
   const [selectedTeam, setSelectedTeam] = useState<Team>(allTeams[0]);
+  const [matches, setMatches] = useState<Match[]>(allMatches);
 
   function selectTeam(event: SelectChangeEvent) {
     const newTeam = teams.find((team) => team.name === event.target.value);
@@ -43,7 +49,7 @@ function LeagueTable() {
           <MenuItem value={team.name}>{team.name}</MenuItem>
         ))}
       </Select>
-      <Matches selectedTeam={selectedTeam}></Matches>
+      <Matches match={matches[0]}></Matches>
     </div>
   );
 }
