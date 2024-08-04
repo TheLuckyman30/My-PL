@@ -4,7 +4,7 @@ interface MatchProps {
   match: Match;
 }
 
-function Matches({ match }: MatchProps) {
+function MatchCard({ match }: MatchProps) {
   return (
     <div
       style={{
@@ -17,6 +17,7 @@ function Matches({ match }: MatchProps) {
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: '30px',
+        fontFamily: 'monospace',
       }}
     >
       <div style={{ fontSize: '15px' }}>
@@ -33,4 +34,4 @@ function Matches({ match }: MatchProps) {
   );
 }
 
-export default Matches;
+export default MatchCard;

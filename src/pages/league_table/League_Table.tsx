@@ -1,4 +1,4 @@
-import { Button, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { Button } from '@mui/material';
 import { useState } from 'react';
 import Teams from './components/Teams';
 import '../../css/pages/League_Table.css';
@@ -9,21 +9,13 @@ import {
   generateAll,
 } from '../../utils/helpers/League_Generation';
 import { Match } from '../../utils/classes/Match';
-import Matches from './components/Matches';
+import MatchesList from './components/MatchesList';
 
 function LeagueTable() {
   generateAll();
   const [teams, setTeams] = useState<Team[]>(allTeams);
-  const [selectedTeam, setSelectedTeam] = useState<Team>(allTeams[0]);
   const [matches, setMatches] = useState<Match[]>(allMatches);
-  const [openMatches, setOpenMatches] = useState<boolean>(false);
-
-  function selectTeam(event: SelectChangeEvent) {
-    const newTeam = teams.find((team) => team.name === event.target.value);
-    if (newTeam) {
-      setSelectedTeam(newTeam);
-    }
-  }
+  const [openMatchList, setOpenMatchList] = useState<boolean>(true);
 
   return (
     <div className="lt-page">
@@ -45,12 +37,10 @@ function LeagueTable() {
           <Teams key={index} team={team}></Teams>
         ))}
       </div>
-      <Select onChange={selectTeam} value={selectedTeam.name}>
-        {teams.map((team: Team) => (
-          <MenuItem value={team.name}>{team.name}</MenuItem>
-        ))}
-      </Select>
-      <Matches match={matches[0]}></Matches>
+      <MatchesList
+        matches={matches}
+        openMatchList={openMatchList}
+      ></MatchesList>
     </div>
   );
 }
