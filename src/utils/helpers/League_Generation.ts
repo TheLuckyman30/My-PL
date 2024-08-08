@@ -28,32 +28,33 @@ function generateSeason() {
 
 function generateTeams() {
   allTeams = [
-    new Team('Tottenham Hotspur', 'TOT'),
-    new Team('Liverpool', 'LIV'),
-    new Team('Machester United', 'MUN'),
-    new Team('Manchester City', 'MCI'),
-    new Team('Chelsea', 'CHE'),
-    new Team('Arsenal', 'ARS'),
-    new Team ('Wolves', 'WOL'),
-    new Team ('Southampton', 'SOU'),
-    new Team ('Everton', 'EVE'),
-    new Team ('Fulham', 'FUL'),
-    new Team ('Crystal Palace', 'CRY'),
-    new Team ('Leicsetr City', 'LEI'),
-    new Team ('Ipswich Town', 'IPS'),
-    new Team ('Brentford', 'BRE'),
-    new Team ('West Ham', 'HAM'),
-    new Team ('Brighton', 'BRI'),
-    new Team ('Newcastle', 'NEW'),
-    new Team ('Nottingham Forrest', 'FOR'),
-    new Team ('Aston Villa', 'AST'),
-    new Team ('Bournemouth', 'BOU'),
+    new Team('Tottenham Hotspur', 'TOT', 90),
+    new Team('Liverpool', 'LIV', 75),
+    new Team('Machester United', 'MUN', 60),
+    new Team('Manchester City', 'MCI', 95),
+    new Team('Chelsea', 'CHE', 1),
+    new Team('Arsenal', 'ARS', 1),
+    new Team ('Wolves', 'WOL', 30),
+    new Team ('Southampton', 'SOU', 15),
+    new Team ('Everton', 'EVE', 20),
+    new Team ('Fulham', 'FUL', 35),
+    new Team ('Crystal Palace', 'CRY', 30),
+    new Team ('Leicsetr City', 'LEI', 25),
+    new Team ('Ipswich Town', 'IPS', 15),
+    new Team ('Brentford', 'BRE', 35),
+    new Team ('West Ham', 'HAM', 40),
+    new Team ('Brighton', 'BRI', 55),
+    new Team ('Newcastle', 'NEW', 60),
+    new Team ('Nottingham Forrest', 'FOR', 25),
+    new Team ('Aston Villa', 'AST', 65),
+    new Team ('Bournemouth', 'BOU', 30),
   ];
   allTeams = teamSort(allTeams);
 }
 
-function teamSort(teams: Team[]): Team[] {
-  const sortedTeams: Team[] = teams.sort((a, b) => {
+export function teamSort(teams: Team[]): Team[] {
+  const copyOfTeams = [...teams];
+  const sortedTeams: Team[] = copyOfTeams.sort((a, b) => {
     if (b.points !== a.points) {
       return b.points - a.points;
     }
@@ -84,6 +85,9 @@ function generateMatches() {
         : allMatches
     )
   );
+
+  const tmp = allTeams.find(team => team.name === allMatches[5].homeTeam.name);
+  console.log(tmp === allMatches[5].homeTeam)
 
   // Randomizes the order of the matches
   for (let i = allMatches.length - 1; i > 0; i--) {

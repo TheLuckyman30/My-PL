@@ -1,10 +1,16 @@
+import { Button } from '@mui/material';
 import { Match } from '../../../utils/classes/Match';
+import { matchSim } from '../../../utils/helpers/MatchSimulation';
+import { Team } from '../../../utils/classes/Team';
+import { useState } from 'react';
 
 interface MatchProps {
   match: Match;
+  setTeams: (setTeams: Team[]) => void;
 }
 
-function MatchCard({ match }: MatchProps) {
+function MatchCard({ match, setTeams }: MatchProps) {
+  const [didSim, setDidSim] = useState<boolean>(false);
   return (
     <div
       style={{
@@ -30,6 +36,12 @@ function MatchCard({ match }: MatchProps) {
       {match.homeTeam.shortName}
       {'  0  -  0  '}
       {match.awayTeam.shortName}
+      <Button
+        onClick={() => matchSim(match, setTeams, setDidSim)}
+        disabled={didSim}
+      >
+        Sim
+      </Button>
     </div>
   );
 }

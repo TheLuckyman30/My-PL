@@ -1,5 +1,5 @@
 import { Button } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Teams from './components/Teams';
 import '../../css/pages/League_Table.css';
 import { Team } from '../../utils/classes/Team';
@@ -12,10 +12,15 @@ import { Match } from '../../utils/classes/Match';
 import MatchesList from './components/MatchesList';
 
 function LeagueTable() {
-  generateAll();
-  const [teams, setTeams] = useState<Team[]>(allTeams);
-  const [matches, setMatches] = useState<Match[]>(allMatches);
+  const [teams, setTeams] = useState<Team[]>([]);
+  const [matches, setMatches] = useState<Match[]>([]);
   const [openMatchList, setOpenMatchList] = useState<boolean>(true);
+
+  useEffect(() => {
+    generateAll();
+    setTeams(allTeams);
+    setMatches(allMatches);
+  }, []);
 
   return (
     <div className="lt-page">
@@ -40,6 +45,7 @@ function LeagueTable() {
       <MatchesList
         matches={matches}
         openMatchList={openMatchList}
+        setTeams={setTeams}
       ></MatchesList>
     </div>
   );

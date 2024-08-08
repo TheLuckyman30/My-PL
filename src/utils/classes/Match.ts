@@ -1,14 +1,30 @@
-import { Team } from "./Team";
-import { Date } from "./Date";
+import { Team } from './Team';
+import { Date } from './Date';
 
 export class Match {
   public homeTeam: Team;
   public awayTeam: Team;
+  public winningTeam: Team | null;
+  public losingTeam: Team | null;
+  public homeScore: number;
+  public awayScore: number;
   public date: Date | null;
 
-  constructor(homeTeam: Team, awayTeam: Team, date: Date | null = null) {
+  constructor(
+    homeTeam: Team,
+    awayTeam: Team,
+    winningTeam: Team | null = null,
+    losingTeam: Team | null = null,
+    homeScore: number = 0,
+    awayScore: number = 0,
+    date: Date | null = null
+  ) {
     this.homeTeam = homeTeam;
     this.awayTeam = awayTeam;
+    this.winningTeam = winningTeam;
+    this.losingTeam = losingTeam;
+    this.homeScore = homeScore;
+    this.awayScore = awayScore;
     this.date = date;
   }
 }

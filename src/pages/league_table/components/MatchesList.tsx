@@ -1,13 +1,15 @@
 import { Drawer } from '@mui/material';
 import MatchCard from './MatchCard';
 import { Match } from '../../../utils/classes/Match';
+import { Team } from '../../../utils/classes/Team';
 
 interface MatchesListProps {
   matches: Match[];
   openMatchList: boolean;
+  setTeams: (setTeams: Team[]) => void;
 }
 
-function MatchesList({ matches, openMatchList }: MatchesListProps) {
+function MatchesList({ matches, openMatchList, setTeams }: MatchesListProps) {
   const sortedMatches = [...matches].sort((a, b) =>
     a.date && b.date ? a.date?.uniqueID - b.date?.uniqueID : 0
   );
@@ -23,7 +25,7 @@ function MatchesList({ matches, openMatchList }: MatchesListProps) {
                 <h2>Matchweek: {matchweek++}</h2>
               )}
             </div>
-            <MatchCard match={match}></MatchCard>
+            <MatchCard match={match} setTeams={setTeams}></MatchCard>
           </div>
         ))}
       </Drawer>

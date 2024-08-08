@@ -3,6 +3,7 @@ import { Match } from "./Match";
 export class Team {
   public name: string;
   public shortName: string;
+  public teamStrength: number;
   public goalsFor: number;
   public goalsAgainst: number;
   public goalDiff: number;
@@ -19,6 +20,7 @@ export class Team {
   constructor(
     name: string,
     shortName: string,
+    teamStrength: number,
     goalsFor: number = 0,
     goalsAgainst: number = 0,
     goalDiff: number = 0,
@@ -34,6 +36,7 @@ export class Team {
   ) {
     this.name = name;
     this.shortName = shortName;
+    this.teamStrength = teamStrength;
     this.goalsFor = goalsFor;
     this.goalsAgainst = goalsAgainst;
     this.goalDiff = goalDiff;
