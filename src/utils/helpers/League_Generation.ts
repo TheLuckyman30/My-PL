@@ -85,10 +85,7 @@ function generateMatches() {
         : allMatches
     )
   );
-
-  const tmp = allTeams.find(team => team.name === allMatches[5].homeTeam.name);
-  console.log(tmp === allMatches[5].homeTeam)
-
+  
   // Randomizes the order of the matches
   for (let i = allMatches.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));

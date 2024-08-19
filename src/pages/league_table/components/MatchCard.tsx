@@ -11,6 +11,8 @@ interface MatchProps {
 
 function MatchCard({ match, setTeams }: MatchProps) {
   const [didSim, setDidSim] = useState<boolean>(false);
+  const [homeGoals, setHomeGoals] = useState<number>(0);
+  const [awayGoals, setAwayGoals] = useState<number>(0);
   return (
     <div
       style={{
@@ -34,10 +36,12 @@ function MatchCard({ match, setTeams }: MatchProps) {
           match.date?.currentYear}
       </div>
       {match.homeTeam.shortName}
-      {'  0  -  0  '}
+      {'  ' + homeGoals + '  -  ' + awayGoals + '  '}
       {match.awayTeam.shortName}
       <Button
-        onClick={() => matchSim(match, setTeams, setDidSim)}
+        onClick={() =>
+          matchSim(match, setTeams, setDidSim, setHomeGoals, setAwayGoals)
+        }
         disabled={didSim}
       >
         Sim
