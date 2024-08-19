@@ -1,6 +1,5 @@
 import { Button } from '@mui/material';
 import { useEffect, useState } from 'react';
-import Teams from './components/Teams';
 import '../../css/pages/League_Table.css';
 import { Team } from '../../utils/classes/Team';
 import {
@@ -14,7 +13,7 @@ import MatchesList from './components/MatchesList';
 function LeagueTable() {
   const [teams, setTeams] = useState<Team[]>([]);
   const [matches, setMatches] = useState<Match[]>([]);
-  const [openMatchList, setOpenMatchList] = useState<boolean>(true);
+  const [openMatchList, setOpenMatchList] = useState<boolean>(false);
 
   useEffect(() => {
     generateAll();
@@ -27,25 +26,12 @@ function LeagueTable() {
       <Button variant="contained" href="/">
         Home
       </Button>
-      <div className="lt-table">
-        <div className="lt-table-header">
-          <div>POS</div>
-          <div>CLUB</div>
-          <div>PL</div>
-          <div>W</div>
-          <div>D</div>
-          <div>L</div>
-          <div>GD</div>
-          <div>PTS</div>
-        </div>
-        {teams.map((team: Team, index: number) => (
-          <Teams key={index} team={team}></Teams>
-        ))}
-      </div>
+      <Button onClick={() => setOpenMatchList(true)}>Open Match List</Button>
       <MatchesList
         matches={matches}
         openMatchList={openMatchList}
         setTeams={setTeams}
+        setOpenMatchList={setOpenMatchList}
       ></MatchesList>
     </div>
   );

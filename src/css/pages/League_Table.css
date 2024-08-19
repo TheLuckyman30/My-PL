@@ -1,24 +1,4 @@
 .lt-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     height: 100%;
     width: 100vw;
-}
-
-.lt-table {
-    display: flex;
-    flex-direction: column;
-    width: 50vw;
-    border: solid black 2px;
-    border-radius: 15px;
-    padding: 15px;
-}
-
-.lt-table-header {
-    display: flex;
-    justify-content: space-between;
-    font-family: 'Courier New', Courier, monospace;
-    margin-bottom: 10px;
 }
