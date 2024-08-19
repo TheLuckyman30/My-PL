@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import WelcomePage from './pages/welcome/WelcomePage';
-import LeagueTable from './pages/league_table/League_Table';
+import Game from './pages/game/Game';
 
 const router = createBrowserRouter([
   {
@@ -12,10 +12,12 @@ const router = createBrowserRouter([
   },
   {
     path: '/LeagueTable',
-    element: <LeagueTable></LeagueTable>,
+    element: <Game></Game>,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <RouterProvider router={router}></RouterProvider>
+  <React.StrictMode>
+    <RouterProvider router={router}></RouterProvider>
+  </React.StrictMode>
 );

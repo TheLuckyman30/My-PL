@@ -1,6 +1,6 @@
 import { Button } from '@mui/material';
 import { useEffect, useState } from 'react';
-import '../../css/pages/League_Table.css';
+import '../../css/pages/Game.css';
 import { Team } from '../../utils/classes/Team';
 import {
   allMatches,
@@ -10,7 +10,7 @@ import {
 import { Match } from '../../utils/classes/Match';
 import MatchesList from './components/MatchesList';
 
-function LeagueTable() {
+function Game() {
   const [teams, setTeams] = useState<Team[]>([]);
   const [matches, setMatches] = useState<Match[]>([]);
   const [openMatchList, setOpenMatchList] = useState<boolean>(false);
@@ -22,7 +22,7 @@ function LeagueTable() {
   }, []);
 
   return (
-    <div className="lt-page">
+    <div className="game-page">
       <Button variant="contained" href="/">
         Home
       </Button>
@@ -37,4 +37,4 @@ function LeagueTable() {
   );
 }
 
-export default LeagueTable;
+export default Game;
