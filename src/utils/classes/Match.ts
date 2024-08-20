@@ -9,6 +9,7 @@ export class Match {
   public homeScore: number;
   public awayScore: number;
   public date: Date | null;
+  public isDone: boolean;
 
   constructor(
     homeTeam: Team,
@@ -17,7 +18,8 @@ export class Match {
     losingTeam: Team | null = null,
     homeScore: number = 0,
     awayScore: number = 0,
-    date: Date | null = null
+    date: Date | null = null,
+    isDone: boolean = false
   ) {
     this.homeTeam = homeTeam;
     this.awayTeam = awayTeam;
@@ -26,5 +28,6 @@ export class Match {
     this.homeScore = homeScore;
     this.awayScore = awayScore;
     this.date = date;
+    this.isDone = isDone;
   }
 }

@@ -42,11 +42,11 @@ function generateTeams() {
     new Team ('Leicsetr City', 'LEI', 25),
     new Team ('Ipswich Town', 'IPS', 15),
     new Team ('Brentford', 'BRE', 35),
-    new Team ('West Ham', 'HAM', 40),
-    new Team ('Brighton', 'BRI', 55),
+    new Team ('West Ham', 'WHU', 40),
+    new Team ('Brighton', 'BHA', 55),
     new Team ('Newcastle', 'NEW', 60),
-    new Team ('Nottingham Forrest', 'FOR', 25),
-    new Team ('Aston Villa', 'AST', 65),
+    new Team ('Nottingham Forrest', 'NFO', 25),
+    new Team ('Aston Villa', 'AVL', 65),
     new Team ('Bournemouth', 'BOU', 30),
   ];
   allTeams = teamSort(allTeams);

@@ -10,9 +10,9 @@ interface MatchProps {
 }
 
 function MatchCard({ match, setTeams }: MatchProps) {
-  const [didSim, setDidSim] = useState<boolean>(false);
-  const [homeGoals, setHomeGoals] = useState<number>(0);
-  const [awayGoals, setAwayGoals] = useState<number>(0);
+  const [didSim, setDidSim] = useState<boolean>(match.isDone);
+  const [homeGoals, setHomeGoals] = useState<number>(match.homeScore);
+  const [awayGoals, setAwayGoals] = useState<number>(match.awayScore);
   return (
     <div
       style={{

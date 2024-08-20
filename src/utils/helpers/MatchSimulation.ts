@@ -92,6 +92,7 @@ export function matchSim (match: Match, setTeams: (newTeams: Team[]) => void, se
     match.awayTeam.goalDiff = match.awayTeam.goalsFor - match.awayTeam.goalsAgainst;
     match.homeTeam.played += 1;
     match.awayTeam.played += 1;
+    match.isDone = true;
     console.log(match.homeTeam.goalsFor);
     console.log(match.awayTeam.goalsFor);
     

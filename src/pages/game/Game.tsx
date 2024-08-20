@@ -9,6 +9,7 @@ import {
 } from '../../utils/helpers/League_Generation';
 import { Match } from '../../utils/classes/Match';
 import MatchesList from './components/MatchesList';
+import LeagueTable from './components/League_Table';
 
 function Game() {
   const [teams, setTeams] = useState<Team[]>([]);
@@ -26,6 +27,9 @@ function Game() {
       <Button variant="contained" href="/">
         Home
       </Button>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <LeagueTable teams={teams}></LeagueTable>
+      </div>
       <Button onClick={() => setOpenMatchList(true)}>Open Match List</Button>
       <MatchesList
         matches={matches}
