@@ -15,69 +15,61 @@ export function matchSim (match: Match, setTeams: (newTeams: Team[]) => void, se
         let canConcede: boolean = false;
 
         let rand: number = Math.random();
-        if (rand > (awayTeamOdds *.2) && rand <= (homeTeamOdds * .2) ) {
-            homeChanceCreated = true;
-        }
-        else if (rand <= (awayTeamOdds * .2)) {
-            awayChanceCreated = true;
-        }
-
-        if (homeChanceCreated) {
-            const scoringOdds: number = homeTeamOdds * 0.5;
-            const concedingOdds: number = awayTeamOdds * 0.5;
+        if (rand <= 0.1 ) {
             rand = Math.random();
-            if (rand <= scoringOdds) {
-                canScore = true;
+            if (rand <= homeTeamOdds) {
+                homeChanceCreated = true;
             }
-
             rand = Math.random();
-            if (rand >= concedingOdds) {
-                canConcede = true;
+            if (rand <= awayTeamOdds && !homeChanceCreated) {
+                awayChanceCreated = true;
             }
 
-            if (canScore && canConcede) {
-                match.homeScore += 1;
+            if (homeChanceCreated) {
+                rand = Math.random();
+                if (rand <= homeTeamOdds) {
+                    canScore = true;
+                }
+
+                rand = Math.random();
+                if (rand >= awayTeamOdds) {
+                    canConcede = true;
+                }
+
+                if (canScore && canConcede) {
+                    match.homeScore += 1;
+                    match.homeTeam.goalsFor += 1;
+                    match.awayTeam.goalsAgainst += 1;
+                }
+            }
+            if (awayChanceCreated) {
+                rand = Math.random();
+                if (rand <= awayTeamOdds) {
+                    canScore = true;
+                }
+
+                rand = Math.random();
+                if (rand >= homeTeamOdds) {
+                    canConcede = true;
+                }
+
+                if (canScore && canConcede) {
+                    match.awayScore += 1;
+                    match.awayTeam.goalsFor += 1;
+                    match.homeTeam.goalsAgainst += 1;
+                }
             }
         }
-        if (awayChanceCreated) {
-            const scoringOdds: number = awayTeamOdds * 0.5;
-            const concedingOdds: number = homeTeamOdds * 0.5;
-            rand = Math.random();
-            if (rand <= scoringOdds) {
-                canScore = true;
-            }
-
-            rand = Math.random();
-            if (rand >= concedingOdds) {
-                canConcede = true;
-            }
-
-            if (canScore && canConcede) {
-                match.awayScore += 1;
-            }
-        }
+        
     }
+
     if (match.homeScore > match.awayScore) {
         match.winningTeam = match.homeTeam;
         match.losingTeam = match.awayTeam;
-        match.winningTeam.goalsFor += match.homeScore;
-        match.losingTeam.goalsFor += match.awayScore;
-        match.winningTeam.goalsAgainst += match.awayScore;
-        match.losingTeam.goalsAgainst += match.homeScore;
     }
     else if (match.awayScore > match.homeScore) {
         match.winningTeam = match.awayTeam;
         match.losingTeam = match.homeTeam;
-        match.winningTeam.goalsFor += match.awayScore;
-        match.losingTeam.goalsFor += match.homeScore;
-        match.winningTeam.goalsAgainst += match.homeScore;
-        match.losingTeam.goalsAgainst += match.awayScore;
-    }
-    else {
-        match.homeTeam.goalsFor += match.homeScore;
-        match.awayTeam.goalsFor += match.awayScore;
-        match.homeTeam.goalsAgainst += match.awayScore;
-        match.awayTeam.goalsAgainst += match.homeScore;
     }
 
     if (match.winningTeam && match.losingTeam) {
