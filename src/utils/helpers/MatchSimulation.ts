@@ -4,32 +4,34 @@ import { allTeams, teamSort } from "./League_Generation";
 
 export function matchSim (match: Match, setTeams: (newTeams: Team[]) => void, setDidSim: (didSim: boolean) => void, setHomeGoals: (newGoals: number) => void, setAwayGoals: (newGoals: number) => void) {
     const totalTeamStrength: number = match.homeTeam.teamStrength + match.awayTeam.teamStrength;
-    const homeTeamOdds: number = (match.homeTeam.teamStrength / totalTeamStrength) * .05;
-    const awayTeamOdds: number = (match.awayTeam.teamStrength / totalTeamStrength) * .05;
+    const homeTeamOdds: number = (match.homeTeam.teamStrength / totalTeamStrength) ;
+    const awayTeamOdds: number = (match.awayTeam.teamStrength / totalTeamStrength) ;
     const matchLength: number = 90;
 
     for (let i = 1; i <= matchLength; i++) {
         let homeChanceCreated: boolean = false;
-        let awayChanceCreated: boolean = true;
+        let awayChanceCreated: boolean = false;
         let canScore: boolean = false;
         let canConcede: boolean = false;
 
         let rand: number = Math.random();
-        if (rand > awayTeamOdds && rand <= homeTeamOdds) {
+        if (rand > (awayTeamOdds *.2) && rand <= (homeTeamOdds * .2) ) {
             homeChanceCreated = true;
         }
-        else if (rand <= awayTeamOdds) {
+        else if (rand <= (awayTeamOdds * .2)) {
             awayChanceCreated = true;
         }
 
         if (homeChanceCreated) {
+            const scoringOdds: number = homeTeamOdds * 0.5;
+            const concedingOdds: number = awayTeamOdds * 0.5;
             rand = Math.random();
-            if (rand <= homeTeamOdds) {
+            if (rand <= scoringOdds) {
                 canScore = true;
             }
 
             rand = Math.random();
-            if (rand >= awayTeamOdds) {
+            if (rand >= concedingOdds) {
                 canConcede = true;
             }
 
@@ -38,13 +40,15 @@ export function matchSim (match: Match, setTeams: (newTeams: Team[]) => void, se
             }
         }
         if (awayChanceCreated) {
+            const scoringOdds: number = awayTeamOdds * 0.5;
+            const concedingOdds: number = homeTeamOdds * 0.5;
             rand = Math.random();
-            if (rand <= awayTeamOdds) {
+            if (rand <= scoringOdds) {
                 canScore = true;
             }
 
             rand = Math.random();
-            if (rand >= homeTeamOdds) {
+            if (rand >= concedingOdds) {
                 canConcede = true;
             }
 
@@ -93,8 +97,6 @@ export function matchSim (match: Match, setTeams: (newTeams: Team[]) => void, se
     match.homeTeam.played += 1;
     match.awayTeam.played += 1;
     match.isDone = true;
-    console.log(match.homeTeam.goalsFor);
-    console.log(match.awayTeam.goalsFor);
     
     setHomeGoals(match.homeScore);
     setAwayGoals(match.awayScore);
