@@ -9,13 +9,13 @@ export function matchSim (match: Match, setTeams: (newTeams: Team[]) => void, se
     const matchLength: number = 90;
 
     for (let i = 1; i <= matchLength; i++) {
-        let homeChanceCreated: boolean = false;
-        let awayChanceCreated: boolean = false;
-        let canScore: boolean = false;
-        let canConcede: boolean = false;
-
         let rand: number = Math.random();
         if (rand <= 0.1 ) {
+            let homeChanceCreated: boolean = false;
+            let awayChanceCreated: boolean = false;
+            let canScore: boolean = false;
+            let canConcede: boolean = false;
+
             rand = Math.random();
             if (rand <= homeTeamOdds) {
                 homeChanceCreated = true;
@@ -26,13 +26,15 @@ export function matchSim (match: Match, setTeams: (newTeams: Team[]) => void, se
             }
 
             if (homeChanceCreated) {
+                const scoringOdds: number = homeTeamOdds;
+                const concedingOdds: number = awayTeamOdds;
                 rand = Math.random();
-                if (rand <= homeTeamOdds) {
+                if (rand <= scoringOdds) {
                     canScore = true;
                 }
 
                 rand = Math.random();
-                if (rand >= awayTeamOdds) {
+                if (rand >= concedingOdds) {
                     canConcede = true;
                 }
 
@@ -43,13 +45,15 @@ export function matchSim (match: Match, setTeams: (newTeams: Team[]) => void, se
                 }
             }
             if (awayChanceCreated) {
+                const scoringOdds: number = awayTeamOdds;
+                const concedingOdds: number = homeTeamOdds;
                 rand = Math.random();
-                if (rand <= awayTeamOdds) {
+                if (rand <= scoringOdds) {
                     canScore = true;
                 }
 
                 rand = Math.random();
-                if (rand >= homeTeamOdds) {
+                if (rand >= concedingOdds) {
                     canConcede = true;
                 }
 
