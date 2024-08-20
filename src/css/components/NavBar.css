@@ -1,0 +1,25 @@
+.navBar {
+    display: flex;
+    background-color: #37003c;
+    height: 10vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.align-center {
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    height: 50%;
+    scale: 1.5;
+    transition: 0.3s;
+}
+
+.image:hover {
+    scale: 1.7;
+}

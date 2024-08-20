@@ -6,14 +6,14 @@ interface LeagueTableProps {
 }
 
 const TABLE_HEADER_ITEMS: string[] = [
-  'Pos',
+  'Position',
   'Club',
-  'PL',
-  'W',
-  'D',
-  'L',
+  'Played',
+  'Won',
+  'Drawn',
+  'Lost',
   'GD',
-  'PTS',
+  'Points',
 ];
 
 const SPECIAL_POSITIONS: Record<number, string> = {

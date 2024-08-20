@@ -10,6 +10,7 @@ import {
 import { Match } from '../../utils/classes/Match';
 import MatchesList from './components/MatchesList';
 import LeagueTable from './components/League_Table';
+import NavBar from './components/NavBar';
 
 function Game() {
   const [teams, setTeams] = useState<Team[]>([]);
@@ -24,9 +25,7 @@ function Game() {
 
   return (
     <div className="game-page">
-      <Button variant="contained" href="/">
-        Home
-      </Button>
+      <NavBar></NavBar>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
         <LeagueTable teams={teams}></LeagueTable>
       </div>
