@@ -1,0 +1,29 @@
+.lt-container {
+    display: flex;
+    border-radius: 15px;
+    border: solid gray 2px;
+    margin: 1vw;
+    padding-top: 1vw;
+    padding-bottom: 1vw;
+    font-size: 25px;
+    font-family: monospace;
+    box-shadow: black 5px 5px;
+    transition: 0.1s;
+    position: relative;
+}
+
+.lt-header {
+    display: flex;
+    border-radius: 15px;
+    border: solid gray 2px;
+    padding: 1vw;
+    margin: 1vw;
+    font-size: 25px;
+    font-family: monospace;
+    box-shadow: black 5px 5px;
+}
+
+.lt-container:hover {
+    transform: scale(1.045);
+    background-color: rgb(225, 225, 225);
+}
