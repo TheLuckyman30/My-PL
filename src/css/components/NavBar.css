@@ -1,16 +1,33 @@
 .navBar {
     display: flex;
+    position: fixed;
     background-color: #37003c;
     height: 10vh;
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
 }
 
-.align-center {
+.date {
     display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    color: white;
+    font-size: 20px;
+    font-family: PremBold;
+    font-weight: bold;
+    padding-left: 2rem;
+}
+
+.date-button {
+    cursor: pointer;
+    user-select: none;
+    width: fit-content;
+}
+
+.anchor {
+    display: inline-flex;
     align-items: center;
 }
 
@@ -22,4 +39,11 @@
 
 .image:hover {
     scale: 1.7;
+}
+
+@font-face {
+    font-family: 'PremBold';
+    src: url('../../assets/fonts/PremierLeagueW01-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }

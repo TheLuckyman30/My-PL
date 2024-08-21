@@ -6,7 +6,7 @@
     padding-top: 1rem;
     padding-bottom: 1rem;
     font-size: 25px;
-    font-family: monospace;
+    font-family: PremHeavy;
     box-shadow: black 5px 5px;
     transition: 0.1s;
     position: relative;
@@ -21,7 +21,7 @@
     margin: 1rem;
     margin-top: 15vh;
     font-size: 25px;
-    font-family: monospace;
+    font-family: PremHeavy;
     box-shadow: black 5px 5px;
     background-color: white;
 }
@@ -29,4 +29,11 @@
 .lt-container:hover {
     transform: scale(1.045);
     background-color: rgb(225, 225, 225);
+}
+
+@font-face {
+    font-family: 'PremHeavy';
+    src: url('../../assets/fonts/PremierLeagueW01-Heavy.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
 }
