@@ -33,35 +33,23 @@ const SPECIAL_POSITIONS: Record<number, string> = {
 
 function LeagueTable({ teams }: LeagueTableProps) {
   return (
-    <div style={{ marginTop: '15vh' }}>
-      <table
-        style={{
-          border: 'solid gray 2px',
-          borderSpacing: '2.25rem ',
-        }}
-      >
+    <div className="lt-page">
+      <table className="table">
         <tr className="lt-header">
           {TABLE_HEADER_ITEMS.map((item: string) => (
-            <td style={{ textAlign: 'left' }}>{item}</td>
+            <th className="table-header">{item}</th>
           ))}
         </tr>
         {teams.map((team: Team) => (
-          <tr className="lt-container">
-            <td style={{ position: 'relative' }}>
+          <tr className="table-body">
+            <td>
               <div
-                style={{
-                  position: 'absolute',
-                  left: '0',
-                  top: '0',
-                  bottom: '0',
-                  width: '5px', // Adjust width as needed
-                  backgroundColor:
-                    SPECIAL_POSITIONS[team.position] || 'transparent',
-                }}
-              />
-              <div>{team.position}</div>{' '}
+                className="table-stripes"
+                style={{ backgroundColor: SPECIAL_POSITIONS[team.position] }}
+              ></div>
+              <div>{team.position}</div>
             </td>
-            <td style={{ display: 'flex', alignItems: 'center' }}>
+            <td className="image-box">
               <img
                 src={team.logoURL}
                 style={{ height: '32px', width: '32px', paddingRight: '2px' }}
