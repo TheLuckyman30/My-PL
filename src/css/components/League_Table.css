@@ -1,34 +1,15 @@
 .lt-container {
-    display: flex;
-    border-radius: 15px;
-    border: solid gray 2px;
-    margin: 1rem;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    font-size: 25px;
+    font-size: 15px;
     font-family: PremHeavy;
-    box-shadow: black 5px 5px;
-    transition: 0.1s;
     position: relative;
     background-color: white;
+    text-align: center;
 }
 
 .lt-header {
-    display: flex;
-    border-radius: 15px;
-    border: solid gray 2px;
-    padding: 1rem;
-    margin: 1rem;
-    margin-top: 15vh;
-    font-size: 25px;
+    font-size: 15px;
     font-family: PremHeavy;
-    box-shadow: black 5px 5px;
     background-color: white;
-}
-
-.lt-container:hover {
-    transform: scale(1.045);
-    background-color: rgb(225, 225, 225);
 }
 
 @font-face {

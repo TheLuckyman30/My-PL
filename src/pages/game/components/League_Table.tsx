@@ -12,6 +12,8 @@ const TABLE_HEADER_ITEMS: string[] = [
   'Won',
   'Drawn',
   'Lost',
+  'GF',
+  'GA',
   'GD',
   'Points',
 ];
@@ -24,45 +26,59 @@ const SPECIAL_POSITIONS: Record<number, string> = {
   5: '#fa7b17',
   6: '#fa7b17',
   7: '#34a853',
-  18: '#fc3f3f',
+  18: '#ea0035',
   19: '#ea0035',
   20: '#ea0035',
 };
 
 function LeagueTable({ teams }: LeagueTableProps) {
   return (
-    <div>
-      <div className="lt-header">
-        {TABLE_HEADER_ITEMS.map((item: string) => (
-          <div style={{ width: '10vw' }}>{item}</div>
+    <div style={{ marginTop: '15vh' }}>
+      <table
+        style={{
+          border: 'solid gray 2px',
+          borderSpacing: '2.25rem ',
+        }}
+      >
+        <tr className="lt-header">
+          {TABLE_HEADER_ITEMS.map((item: string) => (
+            <td style={{ textAlign: 'left' }}>{item}</td>
+          ))}
+        </tr>
+        {teams.map((team: Team) => (
+          <tr className="lt-container">
+            <td style={{ position: 'relative' }}>
+              <div
+                style={{
+                  position: 'absolute',
+                  left: '0',
+                  top: '0',
+                  bottom: '0',
+                  width: '5px', // Adjust width as needed
+                  backgroundColor:
+                    SPECIAL_POSITIONS[team.position] || 'transparent',
+                }}
+              />
+              <div>{team.position}</div>{' '}
+            </td>
+            <td style={{ display: 'flex', alignItems: 'center' }}>
+              <img
+                src={team.logoURL}
+                style={{ height: '32px', width: '32px', paddingRight: '2px' }}
+              ></img>
+              <div>{team.name}</div>
+            </td>
+            <td>{team.played}</td>
+            <td>{team.won}</td>
+            <td>{team.drawn}</td>
+            <td>{team.lost}</td>
+            <td>{team.goalsFor}</td>
+            <td>{team.goalsAgainst}</td>
+            <td>{team.goalDiff}</td>
+            <td>{team.points}</td>
+          </tr>
         ))}
-      </div>
-      {teams.map((team: Team) => (
-        <div className="lt-container">
-          <div
-            style={{
-              width: '0.5vw',
-              background: SPECIAL_POSITIONS[team.position],
-              position: 'absolute',
-              left: '0',
-              top: '0',
-              bottom: '0',
-              borderBottomLeftRadius: '15px',
-              borderTopLeftRadius: '15px',
-              border: `solid ${SPECIAL_POSITIONS[team.position]} 2px`,
-            }}
-          ></div>
-          <div style={{ width: '1vw' }}></div>
-          <div style={{ width: '10vw' }}>{team.position}</div>
-          <div style={{ width: '10vw' }}>{team.shortName}</div>
-          <div style={{ width: '10vw' }}>{team.played}</div>
-          <div style={{ width: '10vw' }}>{team.won}</div>
-          <div style={{ width: '10vw' }}>{team.drawn}</div>
-          <div style={{ width: '10vw' }}>{team.lost}</div>
-          <div style={{ width: '10vw' }}>{team.goalDiff}</div>
-          <div style={{ width: '10vw' }}>{team.points}</div>
-        </div>
-      ))}
+      </table>
     </div>
   );
 }
