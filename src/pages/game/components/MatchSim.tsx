@@ -11,7 +11,7 @@ interface MatchesListProps {
   setOpenMatchList: (isOpen: boolean) => void;
 }
 
-function MatchesList({
+function MacthSim({
   matches,
   openMatchList,
   setTeams,
@@ -56,4 +56,4 @@ function MatchesList({
   );
 }
 
-export default MatchesList;
+export default MacthSim;
