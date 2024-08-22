@@ -5,7 +5,7 @@ import { Date } from '../classes/Date';
 
 export let allTeams: Team[] = [];
 export let allMatches: Match[] = [];
-export let season: Season = new Season(2023, 'Thursday');
+export let season: Season = new Season(2024, 'Saturday');
 let firstGameDate: Date | null = null;
 
 function generateSeason() {

@@ -13,6 +13,7 @@ import NavBar from './components/NavBar';
 import { Date } from '../../utils/classes/Date';
 
 function Game() {
+  const [currentSection, setCurrentSection] = useState<number>(0);
   const [teams, setTeams] = useState<Team[]>([]);
   const [matches, setMatches] = useState<Match[]>([]);
   const [openMatchList, setOpenMatchList] = useState<boolean>(false);
@@ -29,10 +30,10 @@ function Game() {
     <div className="game-page">
       <NavBar
         currentDate={currentDate}
-        setCurrentDate={setCurrentDate}
+        setCurrentSection={setCurrentSection}
       ></NavBar>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <LeagueTable teams={teams}></LeagueTable>
+      <div className="game-section">
+        {currentSection === 0 && <LeagueTable teams={teams}></LeagueTable>}
       </div>
     </div>
   );

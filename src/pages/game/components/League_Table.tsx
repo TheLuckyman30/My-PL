@@ -36,7 +36,7 @@ function LeagueTable({ teams }: LeagueTableProps) {
   const isSmallScreen: boolean = useMediaQuery('(max-width:1000px)');
 
   return (
-    <div className="lt-page">
+    <div>
       <table className="table">
         <tr className="lt-header">
           {TABLE_HEADER_ITEMS.map((item: string) => (
