@@ -125,6 +125,7 @@ function generateMatches() {
         if (match) {
           if (gameDate) {
             match.date = gameDate;
+            gameDate.matches = [...gameDate.matches, match]
             match.homeTeam.matchDates = [
               ...match.homeTeam.matchDates,
               gameDate.uniqueID,
