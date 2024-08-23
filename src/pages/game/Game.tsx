@@ -11,6 +11,7 @@ import { Match } from '../../utils/classes/Match';
 import LeagueTable from './components/League_Table';
 import NavBar from './components/NavBar';
 import { Date } from '../../utils/classes/Date';
+import MatchSim from './components/MatchSim';
 
 function Game() {
   const [currentSection, setCurrentSection] = useState<number>(0);
@@ -34,6 +35,9 @@ function Game() {
       ></NavBar>
       <div className="game-section">
         {currentSection === 0 && <LeagueTable teams={teams}></LeagueTable>}
+        {currentSection === 3 && (
+          <MatchSim matches={matches} setTeams={setTeams}></MatchSim>
+        )}
       </div>
     </div>
   );
