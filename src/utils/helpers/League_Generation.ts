@@ -24,6 +24,7 @@ function generateSeason() {
     }
   }
   firstGameDate = current;
+  season.firstGameDate = firstGameDate;
 }
 
 function generateTeams() {
@@ -126,6 +127,7 @@ function generateMatches() {
           if (gameDate) {
             match.date = gameDate;
             gameDate.matches = [...gameDate.matches, match]
+            gameDate.hasMatch = true;
             match.homeTeam.matchDates = [
               ...match.homeTeam.matchDates,
               gameDate.uniqueID,

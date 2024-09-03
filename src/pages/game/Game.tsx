@@ -11,12 +11,12 @@ import { Match } from '../../utils/classes/Match';
 import LeagueTable from './components/League_Table';
 import NavBar from './components/NavBar';
 import { Date } from '../../utils/classes/Date';
+import Schedule from './components/Schedule';
 
 function Game() {
   const [currentSection, setCurrentSection] = useState<number>(0);
   const [teams, setTeams] = useState<Team[]>([]);
   const [matches, setMatches] = useState<Match[]>([]);
-  const [openMatchList, setOpenMatchList] = useState<boolean>(false);
   const [currentDate, setCurrentDate] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -34,6 +34,7 @@ function Game() {
       ></NavBar>
       <div className="game-section">
         {currentSection === 0 && <LeagueTable teams={teams}></LeagueTable>}
+        {currentSection === 2 && <Schedule setTeams={setTeams}></Schedule>}
       </div>
     </div>
   );
