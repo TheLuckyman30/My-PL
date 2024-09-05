@@ -1,7 +1,7 @@
 import { Match } from '../../../utils/classes/Match';
 import { matchSim } from '../../../utils/helpers/MatchSimulation';
 import { Team } from '../../../utils/classes/Team';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../../css/components/MatchCard.css';
 
 interface MatchProps {
@@ -14,20 +14,32 @@ function MatchCard({ match, setTeams }: MatchProps) {
   const [homeGoals, setHomeGoals] = useState<number>(match.homeScore);
   const [awayGoals, setAwayGoals] = useState<number>(match.awayScore);
 
+  useEffect(() => {
+    setDidSim(match.isDone);
+    setHomeGoals(match.homeScore);
+    setAwayGoals(match.awayScore);
+  }, [match.isDone]);
+
   function simMatch() {
     matchSim(match, setTeams, setDidSim, setHomeGoals, setAwayGoals);
   }
 
   return (
-    <tr onClick={simMatch} className={didSim ? 'disable' : ''}>
+    <tr>
       <td>
         <img src={match.homeTeam.logoURL}></img>
       </td>
       <td style={{ width: '35rem' }}>{match.homeTeam.name}</td>
-      <td>{homeGoals}</td>
-      <td>-</td>
-      <td style={{ width: '5rem' }}>{awayGoals}</td>
-      <td style={{ width: '30rem' }}>
+      <td style={{ whiteSpace: 'nowrap' }}>
+        <div
+          style={{ display: 'flex' }}
+          className={didSim ? 'disabled-match-button' : 'match-button'}
+          onClick={simMatch}
+        >
+          {homeGoals} - {awayGoals}
+        </div>
+      </td>
+      <td style={{ width: '35rem' }}>
         <div
           style={{
             display: 'flex',

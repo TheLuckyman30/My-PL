@@ -16,6 +16,29 @@
     flex-direction: column;
 }
 
+.simulate-button {
+    background-color: #37003c;
+    border-radius: 15px;
+    color: white;
+    padding: 1.25rem;
+    cursor: pointer;
+    transition: 0.2s;
+    
+}
+
+.disabled-sim-button {
+    background-color: #1f0021;
+    pointer-events: none;
+    border-radius: 15px;
+    color: white;
+    padding: 1.25rem
+}
+
+.simulate-button:hover {
+    background-color: #1f0021;
+    transform: translateY(-5px);
+}
+
 @font-face {
     font-family: 'PremBold';
     src: url('../../assets/fonts/PremierLeagueW01-Bold.woff2') format('woff2');

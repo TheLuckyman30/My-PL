@@ -1,3 +1,21 @@
-.disable {
+.match-button {
+    background-color: #37003c;
+    padding: 1rem;
+    color: white;
+    border-radius: 15px;
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+.match-button:hover {
+    transform: translateY(-5px);
+    background-color: #1f0021;
+}
+
+.disabled-match-button {
     pointer-events: none;
+    background-color: #1f0021;
+    padding: 1rem;
+    color: white;
+    border-radius: 15px;
 }
