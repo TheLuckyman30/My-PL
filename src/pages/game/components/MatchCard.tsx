@@ -32,7 +32,7 @@ function MatchCard({ match, setTeams }: MatchProps) {
       <td style={{ width: '35rem' }}>{match.homeTeam.name}</td>
       <td style={{ whiteSpace: 'nowrap' }}>
         <div
-          style={{ display: 'flex' }}
+          style={{ display: 'flex', width: 'fit-content' }}
           className={didSim ? 'disabled-match-button' : 'match-button'}
           onClick={simMatch}
         >

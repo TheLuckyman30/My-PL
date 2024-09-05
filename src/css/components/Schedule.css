@@ -36,7 +36,6 @@
 
 .simulate-button:hover {
     background-color: #1f0021;
-    transform: translateY(-5px);
 }
 
 @font-face {
