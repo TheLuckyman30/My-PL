@@ -1,34 +1,3 @@
-.card-container {
-    font-size: 30px;
-    font-family: Prembold;
-    border: solid gray 2px;
-    border-radius: 15px;
-    width: 100rem;
-    margin-bottom: 2rem;
-    box-shadow: gray 5px 5px;
-    transition: 0.2s;
-}
-
-.card-date {
-    font-size: 15px;
-    font-family: PremBold;
-    margin-bottom: 1rem;
-}
-
-.card-content {
-    display: flex;
-    justify-content: space-between; 
-    width: 100%;
-    align-items: center;
-}
-
-.card-margin {
-    margin-right: 1rem;
-}
-
-@font-face {
-    font-family: 'PremBold';
-    src: url('../../assets/fonts/PremierLeagueW01-Bold.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+.disable {
+    pointer-events: none;
 }

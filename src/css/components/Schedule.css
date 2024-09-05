@@ -11,8 +11,9 @@
     font-size: 45px;
     font-family: PremHeavy;
     margin: 4rem;
-    justify-content: center;
     display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 @font-face {
