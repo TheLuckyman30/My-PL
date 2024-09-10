@@ -26,10 +26,14 @@ function MatchCard({ match, setTeams }: MatchProps) {
 
   return (
     <tr>
-      <td>
-        <img src={match.homeTeam.logoURL}></img>
+      <td style={{ width: '46rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <div>
+            <img src={match.homeTeam.logoURL}></img>
+          </div>
+          <div>{match.homeTeam.name}</div>
+        </div>
       </td>
-      <td style={{ width: '35rem' }}>{match.homeTeam.name}</td>
       <td style={{ whiteSpace: 'nowrap' }}>
         <div
           style={{ display: 'flex', width: 'fit-content' }}
@@ -39,18 +43,17 @@ function MatchCard({ match, setTeams }: MatchProps) {
           {homeGoals} - {awayGoals}
         </div>
       </td>
-      <td style={{ width: '35rem' }}>
+      <td>
         <div
           style={{
             display: 'flex',
+            alignItems: 'center',
             justifyContent: 'right',
           }}
         >
-          {match.awayTeam.name}
+          <div>{match.awayTeam.name}</div>
+          <img src={match.awayTeam.logoURL}></img>
         </div>
-      </td>
-      <td>
-        <img src={match.awayTeam.logoURL}></img>
       </td>
     </tr>
   );

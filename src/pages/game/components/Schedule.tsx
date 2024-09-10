@@ -8,10 +8,11 @@ import { matchSim } from '../../../utils/helpers/MatchSimulation';
 import { useState } from 'react';
 
 interface ScheduleProps {
+  macthes: Match[];
   setTeams: (newTeams: Team[]) => void;
 }
 
-function Schedule({ setTeams }: ScheduleProps) {
+function Schedule({ macthes, setTeams }: ScheduleProps) {
   const [update, setUpdate] = useState<boolean>(false);
   let datesWithMatches: Date[] = [];
   let current: Date | null = season.firstGameDate;
@@ -23,20 +24,49 @@ function Schedule({ setTeams }: ScheduleProps) {
   }
 
   function simMatchDay(date: Date) {
-    date.matches.forEach((match: Match) =>
-      matchSim(
-        match,
-        setTeams,
-        () => null,
-        () => null,
-        () => null
-      )
-    );
+    date.matches.forEach((match: Match) => {
+      if (!match.isDone) {
+        matchSim(
+          match,
+          setTeams,
+          () => null,
+          () => null,
+          () => null
+        );
+      }
+    });
+    setUpdate(!update);
+  }
+
+  function simAllMacthes() {
+    macthes.forEach((match: Match) => {
+      if (!match.isDone) {
+        matchSim(
+          match,
+          setTeams,
+          () => null,
+          () => null,
+          () => null
+        );
+      }
+    });
     setUpdate(!update);
   }
 
   return (
     <div>
+      <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div
+          onClick={simAllMacthes}
+          className={
+            macthes.every((match: Match) => match.isDone)
+              ? 'disabled-sim-all-button'
+              : 'sim-all-button'
+          }
+        >
+          Simulate All
+        </div>
+      </div>
       {datesWithMatches.map((date: Date) => (
         <div>
           <div className="schedule-date">

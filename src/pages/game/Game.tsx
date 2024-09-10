@@ -34,7 +34,9 @@ function Game() {
       ></NavBar>
       <div className="game-section">
         {currentSection === 0 && <LeagueTable teams={teams}></LeagueTable>}
-        {currentSection === 2 && <Schedule setTeams={setTeams}></Schedule>}
+        {currentSection === 2 && (
+          <Schedule macthes={matches} setTeams={setTeams}></Schedule>
+        )}
       </div>
     </div>
   );
