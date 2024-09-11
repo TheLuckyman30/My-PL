@@ -24,7 +24,7 @@ function Game() {
 
   return (
     <div className="game-page">
-      <Button variant="contained" href="/">
+      <Button variant="contained" href="/My-PL/">
         Home
       </Button>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
