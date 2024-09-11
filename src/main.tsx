@@ -7,7 +7,7 @@ import Game from './pages/game/Game';
 
 const router = createHashRouter([
   {
-    path: '/',
+    path: '/*',
     element: <WelcomePage></WelcomePage>,
   },
   {
