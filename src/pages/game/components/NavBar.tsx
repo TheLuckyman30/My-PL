@@ -1,5 +1,6 @@
 import '../../../css/components/NavBar.css';
 import { Date } from '../../../utils/classes/Date';
+import Logo from '../../../assets/images/PL-Logo.png';
 
 interface NavBarProps {
   currentDate: Date | null;
@@ -18,10 +19,7 @@ function NavBar({ currentDate, setCurrentSection }: NavBarProps) {
     <div className="navBar">
       <div className="date-container">
         <a className="anchor" href="/My-PL/">
-          <img
-            className="image"
-            src={import.meta.env.BASE_URL + 'src/assets/images/PL-Logo.png'}
-          ></img>
+          <img className="image" src={Logo}></img>
         </a>
         <div className="date">
           <div>
