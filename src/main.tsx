@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import WelcomePage from './pages/welcome/WelcomePage';
 import Game from './pages/game/Game';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
-    path: '',
+    path: '/My-PL/',
     element: <WelcomePage></WelcomePage>,
   },
   {
-    path: '/LeagueTable',
+    path: '/My-PL/LeagueTable',
     element: <Game></Game>,
   },
 ]);
