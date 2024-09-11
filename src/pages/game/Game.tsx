@@ -17,7 +17,6 @@ function Game() {
   const [currentSection, setCurrentSection] = useState<number>(0);
   const [teams, setTeams] = useState<Team[]>([]);
   const [matches, setMatches] = useState<Match[]>([]);
-  const [openMatchList, setOpenMatchList] = useState<boolean>(false);
   const [currentDate, setCurrentDate] = useState<Date | null>(null);
 
   useEffect(() => {
