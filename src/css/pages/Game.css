@@ -2,3 +2,9 @@
     height: 100%;
     width: 100vw;
 }
+
+.game-section {
+    display: flex;
+    justify-content: center;
+    margin-top: 10rem;
+}

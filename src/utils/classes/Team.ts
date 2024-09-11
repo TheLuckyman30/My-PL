@@ -4,6 +4,7 @@ export class Team {
   public name: string;
   public shortName: string;
   public teamStrength: number;
+  public logoURL: string;
   public goalsFor: number;
   public goalsAgainst: number;
   public goalDiff: number;
@@ -15,12 +16,13 @@ export class Team {
   public lost: number;
   public position: number;
   public matchDates: number[];
-  facedTeams: string[];
-
+  public facedTeams: string[];
+ 
   constructor(
     name: string,
     shortName: string,
     teamStrength: number,
+    logoURL: string,
     goalsFor: number = 0,
     goalsAgainst: number = 0,
     goalDiff: number = 0,
@@ -37,6 +39,7 @@ export class Team {
     this.name = name;
     this.shortName = shortName;
     this.teamStrength = teamStrength;
+    this.logoURL = logoURL;
     this.goalsFor = goalsFor;
     this.goalsAgainst = goalsAgainst;
     this.goalDiff = goalDiff;

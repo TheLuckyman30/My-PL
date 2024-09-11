@@ -1,19 +1,22 @@
 import { Team } from '../../../utils/classes/Team';
 import '../../../css/components/League_Table.css';
+import { useMediaQuery } from '@mui/material';
 
 interface LeagueTableProps {
   teams: Team[];
 }
 
 const TABLE_HEADER_ITEMS: string[] = [
-  'Pos',
+  'Position',
   'Club',
-  'PL',
-  'W',
-  'D',
-  'L',
+  'Played',
+  'Won',
+  'Drawn',
+  'Lost',
+  'GF',
+  'GA',
   'GD',
-  'PTS',
+  'Points',
 ];
 
 const SPECIAL_POSITIONS: Record<number, string> = {
@@ -24,45 +27,50 @@ const SPECIAL_POSITIONS: Record<number, string> = {
   5: '#fa7b17',
   6: '#fa7b17',
   7: '#34a853',
-  18: '#fc3f3f',
+  18: '#ea0035',
   19: '#ea0035',
   20: '#ea0035',
 };
 
 function LeagueTable({ teams }: LeagueTableProps) {
+  const isSmallScreen: boolean = useMediaQuery('(max-width:1000px)');
+
   return (
     <div>
-      <div className="lt-header">
-        {TABLE_HEADER_ITEMS.map((item: string) => (
-          <div style={{ width: '10vw' }}>{item}</div>
+      <table className="table">
+        <tr className="lt-header">
+          {TABLE_HEADER_ITEMS.map((item: string) => (
+            <th className="table-header">{item}</th>
+          ))}
+        </tr>
+        {teams.map((team: Team) => (
+          <tr className="table-body">
+            <td>
+              <div
+                className="table-stripes"
+                style={{ backgroundColor: SPECIAL_POSITIONS[team.position] }}
+              ></div>
+              <div>{team.position}</div>
+            </td>
+            <td className="image-box">
+              <img
+                src={team.logoURL}
+                style={{ height: '32px', width: '32px', paddingRight: '2px' }}
+              ></img>
+              <div>{!isSmallScreen && team.name}</div>
+              <div>{isSmallScreen && team.shortName}</div>
+            </td>
+            <td>{team.played}</td>
+            <td>{team.won}</td>
+            <td>{team.drawn}</td>
+            <td>{team.lost}</td>
+            <td>{team.goalsFor}</td>
+            <td>{team.goalsAgainst}</td>
+            <td>{team.goalDiff}</td>
+            <td>{team.points}</td>
+          </tr>
         ))}
-      </div>
-      {teams.map((team: Team) => (
-        <div className="lt-container">
-          <div
-            style={{
-              width: '0.5vw',
-              background: SPECIAL_POSITIONS[team.position],
-              position: 'absolute',
-              left: '0',
-              top: '0',
-              bottom: '0',
-              borderBottomLeftRadius: '15px',
-              borderTopLeftRadius: '15px',
-              border: `solid ${SPECIAL_POSITIONS[team.position]} 2px`,
-            }}
-          ></div>
-          <div style={{ width: '1vw' }}></div>
-          <div style={{ width: '10vw' }}>{team.position}</div>
-          <div style={{ width: '10vw' }}>{team.shortName}</div>
-          <div style={{ width: '10vw' }}>{team.played}</div>
-          <div style={{ width: '10vw' }}>{team.won}</div>
-          <div style={{ width: '10vw' }}>{team.drawn}</div>
-          <div style={{ width: '10vw' }}>{team.lost}</div>
-          <div style={{ width: '10vw' }}>{team.goalDiff}</div>
-          <div style={{ width: '10vw' }}>{team.points}</div>
-        </div>
-      ))}
+      </table>
     </div>
   );
 }
