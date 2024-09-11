@@ -17,7 +17,7 @@ function NavBar({ currentDate, setCurrentSection }: NavBarProps) {
   return (
     <div className="navBar">
       <div className="date-container">
-        <a className="anchor" href="/">
+        <a className="anchor" href="/My-PL/">
           <img className="image" src="src\assets\images\PL-Logo.png"></img>
         </a>
         <div className="date">
