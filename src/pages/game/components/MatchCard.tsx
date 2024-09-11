@@ -1,8 +1,5 @@
-import { Button } from '@mui/material';
 import { Match } from '../../../utils/classes/Match';
-import { matchSim } from '../../../utils/helpers/MatchSimulation';
 import { Team } from '../../../utils/classes/Team';
-import { useState } from 'react';
 import '../../../css/components/MatchCard.css';
 
 interface MatchProps {
@@ -10,10 +7,9 @@ interface MatchProps {
   setTeams: (setTeams: Team[]) => void;
 }
 
-function MatchCard({ match, setTeams }: MatchProps) {
-  const [didSim, setDidSim] = useState<boolean>(match.isDone);
-  const [homeGoals, setHomeGoals] = useState<number>(match.homeScore);
-  const [awayGoals, setAwayGoals] = useState<number>(match.awayScore);
+function MatchCard({ match }: MatchProps) {
+  const homeGoals = match.homeScore;
+  const awayGoals = match.awayScore;
   return (
     <div className="card-container">
       <div className="card-date">
