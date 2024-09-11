@@ -1,8 +1,8 @@
 import { Match } from '../../../utils/classes/Match';
-import { matchSim } from '../../../utils/helpers/MatchSimulation';
 import { Team } from '../../../utils/classes/Team';
 import { useEffect, useState } from 'react';
 import '../../../css/components/MatchCard.css';
+import { matchSim } from '../../../utils/helpers/MatchSimulation';
 
 interface MatchProps {
   match: Match;

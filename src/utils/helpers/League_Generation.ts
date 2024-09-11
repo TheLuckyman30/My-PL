@@ -2,6 +2,26 @@ import { Match } from '../classes/Match';
 import { Season } from '../classes/Season';
 import { Team } from '../classes/Team';
 import { Date } from '../classes/Date';
+import spursLogo from '../../assets/team_logos/Spurs-logo.png'
+import liverpoolLogo from '../../assets/team_logos/Liverpool-logo.png'
+import manULogo from '../../assets/team_logos/ManU-logo.png'
+import manCityLogo from '../../assets/team_logos/ManCity-logo.png'
+import chelseaLogo from '../../assets/team_logos/Chelsea-logo.png'
+import arsenalLogo from '../../assets/team_logos/Arsenal-logo.png'
+import wolvesLogo from '../../assets/team_logos/Wolves-logo.png'
+import southamptonLogo from '../../assets/team_logos/Southampton-logo.png'
+import evertonLogo from '../../assets/team_logos/Everton-logo.png'
+import fulhamLogo from '../../assets/team_logos/Fulham-logo.png'
+import palaceLogo from '../../assets/team_logos/Palace-logo.png'
+import leicesterLogo from '../../assets/team_logos/Leicester-logo.png'
+import ipswichLogo from '../../assets/team_logos/Ipswich-logo.png'
+import brentfordLogo from '../../assets/team_logos/Brentford-logo.png'
+import westhamLogo from '../../assets/team_logos/WestHam-logo.png'
+import brightonLogo from '../../assets/team_logos/Brighton-logo.png'
+import newcaslteLogo from '../../assets/team_logos/Newcastle-logo.png'
+import forestLogo from '../../assets/team_logos/Forest-logo.png'
+import villaLogo from '../../assets/team_logos/Villa-logo.png'
+import bournemouthLogo from '../../assets/team_logos/Bournemouth-logo.png'
 
 export let allTeams: Team[] = [];
 export let allMatches: Match[] = [];
@@ -29,26 +49,26 @@ function generateSeason() {
 
 function generateTeams() {
   allTeams = [
-    new Team('Tottenham Hotspur', 'TOT', 90, 'src/assets/team_logos/Spurs-logo.png'),
-    new Team('Liverpool', 'LIV', 75, 'src/assets/team_logos/Liverpool-logo.png'),
-    new Team('Machester United', 'MUN', 60, 'src/assets/team_logos/ManU-logo.png'),
-    new Team('Manchester City', 'MCI', 95, 'src/assets/team_logos/ManCity-logo.png'),
-    new Team('Chelsea', 'CHE', 30, 'src/assets/team_logos/Chelsea-logo.png'),
-    new Team('Arsenal', 'ARS', 30, 'src/assets/team_logos/Arsenal-logo.png'),
-    new Team ('Wolverhampton Wanderers', 'WOL', 30, 'src/assets/team_logos/Wolves-logo.png'),
-    new Team ('Southampton', 'SOU', 15, 'src/assets/team_logos/Southampton-logo.png'),
-    new Team ('Everton', 'EVE', 20, 'src/assets/team_logos/Everton-logo.png'),
-    new Team ('Fulham', 'FUL', 35, 'src/assets/team_logos/Fulham-logo.png'),
-    new Team ('Crystal Palace', 'CRY', 30, 'src/assets/team_logos/Palace-logo.png'),
-    new Team ('Leicester City', 'LEI', 25, 'src/assets/team_logos/Leicester-logo.png'),
-    new Team ('Ipswich Town', 'IPS', 15, 'src/assets/team_logos/Ipswich-logo.png'),
-    new Team ('Brentford', 'BRE', 35, 'src/assets/team_logos/Brentford-logo.png'),
-    new Team ('West Ham United', 'WHU', 40, 'src/assets/team_logos/WestHam-logo.png'),
-    new Team ('Brighton And Hove Albion', 'BHA', 55, 'src/assets/team_logos/Brighton-logo.png'),
-    new Team ('Newcastle United', 'NEW', 60, 'src/assets/team_logos/Newcastle-logo.png'),
-    new Team ('Nottingham Forest', 'NFO', 25, 'src/assets/team_logos/Forest-logo.png'),
-    new Team ('Aston Villa', 'AVL', 65, 'src/assets/team_logos/Villa-logo.png'),
-    new Team ('Bournemouth', 'BOU', 30, 'src/assets/team_logos/Bournemouth-logo.png'),
+    new Team('Tottenham Hotspur', 'TOT', 90, spursLogo),
+    new Team('Liverpool', 'LIV', 75, liverpoolLogo),
+    new Team('Machester United', 'MUN', 60, manULogo),
+    new Team('Manchester City', 'MCI', 95, manCityLogo),
+    new Team('Chelsea', 'CHE', 30, chelseaLogo),
+    new Team('Arsenal', 'ARS', 30, arsenalLogo),
+    new Team ('Wolverhampton Wanderers', 'WOL', 30, wolvesLogo),
+    new Team ('Southampton', 'SOU', 15, southamptonLogo),
+    new Team ('Everton', 'EVE', 20, evertonLogo),
+    new Team ('Fulham', 'FUL', 35, fulhamLogo),
+    new Team ('Crystal Palace', 'CRY', 30, palaceLogo),
+    new Team ('Leicester City', 'LEI', 25, leicesterLogo),
+    new Team ('Ipswich Town', 'IPS', 15, ipswichLogo),
+    new Team ('Brentford', 'BRE', 35, brentfordLogo),
+    new Team ('West Ham United', 'WHU', 40, westhamLogo),
+    new Team ('Brighton And Hove Albion', 'BHA', 55, brightonLogo),
+    new Team ('Newcastle United', 'NEW', 60, newcaslteLogo),
+    new Team ('Nottingham Forest', 'NFO', 25, forestLogo),
+    new Team ('Aston Villa', 'AVL', 65, villaLogo),
+    new Team ('Bournemouth', 'BOU', 30, bournemouthLogo),
   ];
   allTeams = teamSort(allTeams);
 }
