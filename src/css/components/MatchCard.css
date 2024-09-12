@@ -1,36 +1,41 @@
-.card-container {
+.table-container {
     display: flex;
-    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    width: 30rem;
+}
+
+.justify-right {
+    justify-content: right;
+}
+
+.match-button {
+    text-align: center;
+    background-color: #37003c;
+    padding: 1rem;
+    margin: 1rem;
+    width: 5rem;
+    color: white;
     border-radius: 15px;
-    justify-content: center;
-    align-items: center;
-    font-size: 30px;
-    font-family: Prembold;
-    border: solid gray 2px;
-    height: 10rem;
-    width: 20rem;
-    margin-bottom: 2rem;
-    box-shadow: gray 5px 5px;
     transition: 0.2s;
+    cursor: pointer;
 }
 
-.card-date {
-    font-size: 15px;
-    margin-bottom: 1rem;
+.match-button:hover {
+    background-color: #1f0021;
 }
 
-.card-content {
-    display: flex;
-    align-items: center;
-}
-
-.card-margin {
-    margin-right: 1rem;
-}
-
-@font-face {
-    font-family: 'PremBold';
-    src: url('../../assets/fonts/PremierLeagueW01-Bold.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+.disabled-match-button {
+    pointer-events: none;
+    text-align: center;
+    background-color: #1f0021;
+    width: 5rem;
+    padding: 1rem;
+    color: white;
+    border-radius: 15px;
 }

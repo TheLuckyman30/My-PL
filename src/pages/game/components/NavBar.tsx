@@ -11,7 +11,6 @@ const BUTTON_BAR = [
   { name: 'League Table', pageNumber: 0 },
   { name: 'Teams', pageNumber: 1 },
   { name: 'Schedule', pageNumber: 2 },
-  { name: 'Match Simulation', pageNumber: 3 },
 ];
 
 function NavBar({ currentDate, setCurrentSection }: NavBarProps) {

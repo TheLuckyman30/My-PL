@@ -27,6 +27,7 @@ const DAYS: Record<string, string> = {
 
 export class Season {
   public startDate: Date | null;
+  public firstGameDate: Date | null;
   public endDate: Date | null;
   public calendarYear: number;
   public initalDayName: string;
@@ -35,6 +36,7 @@ export class Season {
   constructor(calendarYear: number, initalDayName: string) {
     this.startDate = null;
     this.endDate = null;
+    this.firstGameDate = null;
     this.calendarYear = calendarYear;
     this.initalDayName = initalDayName;
     this.willHaveLeapYear = false;
