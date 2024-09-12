@@ -1,6 +1,25 @@
+.table-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    width: 30rem;
+}
+
+.justify-right {
+    justify-content: right;
+}
+
 .match-button {
+    text-align: center;
     background-color: #37003c;
     padding: 1rem;
+    margin: 1rem;
+    width: 5rem;
     color: white;
     border-radius: 15px;
     transition: 0.2s;
@@ -13,7 +32,9 @@
 
 .disabled-match-button {
     pointer-events: none;
+    text-align: center;
     background-color: #1f0021;
+    width: 5rem;
     padding: 1rem;
     color: white;
     border-radius: 15px;

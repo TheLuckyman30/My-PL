@@ -91,11 +91,11 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
               Simulate Matchweek
             </div>
           </div>
-          <table className="schedule-table">
+          <div className="schedule-table">
             {date.matches.map((match: Match) => (
               <MatchCard match={match} setTeams={setTeams}></MatchCard>
             ))}
-          </table>
+          </div>
         </div>
       ))}
     </div>
