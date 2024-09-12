@@ -26,23 +26,6 @@ function MatchCard({ match, setTeams }: MatchProps) {
 
   return (
     <tr>
-      <td style={{ width: '46rem' }}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div>
-            <img src={match.homeTeam.logoURL}></img>
-          </div>
-          <div>{match.homeTeam.name}</div>
-        </div>
-      </td>
-      <td style={{ whiteSpace: 'nowrap' }}>
-        <div
-          style={{ display: 'flex', width: 'fit-content' }}
-          className={didSim ? 'disabled-match-button' : 'match-button'}
-          onClick={simMatch}
-        >
-          {homeGoals} - {awayGoals}
-        </div>
-      </td>
       <td>
         <div
           style={{
@@ -51,8 +34,50 @@ function MatchCard({ match, setTeams }: MatchProps) {
             justifyContent: 'right',
           }}
         >
-          <div>{match.awayTeam.name}</div>
-          <img src={match.awayTeam.logoURL}></img>
+          <div>
+            {match.homeTeam.name.length <= 18
+              ? match.homeTeam.name
+              : match.homeTeam.shortName}
+          </div>
+          <div>
+            <img
+              style={{ height: '75px', width: '75px' }}
+              src={match.homeTeam.logoURL}
+            ></img>
+          </div>
+        </div>
+      </td>
+      <td style={{ whiteSpace: 'nowrap' }}>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <div
+            style={{
+              display: 'flex',
+              width: 'fit-content',
+            }}
+            className={didSim ? 'disabled-match-button' : 'match-button'}
+            onClick={simMatch}
+          >
+            {homeGoals} - {awayGoals}
+          </div>
+        </div>
+      </td>
+      <td>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'left ',
+          }}
+        >
+          <img
+            style={{ height: '75px', width: '75px' }}
+            src={match.awayTeam.logoURL}
+          ></img>
+          <div>
+            {match.awayTeam.name.length <= 18
+              ? match.awayTeam.name
+              : match.awayTeam.shortName}
+          </div>
         </div>
       </td>
     </tr>

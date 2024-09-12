@@ -1,3 +1,12 @@
+.schedule-table {
+    font-size: 30px;
+    font-family: Prembold;
+    border: solid gray 2px;
+    border-radius: 15px;
+    width: 75rem;
+    box-shadow: gray 5px 5px;
+}
+
 .sim-all-button {
     font-family: PremHeavy;
     padding: 1.25rem;
@@ -16,15 +25,6 @@
     color: white;
     padding: 1.25rem;
     font-size: 50px;
-}
-
-.schedule-table {
-    font-size: 30px;
-    font-family: Prembold;
-    border: solid gray 2px;
-    border-radius: 15px;
-    width: 100rem;
-    box-shadow: gray 5px 5px;
 }
 
 .schedule-date {
