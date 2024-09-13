@@ -6,6 +6,7 @@ import MatchCard from './MatchCard';
 import '../../../css/components/Schedule.css';
 import { matchSim } from '../../../utils/helpers/MatchSimulation';
 import { useState } from 'react';
+import ScheduleOutline from './SchedueOutline';
 
 interface ScheduleProps {
   macthes: Match[];
@@ -53,20 +54,6 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
     setUpdate(!update);
   }
 
-  function scrollToDate(index: number) {
-    const element = document.getElementById('date' + index);
-    const navbarHeight = document.querySelector('.navBar')?.clientHeight || 0;
-
-    if (element) {
-      const elementPosition =
-        element.getBoundingClientRect().top - navbarHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'instant',
-      });
-    }
-  }
-
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -82,17 +69,7 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
         </div>
       </div>
       <div>
-        {datesWithMatches.map((date: Date, index: number) => (
-          <div onClick={() => scrollToDate(index)}>
-            {date.currentDayName +
-              ', ' +
-              date.currentMonth +
-              ' ' +
-              date.currentDay +
-              ', ' +
-              date.currentYear}{' '}
-          </div>
-        ))}
+        <ScheduleOutline datesWithMatches={datesWithMatches}></ScheduleOutline>
       </div>
       {datesWithMatches.map((date: Date, index: number) => (
         <div id={'date' + index}>
