@@ -53,6 +53,20 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
     setUpdate(!update);
   }
 
+  function scrollToDate(index: number) {
+    const element = document.getElementById('date' + index);
+    const navbarHeight = document.querySelector('.navBar')?.clientHeight || 0;
+
+    if (element) {
+      const elementPosition =
+        element.getBoundingClientRect().top - navbarHeight;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'instant',
+      });
+    }
+  }
+
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -67,8 +81,21 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
           Simulate All
         </div>
       </div>
-      {datesWithMatches.map((date: Date) => (
-        <div>
+      <div>
+        {datesWithMatches.map((date: Date, index: number) => (
+          <div onClick={() => scrollToDate(index)}>
+            {date.currentDayName +
+              ', ' +
+              date.currentMonth +
+              ' ' +
+              date.currentDay +
+              ', ' +
+              date.currentYear}{' '}
+          </div>
+        ))}
+      </div>
+      {datesWithMatches.map((date: Date, index: number) => (
+        <div id={'date' + index}>
           <div className="schedule-date">
             <div>
               {date.currentDayName +
