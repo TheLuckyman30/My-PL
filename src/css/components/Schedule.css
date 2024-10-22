@@ -1,61 +1,19 @@
 .schedule-table {
-    font-size: 30px;
+    font-size: 20px;
     font-family: Prembold;
     border: solid gray 2px;
     border-radius: 15px;
-    width: 75rem;
+    width: 50rem;
     box-shadow: gray 5px 5px;
-}
-
-.sim-all-button {
-    font-family: PremHeavy;
-    padding: 1.25rem;
-    color: white;
-    background-color: #37003c;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 50px;
-}
-
-.disabled-sim-all-button {
-    font-family: PremHeavy;
-    background-color: #1f0021;
-    pointer-events: none;
-    border-radius: 15px;
-    color: white;
-    padding: 1.25rem;
-    font-size: 50px;
 }
 
 .schedule-date {
     font-size: 45px;
     font-family: PremHeavy;
-    margin: 4rem;
+    margin: 1rem;
     display: flex;
     align-items: center;
     flex-direction: column;
-}
-
-.simulate-button {
-    background-color: #37003c;
-    border-radius: 15px;
-    color: white;
-    padding: 1.25rem;
-    cursor: pointer;
-    transition: 0.2s;
-    
-}
-
-.disabled-sim-button {
-    background-color: #1f0021;
-    pointer-events: none;
-    border-radius: 15px;
-    color: white;
-    padding: 1.25rem
-}
-
-.simulate-button:hover {
-    background-color: #1f0021;
 }
 
 @font-face {

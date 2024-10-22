@@ -55,53 +55,27 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
   }
 
   return (
-    <div>
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
-        <div
-          onClick={simAllMacthes}
-          className={
-            macthes.every((match: Match) => match.isDone)
-              ? 'disabled-sim-all-button'
-              : 'sim-all-button'
-          }
-        >
-          Simulate All
-        </div>
-      </div>
+    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
       <div>
-        <ScheduleOutline datesWithMatches={datesWithMatches}></ScheduleOutline>
-      </div>
-      {datesWithMatches.map((date: Date, index: number) => (
-        <div id={'date' + index}>
-          <div className="schedule-date">
-            <div>
+        {datesWithMatches.map((date: Date, index: number) => (
+          <div id={'date' + index}>
+            <div className="schedule-date">
               {date.currentDayName +
-                ', ' +
+                ' ' +
                 date.currentMonth +
                 ' ' +
                 date.currentDay +
                 ', ' +
                 date.currentYear}
             </div>
-            <br></br>
-            <div
-              onClick={() => simMatchDay(date)}
-              className={
-                date.matches.every((match: Match) => match.isDone)
-                  ? 'disabled-sim-button'
-                  : 'simulate-button'
-              }
-            >
-              Simulate Matchweek
+            <div className="schedule-table">
+              {date.matches.map((match: Match) => (
+                <MatchCard match={match} setTeams={setTeams}></MatchCard>
+              ))}
             </div>
           </div>
-          <div className="schedule-table">
-            {date.matches.map((match: Match) => (
-              <MatchCard match={match} setTeams={setTeams}></MatchCard>
-            ))}
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
