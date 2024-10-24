@@ -2,6 +2,10 @@
     font-family: PremBold;
     border-right: solid gray 2px;
     width: fit-content;
+    position: fixed;
+    overflow-y: scroll;
+    height: 50%;
+    bottom: 0;
 }
 
 .to-date {

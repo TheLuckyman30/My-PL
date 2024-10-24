@@ -55,26 +55,31 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-      <div>
-        {datesWithMatches.map((date: Date, index: number) => (
-          <div id={'date' + index}>
-            <div className="schedule-date">
-              {date.currentDayName +
-                ' ' +
-                date.currentMonth +
-                ' ' +
-                date.currentDay +
-                ', ' +
-                date.currentYear}
+    <div style={{ width: '100%' }}>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
+        <ScheduleOutline datesWithMatches={datesWithMatches}></ScheduleOutline>
+      </div>
+      <div style={{ width: '100%', justifyContent: 'center', display: 'flex' }}>
+        <div>
+          {datesWithMatches.map((date: Date, index: number) => (
+            <div id={'date' + index}>
+              <div className="schedule-date">
+                {date.currentDayName +
+                  ' ' +
+                  date.currentMonth +
+                  ' ' +
+                  date.currentDay +
+                  ', ' +
+                  date.currentYear}
+              </div>
+              <div className="schedule-table">
+                {date.matches.map((match: Match) => (
+                  <MatchCard match={match} setTeams={setTeams}></MatchCard>
+                ))}
+              </div>
             </div>
-            <div className="schedule-table">
-              {date.matches.map((match: Match) => (
-                <MatchCard match={match} setTeams={setTeams}></MatchCard>
-              ))}
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

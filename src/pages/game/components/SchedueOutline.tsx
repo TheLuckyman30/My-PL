@@ -7,16 +7,12 @@ interface ScheduleOutlineProps {
 
 function ScheduleOutline({ datesWithMatches }: ScheduleOutlineProps) {
   function scrollToDate(index: number) {
+    const yOffset: number = -100;
     const element = document.getElementById('date' + index);
-    const navbarHeight = document.querySelector('.navBar')?.clientHeight || 0;
-
     if (element) {
-      const elementPosition =
-        element.getBoundingClientRect().top - navbarHeight;
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'instant',
-      });
+      const y: number =
+        element?.getBoundingClientRect().top + window.scrollY + yOffset;
+      window.scrollTo({ top: y });
     }
   }
 
