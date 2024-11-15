@@ -56,7 +56,7 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
 
   return (
     <div style={{ width: '100%' }}>
-      <div style={{ display: 'flex' }}>
+      <div className="schedule-outline">
         <ScheduleOutline datesWithMatches={datesWithMatches}></ScheduleOutline>
       </div>
       <div style={{ width: '100%', justifyContent: 'center', display: 'flex' }}>

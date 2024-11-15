@@ -16,6 +16,16 @@
     flex-direction: column;
 }
 
+.schedule-outline {
+    display: flex;
+}
+
+@media (max-width: 1350px) {
+    .schedule-outline {
+        display: none;
+    }
+}
+
 @font-face {
     font-family: 'PremBold';
     src: url('../../assets/fonts/PremierLeagueW01-Bold.woff2') format('woff2');
