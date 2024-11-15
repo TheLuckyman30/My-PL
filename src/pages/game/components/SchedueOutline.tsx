@@ -11,7 +11,7 @@ function ScheduleOutline({ datesWithMatches }: ScheduleOutlineProps) {
     const element = document.getElementById('date' + index);
     if (element) {
       const y: number =
-        element?.getBoundingClientRect().top + window.scrollY + yOffset;
+        element.getBoundingClientRect().top + window.scrollY + yOffset;
       window.scrollTo({ top: y });
     }
   }
