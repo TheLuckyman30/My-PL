@@ -59,7 +59,7 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
       <div className="schedule-outline">
         <ScheduleOutline datesWithMatches={datesWithMatches}></ScheduleOutline>
       </div>
-      <div style={{ width: '100%', justifyContent: 'center', display: 'flex' }}>
+      <div className="schedule-container">
         <div>
           {datesWithMatches.map((date: Date, index: number) => (
             <div id={'date' + index}>
