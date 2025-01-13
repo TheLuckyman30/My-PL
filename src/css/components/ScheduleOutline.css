@@ -4,9 +4,8 @@
     width: fit-content;
     position: fixed;
     overflow-y: scroll;
-    transform: translateY(-50%);
-    height: 50%;
-    bottom: 0;
+    top: 6rem;
+    bottom: 0rem;
 }
 
 .to-date {
