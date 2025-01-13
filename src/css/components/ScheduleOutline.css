@@ -1,0 +1,28 @@
+.outline-container {
+    font-family: PremBold;
+    border-right: solid gray 2px;
+    width: fit-content;
+    position: fixed;
+    overflow-y: scroll;
+    top: 6rem;
+    bottom: 0rem;
+}
+
+.to-date {
+    width: fit-content;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.to-date:hover{
+    border-radius: 15px;
+    background-color: #37003c;
+    color: white;
+}
+
+@font-face {
+    font-family: 'PremBold';
+    src: url('../../assets/fonts/PremierLeagueW01-Bold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

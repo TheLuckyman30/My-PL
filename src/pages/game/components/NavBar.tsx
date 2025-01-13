@@ -9,7 +9,6 @@ interface NavBarProps {
 
 const BUTTON_BAR = [
   { name: 'League Table', pageNumber: 0 },
-  { name: 'Teams', pageNumber: 1 },
   { name: 'Schedule', pageNumber: 2 },
 ];
 
