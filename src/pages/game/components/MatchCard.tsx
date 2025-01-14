@@ -35,7 +35,7 @@ function MatchCard({ match, setTeams }: MatchProps) {
         <div>
           <img
             src={match.homeTeam.logoURL}
-            style={{ width: 'clamp(30px, 2vw, 50px)' }}
+            style={{ width: 'clamp(30px, 5vw, 50px)' }}
           ></img>
         </div>
       </div>
@@ -49,7 +49,7 @@ function MatchCard({ match, setTeams }: MatchProps) {
         <div>
           <img
             src={match.awayTeam.logoURL}
-            style={{ width: 'clamp(30px, 2vw, 50px)' }}
+            style={{ width: 'clamp(30px, 5vw, 50px)' }}
           ></img>
         </div>
         <div>

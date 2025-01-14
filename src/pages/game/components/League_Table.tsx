@@ -18,6 +18,17 @@ const TABLE_HEADER_ITEMS: string[] = [
   'Points',
 ];
 
+const TABLE_HEADER_ITEMS_SMALL: string[] = [
+  'Pos',
+  'Club',
+  'PL',
+  'W',
+  'D',
+  'L',
+  'GD',
+  'PTS',
+];
+
 const SPECIAL_POSITIONS: Record<number, string> = {
   1: '#4285F4',
   2: '#4285F4',
@@ -37,7 +48,12 @@ function LeagueTable({ teams }: LeagueTableProps) {
       <table className="table">
         <tr className="lt-header">
           {TABLE_HEADER_ITEMS.map((item: string) => (
-            <th className="table-header">{item}</th>
+            <th className="table-header hide-on-small">{item}</th>
+          ))}
+        </tr>
+        <tr className="lt-header">
+          {TABLE_HEADER_ITEMS_SMALL.map((item: string) => (
+            <th className="table-header show-on-small">{item}</th>
           ))}
         </tr>
         {teams.map((team: Team) => (
@@ -54,14 +70,15 @@ function LeagueTable({ teams }: LeagueTableProps) {
                 src={team.logoURL}
                 style={{ height: '32px', width: '32px', paddingRight: '2px' }}
               ></img>
-              <div>{team.name}</div>
+              <div className="hide-on-small">{team.name}</div>
+              <div className="show-on-small">{team.threeLetterName}</div>
             </td>
             <td>{team.played}</td>
             <td>{team.won}</td>
             <td>{team.drawn}</td>
             <td>{team.lost}</td>
-            <td>{team.goalsFor}</td>
-            <td>{team.goalsAgainst}</td>
+            <td className="hide-on-small">{team.goalsFor}</td>
+            <td className="hide-on-small">{team.goalsAgainst}</td>
             <td>{team.goalDiff}</td>
             <td>{team.points}</td>
           </tr>
