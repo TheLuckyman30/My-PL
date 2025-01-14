@@ -7,7 +7,7 @@
     left: 0;
     width: 100%;
     z-index: 1001;
-    font-size: 20px;
+    font-size: clamp(10px, 4vw, 20px);
     font-family: PremBold;
     color: white;
     white-space: nowrap;
@@ -98,7 +98,7 @@
     }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 770px) {
     .dropdown-button {
         display: none;
     }

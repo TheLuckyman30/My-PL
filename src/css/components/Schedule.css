@@ -2,19 +2,26 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    white-space: nowrap;
+}
+
+.schedule {
+    display: flex;
+    flex-direction: column;
+    place-items: center;
 }
 
 .schedule-table {
-    font-size: 20px;
+    font-size: clamp(9px, 2vw, 20px);
     font-family: Prembold;
     border: solid gray 2px;
     border-radius: 15px;
-    width: 50rem;
+    width: clamp(20rem, 90vw, 50rem);
     box-shadow: gray 5px 5px;
 }
 
 .schedule-date {
-    font-size: 45px;
+    font-size: clamp(15px, 6vw, 45px);
     font-family: PremHeavy;
     margin: 1rem;
     display: flex;
