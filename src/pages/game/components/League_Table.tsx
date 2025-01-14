@@ -1,6 +1,5 @@
 import { Team } from '../../../utils/classes/Team';
 import '../../../css/components/League_Table.css';
-import { useMediaQuery } from '@mui/material';
 
 interface LeagueTableProps {
   teams: Team[];
@@ -33,8 +32,6 @@ const SPECIAL_POSITIONS: Record<number, string> = {
 };
 
 function LeagueTable({ teams }: LeagueTableProps) {
-  const isSmallScreen: boolean = useMediaQuery('(max-width:1000px)');
-
   return (
     <div>
       <table className="table">
@@ -57,8 +54,7 @@ function LeagueTable({ teams }: LeagueTableProps) {
                 src={team.logoURL}
                 style={{ height: '32px', width: '32px', paddingRight: '2px' }}
               ></img>
-              <div>{!isSmallScreen && team.name}</div>
-              <div>{isSmallScreen && team.shortName}</div>
+              <div>{team.name}</div>
             </td>
             <td>{team.played}</td>
             <td>{team.won}</td>
