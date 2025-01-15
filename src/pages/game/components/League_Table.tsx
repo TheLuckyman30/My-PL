@@ -58,7 +58,7 @@ function LeagueTable({ teams }: LeagueTableProps) {
         </tr>
         {teams.map((team: Team) => (
           <tr className="table-body">
-            <td>
+            <td className="relative">
               <div
                 className="table-stripes"
                 style={{ backgroundColor: SPECIAL_POSITIONS[team.position] }}
