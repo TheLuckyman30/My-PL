@@ -17,8 +17,8 @@
 .match-button {
     text-align: center;
     background-color: #37003c;
-    padding: 1rem;
-    margin: 1rem;
+    padding: clamp(0.5rem, 1vw, 1rem);
+    margin: 0.5rem;
     width: 5rem;
     color: white;
     border-radius: 15px;
@@ -35,7 +35,8 @@
     text-align: center;
     background-color: #1f0021;
     width: 5rem;
-    padding: 1rem;
+    padding: clamp(0.5rem, 1vw, 1rem);;
+    margin: 0.5rem;
     color: white;
     border-radius: 15px;
 }
