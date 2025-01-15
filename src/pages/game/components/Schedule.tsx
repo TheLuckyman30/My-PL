@@ -62,7 +62,7 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
       <div className="schedule-container">
         <div>
           {datesWithMatches.map((date: Date, index: number) => (
-            <div id={'date' + index}>
+            <div id={'date' + index} className="schedule">
               <div className="schedule-date">
                 {date.currentDayName +
                   ' ' +
