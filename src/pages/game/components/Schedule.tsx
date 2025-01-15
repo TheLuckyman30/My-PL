@@ -4,8 +4,8 @@ import { Team } from '../../../utils/classes/Team';
 import { season } from '../../../utils/helpers/League_Generation';
 import MatchCard from './MatchCard';
 import '../../../css/components/Schedule.css';
-import { matchSim } from '../../../utils/helpers/MatchSimulation';
-import { useState } from 'react';
+//import { matchSim } from '../../../utils/helpers/MatchSimulation';
+//import { useState } from 'react';
 import ScheduleOutline from './SchedueOutline';
 
 interface ScheduleProps {
@@ -13,8 +13,8 @@ interface ScheduleProps {
   setTeams: (newTeams: Team[]) => void;
 }
 
-function Schedule({ macthes, setTeams }: ScheduleProps) {
-  const [update, setUpdate] = useState<boolean>(false);
+function Schedule({ /*macthes*/ setTeams }: ScheduleProps) {
+  //const [update, setUpdate] = useState<boolean>(false);
   let datesWithMatches: Date[] = [];
   let current: Date | null = season.firstGameDate;
   while (current) {
@@ -24,7 +24,7 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
     current = current.nextDate;
   }
 
-  function simMatchDay(date: Date) {
+  /*function simMatchDay(date: Date) {
     date.matches.forEach((match: Match) => {
       if (!match.isDone) {
         matchSim(
@@ -37,9 +37,9 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
       }
     });
     setUpdate(!update);
-  }
+  }*/
 
-  function simAllMacthes() {
+  /*function simAllMacthes() {
     macthes.forEach((match: Match) => {
       if (!match.isDone) {
         matchSim(
@@ -52,7 +52,7 @@ function Schedule({ macthes, setTeams }: ScheduleProps) {
       }
     });
     setUpdate(!update);
-  }
+  }*/
 
   return (
     <div style={{ width: '100%' }}>
