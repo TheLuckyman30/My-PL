@@ -4,7 +4,7 @@
 }
 
 .table-header {
-    padding: clamp(0.5rem, 1vw, 1rem);
+    padding: clamp(0.6rem, 1vw, 1rem);
     font-size: clamp(12px, 1vw, 15px);
     font-family: PremHeavy;
     background-color: white;
@@ -12,7 +12,7 @@
 }
 
 .table-body {
-    font-size: 15px;
+    font-size: clamp(12px, 1vw, 15px);
     font-family: PremHeavy;
     position: relative;
     background-color: white;
@@ -50,6 +50,13 @@
 @media (min-width: 768px) {
     .show-on-small {
         display:none;
+    }
+}
+
+@media (pointer: coarse) {
+    .table-body:hover {
+        transform: none;
+        background-color: transparent;
     }
 }
 

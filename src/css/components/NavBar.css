@@ -2,7 +2,7 @@
     display: flex;
     position: fixed;
     background-color: #37003c;
-    height: 6rem;
+    height: 5rem;
     top: 0;
     left: 0;
     width: 100%;
@@ -15,6 +15,7 @@
 
 .date-container {
     display: flex;
+    place-items: center;
 }
 
 .anchor {
@@ -96,10 +97,21 @@
     .button {
         display: none;
     }
+
+    .anchor {
+        width: 50px;
+        height: 50px;
+    }
 }
 
 @media (min-width: 768px) {
     .dropdown-button {
         display: none;
+    }
+}
+@media (pointer: coarse) {
+    .button:hover, .dropdown-button:hover, .dropdown-content:hover {
+        background-color: transparent;
+        transform: none
     }
 }
