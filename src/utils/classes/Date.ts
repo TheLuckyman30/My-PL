@@ -1,6 +1,15 @@
 import { Match } from "./Match";
 
-export class Date {
+export interface MyDate {
+  month: string;
+  day: number;
+  year: number;
+  dayName: string;
+  hasMatch: boolean;
+  matches: Match[];
+}
+
+/*export class Date {
   public currentMonth: string;
   public currentDay: string;
   public currentYear: number;
@@ -21,3 +30,4 @@ export class Date {
     this.matches = matches;
   }
 }
+*/

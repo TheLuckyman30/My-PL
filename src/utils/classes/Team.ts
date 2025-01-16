@@ -1,6 +1,24 @@
 import { Match } from "./Match";
 
-export class Team {
+export interface Team {
+  name: string;
+  shortName: string;
+  threeLetterName: string;
+  teamStrength: number;
+  logoURL: string;
+  goalsFor: number;
+  goalsAgainst: number;
+  goalDiff: number;
+  points: number;
+  mathces: Match[];
+  played: number;
+  won: number;
+  drawn: number;
+  lost: number;
+  position: number;
+}
+
+/* export class Team {
   public name: string;
   public shortName: string;
   public threeLetterName: string;
@@ -64,4 +82,4 @@ export class Team {
       this.mathches = [...this.mathches, new Match(oppositon, this)];
     }
   }
-}
+}*/

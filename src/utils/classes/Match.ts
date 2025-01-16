@@ -1,7 +1,16 @@
 import { Team } from './Team';
-import { Date } from './Date';
+import { MyDate } from './Date';
 
-export class Match {
+export interface Match {
+  homeTeam: Team;
+  awayTeam: Team;
+  winningTeam: Team | null;
+  losingTeam: Team | null;
+  date: MyDate;
+  isDone: boolean;
+}
+
+/*export class Match {
   public homeTeam: Team;
   public awayTeam: Team;
   public winningTeam: Team | null;
@@ -30,4 +39,4 @@ export class Match {
     this.date = date;
     this.isDone = isDone;
   }
-}
+}*/
