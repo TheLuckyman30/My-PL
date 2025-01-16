@@ -10,7 +10,7 @@ export interface Team {
   goalsAgainst: number;
   goalDiff: number;
   points: number;
-  mathces: Match[];
+  matches: Match[];
   played: number;
   won: number;
   drawn: number;

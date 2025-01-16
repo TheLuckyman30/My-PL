@@ -6,6 +6,8 @@ export interface Match {
   awayTeam: Team;
   winningTeam: Team | null;
   losingTeam: Team | null;
+  homeScore: number;
+  awayScore: number
   date: MyDate;
   isDone: boolean;
 }
