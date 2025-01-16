@@ -23,6 +23,7 @@ function Game() {
     generateAll();
     setTeams(allTeams);
     setMatches(allMatches);
+    setCurrentDate(season[0]);
   }, []);
 
   return (

@@ -8,7 +8,7 @@ export interface Match {
   losingTeam: Team | null;
   homeScore: number;
   awayScore: number
-  date: MyDate;
+  date: MyDate | null;
   isDone: boolean;
 }
 

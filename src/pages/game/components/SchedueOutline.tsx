@@ -1,8 +1,8 @@
-import { Date } from '../../../utils/classes/Date';
+import { MyDate } from '../../../utils/classes/Date';
 import '../../../css/components/ScheduleOutline.css';
 
 interface ScheduleOutlineProps {
-  datesWithMatches: Date[];
+  datesWithMatches: MyDate[];
 }
 
 function ScheduleOutline({ datesWithMatches }: ScheduleOutlineProps) {
@@ -19,15 +19,15 @@ function ScheduleOutline({ datesWithMatches }: ScheduleOutlineProps) {
   return (
     <div className="outline-container">
       <div>
-        {datesWithMatches.map((date: Date, index: number) => (
+        {datesWithMatches.map((date: MyDate, index: number) => (
           <div onClick={() => scrollToDate(index)} className="to-date">
-            {date.currentDayName +
+            {date.dayName +
               ', ' +
-              date.currentMonth +
+              date.month +
               ' ' +
-              date.currentDay +
+              date.day +
               ', ' +
-              date.currentYear}{' '}
+              date.year}{' '}
           </div>
         ))}
       </div>

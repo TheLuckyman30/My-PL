@@ -15,7 +15,9 @@ interface ScheduleProps {
 
 function Schedule({ /*macthes*/ setTeams }: ScheduleProps) {
   //const [update, setUpdate] = useState<boolean>(false);
-  let datesWithMatches: MyDate[] = [];
+  let datesWithMatches: MyDate[] = season.filter(
+    (date: MyDate) => date.matches.length > 0
+  );
 
   /*function simMatchDay(date: Date) {
     date.matches.forEach((match: Match) => {
