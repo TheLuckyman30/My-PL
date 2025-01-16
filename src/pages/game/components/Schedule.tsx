@@ -1,4 +1,4 @@
-import { Date } from '../../../utils/classes/Date';
+import { MyDate } from '../../../utils/classes/Date';
 import { Match } from '../../../utils/classes/Match';
 import { Team } from '../../../utils/classes/Team';
 import { season } from '../../../utils/helpers/League_Generation';
@@ -15,14 +15,7 @@ interface ScheduleProps {
 
 function Schedule({ /*macthes*/ setTeams }: ScheduleProps) {
   //const [update, setUpdate] = useState<boolean>(false);
-  let datesWithMatches: Date[] = [];
-  let current: Date | null = season.firstGameDate;
-  while (current) {
-    if (current.hasMatch) {
-      datesWithMatches = [...datesWithMatches, current];
-    }
-    current = current.nextDate;
-  }
+  let datesWithMatches: MyDate[] = [];
 
   /*function simMatchDay(date: Date) {
     date.matches.forEach((match: Match) => {
@@ -61,16 +54,16 @@ function Schedule({ /*macthes*/ setTeams }: ScheduleProps) {
       </div>
       <div className="schedule-container">
         <div>
-          {datesWithMatches.map((date: Date, index: number) => (
+          {datesWithMatches.map((date: MyDate, index: number) => (
             <div id={'date' + index} className="schedule">
               <div className="schedule-date">
-                {date.currentDayName +
+                {date.dayName +
                   ' ' +
-                  date.currentMonth +
+                  date.month +
                   ' ' +
-                  date.currentDay +
+                  date.day +
                   ', ' +
-                  date.currentYear}
+                  date.year}
               </div>
               <div className="schedule-table">
                 {date.matches.map((match: Match) => (

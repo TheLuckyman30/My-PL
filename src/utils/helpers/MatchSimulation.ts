@@ -1,6 +1,7 @@
 import { Match } from "../classes/Match";
 import { Team } from "../classes/Team";
-import { allTeams, teamSort } from "./League_Generation";
+import { allTeams } from "./League_Generation";
+import { teamSort } from "./TeamSort";
 
 export function matchSim (match: Match, setTeams: (newTeams: Team[]) => void, setDidSim: (didSim: boolean) => void, setHomeGoals: (newGoals: number) => void, setAwayGoals: (newGoals: number) => void) {
     const totalTeamStrength: number = match.homeTeam.teamStrength + match.awayTeam.teamStrength;
