@@ -1,6 +1,6 @@
-import { MyDate } from '../../../utils/classes/Date';
-import { Match } from '../../../utils/classes/Match';
-import { Team } from '../../../utils/classes/Team';
+import { MyDate } from '../../../utils/interfaces/Date';
+import { Match } from '../../../utils/interfaces/Match';
+import { Team } from '../../../utils/interfaces/Team';
 import { season } from '../../../utils/helpers/League_Generation';
 import MatchCard from './MatchCard';
 import '../../../css/components/Schedule.css';

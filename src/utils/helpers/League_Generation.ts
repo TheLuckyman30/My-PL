@@ -1,8 +1,8 @@
-import { Match } from '../classes/Match';
-import { Team } from '../classes/Team';
-import { MyDate } from '../classes/Date';
+import { Match } from '../interfaces/Match';
+import { Team } from '../interfaces/Team';
+import { MyDate } from '../interfaces/Date';
 import { teamSort } from './TeamSort';
-import { Matchweek } from '../classes/Matchweek';
+import { Matchweek } from '../interfaces/Matchweek';
 import teams from '../../data/Teams.json'
 
 

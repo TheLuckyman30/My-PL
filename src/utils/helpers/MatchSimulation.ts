@@ -1,5 +1,5 @@
-import { Match } from "../classes/Match";
-import { Team } from "../classes/Team";
+import { Match } from "../interfaces/Match";
+import { Team } from "../interfaces/Team";
 import { allTeams } from "./League_Generation";
 import { teamSort } from "./TeamSort";
 

@@ -1,4 +1,4 @@
-import { MyDate } from '../../../utils/classes/Date';
+import { MyDate } from '../../../utils/interfaces/Date';
 import '../../../css/components/ScheduleOutline.css';
 
 interface ScheduleOutlineProps {

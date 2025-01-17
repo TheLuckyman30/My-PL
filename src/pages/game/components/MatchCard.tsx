@@ -1,5 +1,5 @@
-import { Match } from '../../../utils/classes/Match';
-import { Team } from '../../../utils/classes/Team';
+import { Match } from '../../../utils/interfaces/Match';
+import { Team } from '../../../utils/interfaces/Team';
 import { useEffect, useState } from 'react';
 import '../../../css/components/MatchCard.css';
 import { matchSim } from '../../../utils/helpers/MatchSimulation';

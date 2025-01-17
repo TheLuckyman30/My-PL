@@ -1,4 +1,4 @@
-import { Team } from '../../../utils/classes/Team';
+import { Team } from '../../../utils/interfaces/Team';
 import '../../../css/components/League_Table.css';
 
 interface LeagueTableProps {

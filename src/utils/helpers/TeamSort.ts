@@ -1,4 +1,4 @@
-import { Team } from "../classes/Team";
+import { Team } from "../interfaces/Team";
 
 export function teamSort(teams: Team[]): Team[] {
   const copyOfTeams = [...teams];

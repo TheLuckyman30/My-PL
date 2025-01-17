@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react';
 import '../../css/pages/Game.css';
-import { Team } from '../../utils/classes/Team';
+import { Team } from '../../utils/interfaces/Team';
 import {
   allMatches,
   allTeams,
   generateAll,
   season,
 } from '../../utils/helpers/League_Generation';
-import { Match } from '../../utils/classes/Match';
+import { Match } from '../../utils/interfaces/Match';
 import LeagueTable from './components/League_Table';
 import NavBar from './components/NavBar';
-import { MyDate } from '../../utils/classes/Date';
+import { MyDate } from '../../utils/interfaces/Date';
 import Schedule from './components/Schedule';
 
 function Game() {

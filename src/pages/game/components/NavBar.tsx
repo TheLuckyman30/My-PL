@@ -1,5 +1,5 @@
 import '../../../css/components/NavBar.css';
-import { MyDate } from '../../../utils/classes/Date';
+import { MyDate } from '../../../utils/interfaces/Date';
 import Logo from '../../../assets/images/PL-Logo.png';
 import { useEffect, useState } from 'react';
 import { Menu } from '@mui/material';
