@@ -71,26 +71,42 @@ function generateMatches() {
   }
 
   const fixedTeam: Team = tempTeams.splice(tempTeams.length / 2, 1)[0];
-  console.log(tempTeams);
   const halfLength: number = tempTeams.length / 2;
-  for (let i = 0; i < 19; i++) {
+  for (let i = 0; i < 38; i++) {
     const upperHalf: Team[] = tempTeams.slice(0, halfLength);
     const lowerHalf: Team[] = tempTeams.slice(halfLength, tempTeams.length);
-    console.log(upperHalf);
-    console.log(lowerHalf);
     upperHalf.forEach((team1: Team, index: number) => {
       const team2: Team = lowerHalf[lowerHalf.length - (index + 2)];
-      const newMatch: Match = {homeTeam: team1, awayTeam: team2, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
+      const rand: number = Math.random() < 0.5 ? 0 : 1;
+      let homeTeam: Team = rand === 0 ? team1 : team2;
+      let awayTeam: Team = rand === 1 ? team1 : team2;
+      if (i > 18) {
+        if (homeTeam.matches.some((match: Match) => match.awayTeam.name === awayTeam.name)) {
+            const temp: Team = homeTeam;
+            homeTeam = awayTeam;
+            awayTeam = temp;
+        }
+      }
+      const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
       allMatches.push(newMatch);
       team1.matches.push(newMatch);
       team2.matches.push(newMatch);
       season[matchweeks[i].dates[0]].matches.push(newMatch);
     });
-    const newMatch: Match = {homeTeam: fixedTeam, awayTeam: lowerHalf[lowerHalf.length - 1], winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
+    const rand: number = Math.random() < 0.5 ? 0 : 1;
+    const homeTeam: Team = rand === 0 ? fixedTeam : lowerHalf[lowerHalf.length - 1];
+    const awayTeam: Team = rand === 1 ? fixedTeam : lowerHalf[lowerHalf.length - 1];
+    const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
     allMatches.push(newMatch);
     season[matchweeks[i].dates[0]].matches.push(newMatch);
-    const test = tempTeams.splice(tempTeams.length - 1, 1)[0];
-    tempTeams = [test, ...tempTeams];
+    const lastTeam = tempTeams.splice(tempTeams.length - 1, 1)[0];
+    tempTeams = [lastTeam, ...tempTeams];
+    if (i === 18) {
+      for (let i = tempTeams.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [tempTeams[i], tempTeams[randomIndex]] = [tempTeams[randomIndex], tempTeams[i]]; 
+      }
+    }
   }
 
 }
