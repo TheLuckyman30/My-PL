@@ -2,8 +2,9 @@ import { Match } from '../classes/Match';
 import { Team } from '../classes/Team';
 import { MyDate } from '../classes/Date';
 import { teamSort } from './TeamSort';
+import { Matchweek } from '../classes/Matchweek';
 import teams from '../../data/Teams.json'
-import { Matchweek } from '../classes/Matchweel';
+
 
 export let allTeams: Team[] = [];
 export let allMatches: Match[] = [];
@@ -50,7 +51,10 @@ function generateSeason() {
 }
 
 function generateTeams() {
-  allTeams = teams.map((team) => team);
+  allTeams = teams.map((team) => ({
+    ...team,
+    logoURL: new URL(`../../assets/team_logos/${team.logoURL}`, import.meta.url).href,
+  }));
   allTeams = teamSort(allTeams);
 }
 
