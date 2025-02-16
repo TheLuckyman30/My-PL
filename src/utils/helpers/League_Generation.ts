@@ -78,85 +78,48 @@ function generateMatches() {
   const halfLength: number = tempTeams.length / 2;
   const order = [0, 0, 1, 1]; // Pattern of home and away assignments | 0 = home | 1 = away |
   let fixedTeamOrderCounter: number = 0;
-  let awayTeams: Team[] = [];
-  let homeTeams: Team[] = [];
   let homeTeam: Team;
   let awayTeam: Team;
-  for (let i = 0; i < matchweeks.length / 2; i++) { // Schedule first half of the season
+  for (let i = 0; i < matchweeks.length / 2; i++) { // Schedule all season matches based on double round robin algorithm 
     const lastTeam = tempTeams.splice(tempTeams.length - 1, 1)[0];
     const upperHalf: Team[] = tempTeams.slice(0, halfLength);
     const lowerHalf: Team[] = tempTeams.slice(halfLength, tempTeams.length);
     let orderCounter: number = 0;
     fixedTeamOrderCounter = fixedTeamOrderCounter >= order.length ? 0 : fixedTeamOrderCounter;
-    
-    if (i === 1 || i === (matchweeks.length / 2) - 1) { // For the second and last matchweek of this half of the season, every home team from the previous week will play away and vise versa
-      homeTeams.forEach((team1: Team, index: number) => {
-        const team2: Team = awayTeams[awayTeams.length - (index + 1)];
-        homeTeam = team2;
-        awayTeam = team1;
-        const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
-        allMatches.push(newMatch);
-        team1.matches.push(newMatch);
-        team2.matches.push(newMatch);
-        season[matchweeks[i].dates[0]].matches.push(newMatch);
-      });
-      homeTeams = [];
-      awayTeams = [];
-    }
-    else { // Schedules all regular matches for the first half of the season based on a double round robin algorithm 
-      homeTeam = order[fixedTeamOrderCounter] === 0 ? fixedTeam : lastTeam;
-      awayTeam = order[fixedTeamOrderCounter] === 1 ? fixedTeam : lastTeam;
-      if (i === 0 || i === (matchweeks.length / 2) - 2) {
-          homeTeams.push(homeTeam);
-          awayTeams.push(awayTeam);
-      }
+
+    homeTeam = order[fixedTeamOrderCounter] === 0 ? fixedTeam : lastTeam;
+    awayTeam = order[fixedTeamOrderCounter] === 1 ? fixedTeam : lastTeam;
+
+    const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
+    const reversedMatch: Match = {homeTeam: awayTeam, awayTeam: homeTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
+
+    allMatches.push(newMatch, reversedMatch);
+    fixedTeam.matches.push(newMatch, reversedMatch);
+    lastTeam.matches.push(newMatch, reversedMatch);
+    season[matchweeks[i].dates[0]].matches.push(newMatch);
+    season[matchweeks[i + (matchweeks.length / 2)].dates[0]].matches.push(reversedMatch);
+
+    upperHalf.forEach((team1: Team, index: number) => {
+      const team2: Team = lowerHalf[lowerHalf.length - (index + 1)];
+      orderCounter = orderCounter >= order.length ? 0 : orderCounter;
+
+      homeTeam = order[orderCounter] === 0 ? team1 : team2;
+      awayTeam = order[orderCounter] === 1 ? team1 : team2;
 
       const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
-      allMatches.push(newMatch);
+      const reversedMatch: Match = {homeTeam: awayTeam, awayTeam: homeTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
+      
+      allMatches.push(newMatch, reversedMatch);
+      team1.matches.push(newMatch, reversedMatch);
+      team2.matches.push(newMatch, reversedMatch);
       season[matchweeks[i].dates[0]].matches.push(newMatch);
+      season[matchweeks[i + (matchweeks.length / 2)].dates[0]].matches.push(reversedMatch);
 
-      upperHalf.forEach((team1: Team, index: number) => {
-        const team2: Team = lowerHalf[lowerHalf.length - (index + 1)];
-        orderCounter = orderCounter >= order.length ? 0 : orderCounter;
-
-        homeTeam = order[orderCounter] === 0 ? team1 : team2;
-        awayTeam = order[orderCounter] === 1 ? team1 : team2;
-
-        const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
-
-        allMatches.push(newMatch);
-        team1.matches.push(newMatch);
-        team2.matches.push(newMatch);
-        season[matchweeks[i].dates[0]].matches.push(newMatch);
-
-        if (i === 0 || i === (matchweeks.length / 2) - 2) {
-          homeTeams.push(homeTeam);
-          awayTeams.push(awayTeam);
-        }
-
-        orderCounter++;
-      });
-      fixedTeamOrderCounter++;
-    }
-
+      orderCounter++;
+    });
+    fixedTeamOrderCounter++;
     tempTeams = [lastTeam, ...tempTeams];
   }
-
-  let temp: Match[] = [];
-  let i = (matchweeks.length / 2);
-  let counter = 0;
-  allMatches.forEach((match: Match) => {
-    const newMatch: Match = {homeTeam: match.awayTeam, awayTeam: match.homeTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
-    temp.push(newMatch);
-    match.homeTeam.matches.push(newMatch);
-    match.awayTeam.matches.push(newMatch);
-    season[matchweeks[i].dates[0]].matches.push(newMatch);
-    counter++;
-    if (counter === 10) {
-      i++;
-      counter = 0;
-    }
-  });
 }
 
 export function generateAll() {
