@@ -76,19 +76,20 @@ function generateMatches() {
 
   const fixedTeam: Team = tempTeams.splice(tempTeams.length / 2, 1)[0]; 
   const halfLength: number = tempTeams.length / 2;
-  const order = [0, 0, 1, 1];
+  const order = [0, 0, 1, 1]; // Pattern of home and away assignments | 0 = home | 1 = away |
+  let fixedTeamOrderCounter: number = 0;
   let awayTeams: Team[] = [];
   let homeTeams: Team[] = [];
   let homeTeam: Team;
   let awayTeam: Team;
-  let rand;
   for (let i = 0; i < matchweeks.length / 2; i++) { // Schedule first half of the season
     const lastTeam = tempTeams.splice(tempTeams.length - 1, 1)[0];
     const upperHalf: Team[] = tempTeams.slice(0, halfLength);
     const lowerHalf: Team[] = tempTeams.slice(halfLength, tempTeams.length);
-    let orderCounter = 0;
+    let orderCounter: number = 0;
+    fixedTeamOrderCounter = fixedTeamOrderCounter >= order.length ? 0 : fixedTeamOrderCounter;
     
-    if (i === 1 || i === (matchweeks.length / 2) - 1) {
+    if (i === 1 || i === (matchweeks.length / 2) - 1) { // For the second and last matchweek of this half of the season, every home team from the previous week will play away and vise versa
       homeTeams.forEach((team1: Team, index: number) => {
         const team2: Team = awayTeams[awayTeams.length - (index + 1)];
         homeTeam = team2;
@@ -102,10 +103,9 @@ function generateMatches() {
       homeTeams = [];
       awayTeams = [];
     }
-    else {
-      rand = Math.random() < 0.5 ? 0 : 1;
-      homeTeam = rand === 0 ? fixedTeam : lastTeam;
-      awayTeam = rand === 1 ? fixedTeam : lastTeam;
+    else { // Schedules all regular matches for the first half of the season based on a double round robin algorithm 
+      homeTeam = order[fixedTeamOrderCounter] === 0 ? fixedTeam : lastTeam;
+      awayTeam = order[fixedTeamOrderCounter] === 1 ? fixedTeam : lastTeam;
       if (i === 0 || i === (matchweeks.length / 2) - 2) {
           homeTeams.push(homeTeam);
           awayTeams.push(awayTeam);
@@ -136,6 +136,7 @@ function generateMatches() {
 
         orderCounter++;
       });
+      fixedTeamOrderCounter++;
     }
 
     tempTeams = [lastTeam, ...tempTeams];
