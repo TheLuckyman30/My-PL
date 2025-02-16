@@ -59,60 +59,103 @@ function generateTeams() {
 }
 
 function generateMatches() {
-  let gameDate: number = season.findIndex((date: MyDate) => date.dayName === 'Saturday' && date.month === 'August');
+  let gameDate: number = season.findIndex((date: MyDate) => date.dayName === 'Saturday' && date.month === 'August'); // Find first Saturday in August
 
   let tempTeams: Team[] = [...allTeams];
-  for (let i = tempTeams.length - 1; i > 0; i--) {
+  for (let i = tempTeams.length - 1; i > 0; i--) { // Randomize order of teams
     const randomIndex = Math.floor(Math.random() * (i + 1));
     [tempTeams[i], tempTeams[randomIndex]] = [tempTeams[randomIndex], tempTeams[i]]; 
   }
 
   let matchweeks: Matchweek[] = [];
-  for (let i = 0; i < 38; i++) {
+  for (let i = 0; i < 38; i++) { // Create Matchweek objects with attached dates
     const newMatchweek: Matchweek = {dates: [gameDate], teamsSchedueled: []}
     matchweeks.push(newMatchweek);
     gameDate = gameDate + 7;
   }
 
-  const fixedTeam: Team = tempTeams.splice(tempTeams.length / 2, 1)[0];
+  const fixedTeam: Team = tempTeams.splice(tempTeams.length / 2, 1)[0]; 
   const halfLength: number = tempTeams.length / 2;
-  for (let i = 0; i < 38; i++) {
+  const order = [0, 0, 1, 1];
+  let awayTeams: Team[] = [];
+  let homeTeams: Team[] = [];
+  let homeTeam: Team;
+  let awayTeam: Team;
+  let rand;
+  for (let i = 0; i < matchweeks.length / 2; i++) { // Schedule first half of the season
+    const lastTeam = tempTeams.splice(tempTeams.length - 1, 1)[0];
     const upperHalf: Team[] = tempTeams.slice(0, halfLength);
     const lowerHalf: Team[] = tempTeams.slice(halfLength, tempTeams.length);
-    upperHalf.forEach((team1: Team, index: number) => {
-      const team2: Team = lowerHalf[lowerHalf.length - (index + 2)];
-      const rand: number = Math.random() < 0.5 ? 0 : 1;
-      let homeTeam: Team = rand === 0 ? team1 : team2;
-      let awayTeam: Team = rand === 1 ? team1 : team2;
-      if (i > 18) {
-        if (homeTeam.matches.some((match: Match) => match.awayTeam.name === awayTeam.name)) {
-            const temp: Team = homeTeam;
-            homeTeam = awayTeam;
-            awayTeam = temp;
-        }
+    let orderCounter = 0;
+    
+    if (i === 1 || i === (matchweeks.length / 2) - 1) {
+      homeTeams.forEach((team1: Team, index: number) => {
+        const team2: Team = awayTeams[awayTeams.length - (index + 1)];
+        homeTeam = team2;
+        awayTeam = team1;
+        const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
+        allMatches.push(newMatch);
+        team1.matches.push(newMatch);
+        team2.matches.push(newMatch);
+        season[matchweeks[i].dates[0]].matches.push(newMatch);
+      });
+      homeTeams = [];
+      awayTeams = [];
+    }
+    else {
+      rand = Math.random() < 0.5 ? 0 : 1;
+      homeTeam = rand === 0 ? fixedTeam : lastTeam;
+      awayTeam = rand === 1 ? fixedTeam : lastTeam;
+      if (i === 0 || i === (matchweeks.length / 2) - 2) {
+          homeTeams.push(homeTeam);
+          awayTeams.push(awayTeam);
       }
+
       const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
       allMatches.push(newMatch);
-      team1.matches.push(newMatch);
-      team2.matches.push(newMatch);
       season[matchweeks[i].dates[0]].matches.push(newMatch);
-    });
-    const rand: number = Math.random() < 0.5 ? 0 : 1;
-    const homeTeam: Team = rand === 0 ? fixedTeam : lowerHalf[lowerHalf.length - 1];
-    const awayTeam: Team = rand === 1 ? fixedTeam : lowerHalf[lowerHalf.length - 1];
-    const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
-    allMatches.push(newMatch);
-    season[matchweeks[i].dates[0]].matches.push(newMatch);
-    const lastTeam = tempTeams.splice(tempTeams.length - 1, 1)[0];
-    tempTeams = [lastTeam, ...tempTeams];
-    if (i === 18) {
-      for (let i = tempTeams.length - 1; i > 0; i--) {
-        const randomIndex = Math.floor(Math.random() * (i + 1));
-        [tempTeams[i], tempTeams[randomIndex]] = [tempTeams[randomIndex], tempTeams[i]]; 
-      }
+
+      upperHalf.forEach((team1: Team, index: number) => {
+        const team2: Team = lowerHalf[lowerHalf.length - (index + 1)];
+        orderCounter = orderCounter >= order.length ? 0 : orderCounter;
+
+        homeTeam = order[orderCounter] === 0 ? team1 : team2;
+        awayTeam = order[orderCounter] === 1 ? team1 : team2;
+
+        const newMatch: Match = {homeTeam: homeTeam, awayTeam: awayTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
+
+        allMatches.push(newMatch);
+        team1.matches.push(newMatch);
+        team2.matches.push(newMatch);
+        season[matchweeks[i].dates[0]].matches.push(newMatch);
+
+        if (i === 0 || i === (matchweeks.length / 2) - 2) {
+          homeTeams.push(homeTeam);
+          awayTeams.push(awayTeam);
+        }
+
+        orderCounter++;
+      });
     }
+
+    tempTeams = [lastTeam, ...tempTeams];
   }
 
+  let temp: Match[] = [];
+  let i = (matchweeks.length / 2);
+  let counter = 0;
+  allMatches.forEach((match: Match) => {
+    const newMatch: Match = {homeTeam: match.awayTeam, awayTeam: match.homeTeam, winningTeam: null, losingTeam: null, homeScore: 0, awayScore: 0, date: null, isDone: false};
+    temp.push(newMatch);
+    match.homeTeam.matches.push(newMatch);
+    match.awayTeam.matches.push(newMatch);
+    season[matchweeks[i].dates[0]].matches.push(newMatch);
+    counter++;
+    if (counter === 10) {
+      i++;
+      counter = 0;
+    }
+  });
 }
 
 export function generateAll() {
