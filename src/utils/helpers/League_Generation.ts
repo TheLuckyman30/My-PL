@@ -1,6 +1,6 @@
 import { Match } from '../interfaces/Match';
 import { Team } from '../interfaces/Team';
-import { MyDate } from '../interfaces/Date';
+import { MyDate } from '../interfaces/MyDate';
 import { teamSort } from './TeamSort';
 import { Matchweek } from '../interfaces/Matchweek';
 import teams from '../../data/Teams.json'

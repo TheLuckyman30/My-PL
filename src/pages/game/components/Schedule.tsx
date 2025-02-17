@@ -1,4 +1,4 @@
-import { MyDate } from '../../../utils/interfaces/Date';
+import { MyDate } from '../../../utils/interfaces/MyDate';
 import { Match } from '../../../utils/interfaces/Match';
 import { Team } from '../../../utils/interfaces/Team';
 import { season } from '../../../utils/helpers/League_Generation';

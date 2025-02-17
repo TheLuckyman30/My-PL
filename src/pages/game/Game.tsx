@@ -10,7 +10,7 @@ import {
 import { Match } from '../../utils/interfaces/Match';
 import LeagueTable from './components/League_Table';
 import NavBar from './components/NavBar';
-import { MyDate } from '../../utils/interfaces/Date';
+import { MyDate } from '../../utils/interfaces/MyDate';
 import Schedule from './components/Schedule';
 
 function Game() {
