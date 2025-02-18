@@ -1,6 +1,5 @@
 import '../../../css/components/NavBar.css';
 import { MyDate } from '../../../utils/interfaces/MyDate';
-import Logo from '../../../assets/images/PL-Logo.png';
 import { useEffect, useState } from 'react';
 import { Menu } from '@mui/material';
 
@@ -39,9 +38,6 @@ function NavBar({ currentDate, setCurrentSection }: NavBarProps) {
   return (
     <div className="navBar">
       <div className="date-container">
-        <a className="anchor" href="/My-PL/">
-          <img className="image" src={Logo}></img>
-        </a>
         <div className="date">
           <div>
             {currentDate
