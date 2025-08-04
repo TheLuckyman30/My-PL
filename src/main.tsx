@@ -1,13 +1,13 @@
-import React from 'react';
+//import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
-import App from './App';
+import MainMenu from './pages/main-menu/MainMenu';
 
 const router = createHashRouter([
   {
     path: '/',
-    element: <App></App>,
+    element: <MainMenu></MainMenu>,
   },
 ]);
 
