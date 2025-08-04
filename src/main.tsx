@@ -2,18 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { createHashRouter, RouterProvider } from 'react-router-dom';
-//import WelcomePage from './pages/welcome/WelcomePage'; Will Come back later
-import Game from './pages/game/Game';
+import App from './App';
 
 const router = createHashRouter([
   {
     path: '/',
-    element: <Game></Game>,
+    element: <App></App>,
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
-  </React.StrictMode>
+  <RouterProvider router={router}></RouterProvider>
 );
