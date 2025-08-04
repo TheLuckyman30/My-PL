@@ -1,9 +1,8 @@
 interface MenuContentProps {
-  currentSelectionScreen: number;
   setCurrentSelectionScreen: (screen: number) => void;
 }
 
-function MenuContent({ currentSelectionScreen, setCurrentSelectionScreen }: MenuContentProps) {
+function MenuContent({ setCurrentSelectionScreen }: MenuContentProps) {
   function changeScreen() {
     setCurrentSelectionScreen(1);
   }

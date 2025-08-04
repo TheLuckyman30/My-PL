@@ -7,11 +7,10 @@ function MainMenu() {
 
   return (
     <div className="main flex flex-col justify-center items-center">
-      <MenuContent
-        currentSelectionScreen={currentSelectionScreen}
-        setCurrentSelectionScreen={setCurrentSelectionScreen}
-      ></MenuContent>
-      {currentSelectionScreen === 1 && <ModeSelector></ModeSelector>}
+      <MenuContent setCurrentSelectionScreen={setCurrentSelectionScreen}></MenuContent>
+      {currentSelectionScreen === 1 && (
+        <ModeSelector setCurrentSelectionScreen={setCurrentSelectionScreen}></ModeSelector>
+      )}
     </div>
   );
 }
