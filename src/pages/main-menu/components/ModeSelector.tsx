@@ -19,22 +19,21 @@ const GAME_MODES = [
 ];
 
 function ModeSelector({ setCurrentSelectionScreen }: ModeSelectorProps) {
-  function changeScreen() {
-    setCurrentSelectionScreen(0);
-  }
-
   return (
     <div className="fixed bg-white rounded-md p-15 shadow-md">
       <div className="flex flex-row place-content-center">
         <div className="text-center mb-15 font-bold text-4xl w-full">Select a Gamemode</div>
-        <div className="cursor-pointer" onClick={changeScreen}>
+        <div className="cursor-pointer" onClick={() => setCurrentSelectionScreen(0)}>
           <CloseIcon></CloseIcon>
         </div>
       </div>
 
       <div className="flex flex-row gap-15">
         {GAME_MODES.map((mode) => (
-          <div className="rounded-md p-5 shadow-md bg-stone-50 w-100 hover:-translate-y-3 duration-200 cursor-pointer">
+          <div
+            className="rounded-md p-5 shadow-md bg-stone-50 w-100 hover:-translate-y-3 duration-200 cursor-pointer"
+            onClick={() => setCurrentSelectionScreen(2)}
+          >
             <div className="text-center mb-5 font-bold text-2xl">{mode.name}</div>
             <div>{mode.description}</div>
           </div>
