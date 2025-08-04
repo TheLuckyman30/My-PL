@@ -1,11 +1,10 @@
 import '../../../css/components/NavBar.css';
-import { Date } from '../../../utils/classes/Date';
-import Logo from '../../../assets/images/PL-Logo.png';
+import { MyDate } from '../../../utils/interfaces/MyDate';
 import { useEffect, useState } from 'react';
 import { Menu } from '@mui/material';
 
 interface NavBarProps {
-  currentDate: Date | null;
+  currentDate: MyDate | null;
   setCurrentSection: (newSection: number) => void;
 }
 
@@ -39,19 +38,16 @@ function NavBar({ currentDate, setCurrentSection }: NavBarProps) {
   return (
     <div className="navBar">
       <div className="date-container">
-        <a className="anchor" href="/My-PL/">
-          <img className="image" src={Logo}></img>
-        </a>
         <div className="date">
           <div>
             {currentDate
-              ? currentDate.currentDayName +
+              ? currentDate.dayName +
                 ', ' +
-                currentDate.currentMonth +
+                currentDate.month +
                 ' ' +
-                currentDate.currentDay +
+                currentDate.day +
                 ', ' +
-                currentDate.currentYear
+                currentDate.year
               : 'Nothing'}
           </div>
         </div>
