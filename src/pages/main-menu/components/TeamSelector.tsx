@@ -14,7 +14,7 @@ function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
   const setUser = useUserStore((state) => state.setUser);
 
   function selectTeam() {
-    const newPlayer: User = { selectedTeam: teams[0] };
+    const newPlayer: User = { firstName: 'John', lastName: 'Doe', selectedTeam: teams[0] };
     setUser(newPlayer);
   }
 
