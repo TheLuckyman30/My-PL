@@ -16,7 +16,7 @@ function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
           className="cursor-pointer"
           onClick={() => setCurrentSelectionScreen(SelectionScreen.MAIN_MENU)}
         >
-          <CloseIcon></CloseIcon>
+          <CloseIcon />
         </div>
       </div>
       <div className="flex flex-wrap gap-15">

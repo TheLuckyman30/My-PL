@@ -12,12 +12,12 @@ function MainMenu() {
 
   return (
     <div className="main flex flex-col justify-center items-center">
-      <MenuContent setCurrentSelectionScreen={setCurrentSelectionScreen}></MenuContent>
+      <MenuContent setCurrentSelectionScreen={setCurrentSelectionScreen} />
       {currentSelectionScreen === SelectionScreen.MODE_SELECTOR && (
-        <ModeSelector setCurrentSelectionScreen={setCurrentSelectionScreen}></ModeSelector>
+        <ModeSelector setCurrentSelectionScreen={setCurrentSelectionScreen} />
       )}
       {currentSelectionScreen === SelectionScreen.TEAM_SELECTOR && (
-        <TeamSelector setCurrentSelectionScreen={setCurrentSelectionScreen}></TeamSelector>
+        <TeamSelector setCurrentSelectionScreen={setCurrentSelectionScreen} />
       )}
     </div>
   );

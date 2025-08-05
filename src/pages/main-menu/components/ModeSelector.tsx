@@ -45,7 +45,7 @@ function ModeSelector({ setCurrentSelectionScreen }: ModeSelectorProps) {
           className="cursor-pointer"
           onClick={() => setCurrentSelectionScreen(SelectionScreen.MAIN_MENU)}
         >
-          <CloseIcon></CloseIcon>
+          <CloseIcon />
         </div>
       </div>
       <div className="flex flex-row gap-15">{GAME_MODES.map((mode) => mode.html)}</div>
