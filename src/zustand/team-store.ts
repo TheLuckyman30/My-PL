@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Team } from "../utils/interfaces/Team";
+import { Team } from "../utils/interfaces/tempt2";
 import teams from '../data/temp-teams.json'
 
 type TeamStore = {

@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Player } from "../utils/interfaces/Player"
+import { Player } from "../utils/interfaces/temp1"
 
 type PlayerStore = {
     player: Player | null;
