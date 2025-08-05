@@ -1,4 +1,4 @@
-import { Team } from "./tempt2";
+import { Team } from "./team";
 
 export interface Player {
     selectedTeam: Team;
