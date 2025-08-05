@@ -1,14 +1,14 @@
 import { create } from "zustand";
-import { Player } from "../utils/interfaces/player"
+import { User } from "../utils/interfaces/user";
 
-type PlayerStore = {
-    player: Player | null;
-    setPlayer: (newPlayer: Player | null) => void;
+type UserStore = {
+    user: User | null;
+    setUser: (newUser: User | null) => void;
 }
 
-export const usePlayerStore = create<PlayerStore>((set) => ({
-    player: null,
-    setPlayer: (newPlayer: Player | null) => {
-        set({player: newPlayer})
+export const useUserStore = create<UserStore>((set) => ({
+    user: null,
+    setUser: (newUser: User | null) => {
+        set({user: newUser})
     }
 }));

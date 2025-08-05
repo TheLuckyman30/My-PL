@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
 import { SelectionScreen } from '../../../utils/enums/selection-screens';
 import { useTeamStore } from '../../../zustand/team-store';
+import { User } from '../../../utils/interfaces/user';
+import { useUserStore } from '../../../zustand/player-store';
 import CloseIcon from '@mui/icons-material/Close';
-import { usePlayerStore } from '../../../zustand/player-store';
-import { Player } from '../../../utils/interfaces/player';
 
 interface TeamSelectorProps {
   setCurrentSelectionScreen: (screen: number) => void;
@@ -11,11 +11,11 @@ interface TeamSelectorProps {
 
 function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
   const teams = useTeamStore((state) => state.teams);
-  const setPlayer = usePlayerStore((state) => state.setPlayer);
+  const setUser = useUserStore((state) => state.setUser);
 
   function selectTeam() {
-    const newPlayer: Player = { selectedTeam: teams[0] };
-    setPlayer(newPlayer);
+    const newPlayer: User = { selectedTeam: teams[0] };
+    setUser(newPlayer);
   }
 
   return (

@@ -1,5 +1,5 @@
 import { Team } from "./team";
 
-export interface Player {
+export interface User {
     selectedTeam: Team;
 }

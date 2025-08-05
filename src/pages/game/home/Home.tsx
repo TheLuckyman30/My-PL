@@ -1,8 +1,4 @@
-import { usePlayerStore } from '../../../zustand/player-store';
-
 function Home() {
-  const player = usePlayerStore((state) => state.player);
-
   return (
     <div className="grid grid-cols-2 h-full">
       <div className="grid grid-rows-2">
