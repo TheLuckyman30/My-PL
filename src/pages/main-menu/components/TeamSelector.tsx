@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { SelectionScreen } from '../../../utils/enums/selection-screens';
 import { useTeamStore } from '../../../zustand/team-store';
 import CloseIcon from '@mui/icons-material/Close';
+import { usePlayerStore } from '../../../zustand/player-store';
+import { Player } from '../../../utils/interfaces/Player';
 
 interface TeamSelectorProps {
   setCurrentSelectionScreen: (screen: number) => void;
@@ -9,6 +11,13 @@ interface TeamSelectorProps {
 
 function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
   const teams = useTeamStore((state) => state.teams);
+  const setPlayer = usePlayerStore((state) => state.setPlayer);
+
+  function selectTeam() {
+    const newPlayer: Player = { selectedTeam: teams[0] };
+    setPlayer(newPlayer);
+  }
+
   return (
     <div className="fixed bg-white rounded-md p-15 shadow-2xl w-350">
       <div className="flex flex-row place-content-center">
@@ -22,7 +31,9 @@ function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
       </div>
       <div className="flex flex-wrap gap-15">
         {teams.map((team) => (
-          <Link to="/game/home">{team.name}</Link>
+          <Link to="/game/home" onClick={selectTeam}>
+            {team.name}
+          </Link>
         ))}
       </div>
     </div>
