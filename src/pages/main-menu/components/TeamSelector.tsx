@@ -3,7 +3,7 @@ import { SelectionScreen } from '../../../utils/enums/selection-screens';
 import { useTeamStore } from '../../../zustand/team-store';
 import CloseIcon from '@mui/icons-material/Close';
 import { usePlayerStore } from '../../../zustand/player-store';
-import { Player } from '../../../utils/interfaces/player';
+import { Player } from '../../../utils/interfaces/Player';
 
 interface TeamSelectorProps {
   setCurrentSelectionScreen: (screen: number) => void;
