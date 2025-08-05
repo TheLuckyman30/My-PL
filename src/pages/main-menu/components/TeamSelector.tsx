@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { SelectionScreen } from '../../../utils/enums/selection-screens';
 import { useTeamStore } from '../../../zustand/team-store';
 import CloseIcon from '@mui/icons-material/Close';
@@ -21,7 +22,7 @@ function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
       </div>
       <div className="flex flex-wrap gap-15">
         {teams.map((team) => (
-          <div>{team.name}</div>
+          <Link to="/game/home">{team.name}</Link>
         ))}
       </div>
     </div>
