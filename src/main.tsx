@@ -1,13 +1,18 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 //import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import { createHashRouter, RouterProvider } from 'react-router-dom';
 import MainMenu from './pages/main-menu/MainMenu';
+import GamePageLoader from './pages/game/GameLoader';
+import './index.css';
 
-const router = createHashRouter([
+const router = createBrowserRouter([
   {
     path: '/',
-    element: <MainMenu></MainMenu>,
+    element: <MainMenu />,
+  },
+  {
+    path: '/game/:pageId',
+    element: <GamePageLoader />,
   },
 ]);
 

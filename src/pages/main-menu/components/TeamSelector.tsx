@@ -1,5 +1,9 @@
-import CloseIcon from '@mui/icons-material/Close';
+import { Link } from 'react-router-dom';
+import { SelectionScreen } from '../../../utils/enums/selection-screens';
 import { useTeamStore } from '../../../zustand/team-store';
+import { User } from '../../../utils/interfaces/user';
+import { useUserStore } from '../../../zustand/player-store';
+import CloseIcon from '@mui/icons-material/Close';
 
 interface TeamSelectorProps {
   setCurrentSelectionScreen: (screen: number) => void;
@@ -7,17 +11,29 @@ interface TeamSelectorProps {
 
 function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
   const teams = useTeamStore((state) => state.teams);
+  const setUser = useUserStore((state) => state.setUser);
+
+  function selectTeam() {
+    const newPlayer: User = { firstName: 'John', lastName: 'Doe', selectedTeam: teams[0] };
+    setUser(newPlayer);
+  }
+
   return (
-    <div className="fixed bg-white rounded-md p-15 shadow-md w-350">
+    <div className="fixed bg-white rounded-md p-15 shadow-2xl w-350">
       <div className="flex flex-row place-content-center">
         <div className="text-center mb-15 font-bold text-4xl w-full">Select a Team</div>
-        <div className="cursor-pointer" onClick={() => setCurrentSelectionScreen(0)}>
-          <CloseIcon></CloseIcon>
+        <div
+          className="cursor-pointer"
+          onClick={() => setCurrentSelectionScreen(SelectionScreen.MAIN_MENU)}
+        >
+          <CloseIcon />
         </div>
       </div>
       <div className="flex flex-wrap gap-15">
         {teams.map((team) => (
-          <div>{team.name}</div>
+          <Link to="/game/home" onClick={selectTeam}>
+            {team.name}
+          </Link>
         ))}
       </div>
     </div>
