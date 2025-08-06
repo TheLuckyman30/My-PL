@@ -1,3 +1,6 @@
+import { League } from "./league";
+import { Player } from "./player";
+
 export interface Team {
     name: string
     shortName: string;
@@ -9,4 +12,6 @@ export interface Team {
     draws: number;
     loses: number;
     leaguePosition: number;
+    league: League;
+    players: Player[]
 }
