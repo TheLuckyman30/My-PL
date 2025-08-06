@@ -1,7 +1,7 @@
-import { Team } from "./team";
+import { Team } from './team';
 
 export interface User {
-    firstName: string;
-    lastName: string;
-    selectedTeam: Team;
+  firstName: string;
+  lastName: string;
+  selectedTeam: Team;
 }
