@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { SelectionScreen } from '../../../utils/enums/selection-screens';
 import { useTeamStore } from '../../../zustand/team-store';
 import { User } from '../../../utils/interfaces/user';
-import { useUserStore } from '../../../zustand/player-store';
+import { useUserStore } from '../../../zustand/user-store';
 import CloseIcon from '@mui/icons-material/Close';
 
 interface TeamSelectorProps {
