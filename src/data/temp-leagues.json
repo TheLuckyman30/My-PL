@@ -1,8 +1,4 @@
 [
-  {
-    "name": "Aurora Premier League"
-  },
-  {
-    "name": "Zephyr National Championship"
-  }
+  { "id": "AURORA PREMIER LEAGUE", "name": "Aurora Premier League" },
+  { "id": "ZEPHYR NATIONAL CHAMPIONSHIP", "name": "Zephyr National Championship" }
 ]

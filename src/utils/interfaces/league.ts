@@ -1,6 +1,7 @@
-import { Team } from "./team";
+import { Team } from './team';
 
 export interface League {
-    name: string;
-    teams: Team[]
+  id: string;
+  name: string;
+  teams: Team[];
 }

@@ -1,17 +1,18 @@
-import { League } from "./league";
-import { Player } from "./player";
+import { League } from './league';
+import { Player } from './player';
 
 export interface Team {
-    name: string
-    shortName: string;
-    threeLetterName: string;
-    goalsFor: number;
-    goalsAgainst: number;
-    goalDifference: number;
-    wins: number;
-    draws: number;
-    loses: number;
-    leaguePosition: number;
-    league: League;
-    players: Player[]
+  id: string;
+  name: string;
+  shortName: string;
+  threeLetterName: string;
+  goalsFor: number;
+  goalsAgainst: number;
+  goalDifference: number;
+  wins: number;
+  draws: number;
+  loses: number;
+  leaguePosition: number;
+  league: League;
+  players: Player[];
 }
