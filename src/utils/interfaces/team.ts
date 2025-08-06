@@ -12,7 +12,6 @@ export interface Team {
   wins: number;
   draws: number;
   loses: number;
-  leaguePosition: number;
   league: League;
   players: Player[];
 }
