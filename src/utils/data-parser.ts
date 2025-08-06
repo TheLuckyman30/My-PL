@@ -1,9 +1,9 @@
-import leagues from '../data/temp-leagues.json';
-import teams from '../data/temp-teams.json';
-import players from '../data/temp-players.json';
 import { League } from './interfaces/league';
 import { Team } from './interfaces/team';
 import { Player } from './interfaces/player';
+import leagues from '../data/temp-leagues.json';
+import teams from '../data/temp-teams.json';
+import players from '../data/temp-players.json';
 
 interface LeagueJSON {
   id: string;

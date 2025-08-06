@@ -1,11 +1,14 @@
 import { create } from 'zustand';
 import { Team } from '../utils/interfaces/team';
-import teams from '../data/temp-teams.json';
 
 type TeamStore = {
   teams: Team[];
+  setTeams: (newTeams: Team[]) => void;
 };
 
-export const useTeamStore = create<TeamStore>(() => ({
-  teams: teams,
+export const useTeamStore = create<TeamStore>((set) => ({
+  teams: [],
+  setTeams: (newTeams: Team[]) => {
+    set({ teams: newTeams });
+  },
 }));
