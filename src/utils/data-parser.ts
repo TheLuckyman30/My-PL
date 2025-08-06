@@ -4,6 +4,7 @@ import { Player } from './interfaces/player';
 import leagues from '../data/temp-leagues.json';
 import teams from '../data/temp-teams.json';
 import players from '../data/temp-players.json';
+import { useTeamStore } from '../zustand/team-store';
 
 interface LeagueJSON {
   id: string;
@@ -24,6 +25,8 @@ interface PlayerJSON {
 }
 
 export function parseJSONData() {
+  const setTeams = useTeamStore((state) => state.setTeams);
+
   const allLeagues: LeagueJSON[] = leagues;
   const allTeams: TeamJSON[] = teams;
   const allPlayers: PlayerJSON[] = players;
@@ -63,4 +66,6 @@ export function parseJSONData() {
       }
     });
   });
+
+  setTeams(newTeams);
 }

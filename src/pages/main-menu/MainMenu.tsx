@@ -4,8 +4,10 @@ import ModeSelector from './components/ModeSelector';
 import MenuContent from './components/MenuContent';
 import TeamSelector from './components/TeamSelector';
 import '../../css/MainMenu.css';
+import { parseJSONData } from '../../utils/data-parser';
 
 function MainMenu() {
+  parseJSONData();
   const [currentSelectionScreen, setCurrentSelectionScreen] = useState<SelectionScreen>(
     SelectionScreen.MAIN_MENU
   );
