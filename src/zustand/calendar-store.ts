@@ -24,8 +24,8 @@ initalYear.nextYear = secondYear;
 
 export const useCalendarStore = create<CalendarStore>((set, get) => ({
   currentYear: initalYear,
-  currentDay: initalYear.days[363],
-  nextDayIndex: 364,
+  currentDay: initalYear.days[0],
+  nextDayIndex: 1,
   setCurrentYear: (newYear: Year) => {
     set({ currentYear: newYear });
   },

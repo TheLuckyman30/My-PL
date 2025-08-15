@@ -1,6 +1,14 @@
 import { Day } from './interfaces/day';
 import { Year } from './interfaces/year';
 
+/**
+ * This function will create a new year object
+ *
+ * @param {number} year The current year number
+ * @param {string} dayName The day name you want to start the year at or use as a reference for getting the next day name
+ * @param {boolean} getNextDayName Whether or not the use the next day name based off of the dayName parameter
+ * @returns {Year} The created year object with an array containing every day of the year
+ */
 export function createNewYear(year: number, dayName: string, getNextDayName: boolean): Year {
   const isLeapYear: boolean = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
   const months: Record<string, number> = {
