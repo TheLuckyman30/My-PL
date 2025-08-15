@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useCalendarStore } from '../../../../zustand/calendar-store';
+import { useCalendarStore } from '../../zustand/calendar-store';
 
 const NAVBAR_OPTIONS = [
   { name: 'Menu', link: '/' },

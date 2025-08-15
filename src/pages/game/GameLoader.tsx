@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import Home from './home/Home';
-import NavBar from './home/components/NavBar';
+import NavBar from './NavBar';
 
 function GamePageLoader() {
   const urlParam = useParams<{ pageId: string }>();
