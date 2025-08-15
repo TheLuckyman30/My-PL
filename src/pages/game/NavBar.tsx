@@ -4,6 +4,7 @@ import { useCalendarStore } from '../../zustand/calendar-store';
 const NAVBAR_OPTIONS = [
   { name: 'Menu', link: '/' },
   { name: 'Home', link: '/game/home' },
+  { name: 'Squad', link: '/game/squad' },
 ];
 
 function NavBar() {
