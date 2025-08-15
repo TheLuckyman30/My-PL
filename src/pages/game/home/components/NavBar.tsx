@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import { useCalendarStore } from '../../../../zustand/calendar-store';
 
 const NAVBAR_OPTIONS = [
   { name: 'Menu', link: '/' },
@@ -6,6 +7,9 @@ const NAVBAR_OPTIONS = [
 ];
 
 function NavBar() {
+  const currentDay = useCalendarStore((state) => state.currentDay);
+  const advanceDay = useCalendarStore((state) => state.advanceDay);
+
   return (
     <div className="flex justify-center">
       <div className="flex fixed gap-5 p-3 mt-5 items-center bg-sky-700 rounded-md shadow-md text-white font-bold">
@@ -14,7 +18,9 @@ function NavBar() {
             {option.name}
           </Link>
         ))}
-        <div>Janurary 1st, 2025</div>
+        <div
+          onClick={advanceDay}
+        >{`${currentDay.dayName}, ${currentDay.month} ${currentDay.dayNumber} ${currentDay.year}`}</div>
       </div>
     </div>
   );

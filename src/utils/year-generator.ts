@@ -1,7 +1,7 @@
 import { Day } from './interfaces/day';
 import { Year } from './interfaces/year';
 
-export function createNewYear(year: number, dayName: string): Year {
+export function createNewYear(year: number, dayName: string, getNextDayName: boolean): Year {
   const isLeapYear: boolean = year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
   const months: Record<string, number> = {
     January: 31,
@@ -28,9 +28,13 @@ export function createNewYear(year: number, dayName: string): Year {
   };
   const days: Day[] = [];
 
+  if (getNextDayName) {
+    dayName = daysOfWeek[dayName];
+  }
+
   for (const [month, numberOfDays] of Object.entries(months)) {
     for (let i = 1; i <= numberOfDays; i++) {
-      const newDay: Day = { dayName: dayName, dayNumber: i, month: month };
+      const newDay: Day = { dayName: dayName, dayNumber: i, month: month, year: year };
       days.push(newDay);
       dayName = daysOfWeek[dayName];
     }
