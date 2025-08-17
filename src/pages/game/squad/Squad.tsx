@@ -7,7 +7,6 @@ function Squad() {
   const teams = useTeamStore((state) => state.teams);
   const urlParams = useParams<{ teamId: string }>();
   const selectedTeam = teams.find((team) => team.id === urlParams.teamId);
-  console.log(selectedTeam);
 
   if (selectedTeam) {
     return (

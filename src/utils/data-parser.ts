@@ -6,30 +6,6 @@ import { Team } from './interfaces/team';
 import { Player } from './interfaces/player';
 import data from '../data/temp-database.json';
 
-interface LeagueJSON {
-  id: string;
-  name: string;
-}
-
-interface TeamJSON {
-  id: string;
-  name: string;
-  shortName: string;
-  threeLetterName: string;
-  leagueId: string;
-}
-
-interface PlayerJSON {
-  name: string;
-  teamId: string;
-}
-
-interface DataJSON {
-  leagues: LeagueJSON[];
-  teams: TeamJSON[];
-  players: PlayerJSON[];
-}
-
 /**
  * This is the inital data parser to generate league, team, and player objects in the game
  */
@@ -38,21 +14,18 @@ export function useParseJSONData() {
   const setTeams = useTeamStore((state) => state.setTeams);
   const setPlayers = usePlayerStore((state) => state.setPlayers);
 
-  const importedData: DataJSON = data;
-  const importedLeagues = importedData.leagues;
-  const importedTeams = importedData.teams;
-  const importedPlayers = importedData.players;
+  const { leagues, teams, players } = data;
 
   const newLeagues: League[] = [];
   const newTeams: Team[] = [];
   const newPlayers: Player[] = [];
 
-  importedLeagues.forEach((league) => {
+  leagues.forEach((league) => {
     const newLeague: League = { id: league.id, name: league.name, teams: [] };
     newLeagues.push(newLeague);
   });
 
-  importedTeams.forEach((team) => {
+  teams.forEach((team) => {
     const teamsLeague = newLeagues.find((league) => league.id === team.leagueId);
     if (teamsLeague) {
       const newTeam: Team = {
@@ -74,7 +47,7 @@ export function useParseJSONData() {
     }
   });
 
-  importedPlayers.forEach((player) => {
+  players.forEach((player) => {
     const playersTeam = newTeams.find((team) => team.id === player.teamId);
     if (playersTeam) {
       const newPlayer: Player = { name: player.name, team: playersTeam };

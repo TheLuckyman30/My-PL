@@ -3,6 +3,7 @@ import { SelectionScreen } from '../../../utils/enums/selection-screens';
 import { useTeamStore } from '../../../zustand/team-store';
 import { User } from '../../../utils/interfaces/user';
 import { useUserStore } from '../../../zustand/user-store';
+import { Team } from '../../../utils/interfaces/team';
 import CloseIcon from '@mui/icons-material/Close';
 
 interface TeamSelectorProps {
@@ -13,8 +14,8 @@ function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
   const teams = useTeamStore((state) => state.teams);
   const setUser = useUserStore((state) => state.setUser);
 
-  function selectTeam() {
-    const newPlayer: User = { firstName: 'John', lastName: 'Doe', selectedTeam: teams[0] };
+  function selectTeam(selectedTeam: Team) {
+    const newPlayer: User = { firstName: 'John', lastName: 'Doe', selectedTeam: selectedTeam };
     setUser(newPlayer);
   }
 
@@ -31,7 +32,7 @@ function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
       </div>
       <div className="flex flex-wrap gap-15">
         {teams.map((team) => (
-          <Link to="/game/home" onClick={selectTeam}>
+          <Link to="/game/home" onClick={() => selectTeam(team)}>
             {team.name}
           </Link>
         ))}

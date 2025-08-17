@@ -7,7 +7,7 @@ function NavBar() {
   const user = useUserStore((state) => state.user);
   const advanceDay = useCalendarStore((state) => state.advanceDay);
 
-  const NAVBAR_OPTIONS = [
+  const navbarOptions = [
     { name: 'Menu', link: '/' },
     { name: 'Home', link: '/game/home' },
     { name: 'Squad', link: `/game/squad/${user?.selectedTeam.id}` },
@@ -16,7 +16,7 @@ function NavBar() {
   return (
     <div className="flex justify-center">
       <div className="flex fixed gap-5 p-3 mt-5 items-center bg-sky-700 rounded-md shadow-md text-white font-bold">
-        {NAVBAR_OPTIONS.map((option) => (
+        {navbarOptions.map((option) => (
           <Link className="hover:-translate-y-0.5 duration-150" to={option.link}>
             {option.name}
           </Link>
