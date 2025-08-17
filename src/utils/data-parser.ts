@@ -33,7 +33,7 @@ interface DataJSON {
 /**
  * This is the inital data parser to generate league, team, and player objects in the game
  */
-export function parseJSONData() {
+export function useParseJSONData() {
   const setLeagues = useLeagueStore((state) => state.setLeagues);
   const setTeams = useTeamStore((state) => state.setTeams);
   const setPlayers = usePlayerStore((state) => state.setPlayers);

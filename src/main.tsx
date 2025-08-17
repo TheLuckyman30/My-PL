@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom/client';
 import MainMenu from './pages/main-menu/MainMenu';
 import GamePageLoader from './pages/game/GameLoader';
 import './index.css';
+import Home from './pages/game/home/Home';
+import Squad from './pages/game/squad/Squad';
 
 const router = createBrowserRouter([
   {
@@ -11,8 +13,12 @@ const router = createBrowserRouter([
     element: <MainMenu />,
   },
   {
-    path: '/game/:pageId',
+    path: '/game',
     element: <GamePageLoader />,
+    children: [
+      { path: 'home', element: <Home /> },
+      { path: 'squad/:teamId', element: <Squad /> },
+    ],
   },
 ]);
 

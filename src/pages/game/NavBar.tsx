@@ -1,15 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useCalendarStore } from '../../zustand/calendar-store';
-
-const NAVBAR_OPTIONS = [
-  { name: 'Menu', link: '/' },
-  { name: 'Home', link: '/game/home' },
-  { name: 'Squad', link: '/game/squad' },
-];
+import { useUserStore } from '../../zustand/user-store';
 
 function NavBar() {
   const currentDay = useCalendarStore((state) => state.currentDay);
+  const user = useUserStore((state) => state.user);
   const advanceDay = useCalendarStore((state) => state.advanceDay);
+
+  const NAVBAR_OPTIONS = [
+    { name: 'Menu', link: '/' },
+    { name: 'Home', link: '/game/home' },
+    { name: 'Squad', link: `/game/squad/${user?.selectedTeam.id}` },
+  ];
 
   return (
     <div className="flex justify-center">
