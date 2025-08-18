@@ -6,6 +6,7 @@ import GamePageLoader from './pages/game/GameLoader';
 import './index.css';
 import Home from './pages/game/home/Home';
 import Squad from './pages/game/squad/Squad';
+import Player from './pages/game/player/Player';
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
     children: [
       { path: 'home', element: <Home /> },
       { path: 'squad/:teamId', element: <Squad /> },
+      { path: 'player/:playerId', element: <Player /> },
     ],
   },
 ]);

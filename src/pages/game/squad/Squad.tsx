@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useTeamStore } from '../../../zustand/team-store';
 
 const TABLE_HEADERS = ['Name'];
@@ -19,7 +19,9 @@ function Squad() {
             </tr>
             {selectedTeam.players.map((player) => (
               <tr>
-                <td>{player.name}</td>
+                <td>
+                  <Link to={`/game/player/${player.id}`}>{player.name}</Link>
+                </td>
               </tr>
             ))}
           </table>
