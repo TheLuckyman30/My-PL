@@ -7,6 +7,7 @@ import './index.css';
 import Home from './pages/game/home/Home';
 import Squad from './pages/game/squad/Squad';
 import Player from './pages/game/player/Player';
+import League from './pages/game/league/League';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
       { path: 'home', element: <Home /> },
       { path: 'squad/:teamId', element: <Squad /> },
       { path: 'player/:playerId', element: <Player /> },
+      { path: 'league/:leagueId', element: <League /> },
     ],
   },
 ]);
