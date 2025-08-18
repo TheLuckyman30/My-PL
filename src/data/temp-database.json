@@ -76,34 +76,34 @@
     }
   ],
   "players": [
-    { "name": "Liam Voss", "teamId": "1" },
-    { "name": "Ezekiel Torres", "teamId": "1" },
+    { "id": "1", "name": "Liam Voss", "teamId": "1" },
+    { "id": "2", "name": "Ezekiel Torres", "teamId": "1" },
 
-    { "name": "Kai Matsuda", "teamId": "2" },
-    { "name": "Felix Granlund", "teamId": "2" },
+    { "id": "3", "name": "Kai Matsuda", "teamId": "2" },
+    { "id": "4", "name": "Felix Granlund", "teamId": "2" },
 
-    { "name": "Jonas Becker", "teamId": "3" },
-    { "name": "Silas Navarro", "teamId": "3" },
+    { "id": "5", "name": "Jonas Becker", "teamId": "3" },
+    { "id": "6", "name": "Silas Navarro", "teamId": "3" },
 
-    { "name": "Mateo Ramires", "teamId": "4" },
-    { "name": "Ronan Blackwood", "teamId": "4" },
+    { "id": "7", "name": "Mateo Ramires", "teamId": "4" },
+    { "id": "8", "name": "Ronan Blackwood", "teamId": "4" },
 
-    { "name": "Dorian Kovač", "teamId": "5" },
-    { "name": "Arman Suleiman", "teamId": "5" },
+    { "id": "9", "name": "Dorian Kovač", "teamId": "5" },
+    { "id": "10", "name": "Arman Suleiman", "teamId": "5" },
 
-    { "name": "Tyrese Holloway", "teamId": "6" },
-    { "name": "Yuto Nakamura", "teamId": "6" },
+    { "id": "11", "name": "Tyrese Holloway", "teamId": "6" },
+    { "id": "12", "name": "Yuto Nakamura", "teamId": "6" },
 
-    { "name": "Diego Montez", "teamId": "7" },
-    { "name": "Callum O'Neal", "teamId": "7" },
+    { "id": "13", "name": "Diego Montez", "teamId": "7" },
+    { "id": "14", "name": "Callum O'Neal", "teamId": "7" },
 
-    { "name": "Nico Fontaine", "teamId": "8" },
-    { "name": "Luka Ivanenko", "teamId": "8" },
+    { "id": "15", "name": "Nico Fontaine", "teamId": "8" },
+    { "id": "16", "name": "Luka Ivanenko", "teamId": "8" },
 
-    { "name": "Malik Johnson", "teamId": "9" },
-    { "name": "Hugo Martens", "teamId": "9" },
+    { "id": "17", "name": "Malik Johnson", "teamId": "9" },
+    { "id": "18", "name": "Hugo Martens", "teamId": "9" },
 
-    { "name": "Bastien Rousseau", "teamId": "10" },
-    { "name": "Rafael Oliveira", "teamId": "10" }
+    { "id": "19", "name": "Bastien Rousseau", "teamId": "10" },
+    { "id": "20", "name": "Rafael Oliveira", "teamId": "10" }
   ]
 }

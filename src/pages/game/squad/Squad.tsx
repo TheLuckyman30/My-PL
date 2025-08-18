@@ -5,26 +5,27 @@ const TABLE_HEADERS = ['Name'];
 
 function Squad() {
   const teams = useTeamStore((state) => state.teams);
-  const urlParams = useParams<{ teamId: string }>();
-  const selectedTeam = teams.find((team) => team.id === urlParams.teamId);
-
-  if (selectedTeam) {
-    return (
-      <div className="mt-30">
-        <table className="text-left">
-          <tr>
-            {TABLE_HEADERS.map((header) => (
-              <th>{header}</th>
-            ))}
-          </tr>
-          {selectedTeam.players.map((player) => (
+  const teamId = useParams<{ teamId: string }>().teamId;
+  if (teamId) {
+    const selectedTeam = teams.get(teamId);
+    if (selectedTeam) {
+      return (
+        <div className="mt-30">
+          <table className="text-left">
             <tr>
-              <td>{player.name}</td>
+              {TABLE_HEADERS.map((header) => (
+                <th>{header}</th>
+              ))}
             </tr>
-          ))}
-        </table>
-      </div>
-    );
+            {selectedTeam.players.map((player) => (
+              <tr>
+                <td>{player.name}</td>
+              </tr>
+            ))}
+          </table>
+        </div>
+      );
+    }
   }
 }
 

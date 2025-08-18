@@ -4,59 +4,56 @@ import { usePlayerStore } from '../zustand/player-store';
 import { League } from './interfaces/league';
 import { Team } from './interfaces/team';
 import { Player } from './interfaces/player';
-import data from '../data/temp-database.json';
+import { leagues, teams, players } from '../data/temp-database.json';
+import { useEffect } from 'react';
 
 /**
  * This is the inital data parser to generate league, team, and player objects in the game
  */
 export function useParseJSONData() {
-  const setLeagues = useLeagueStore((state) => state.setLeagues);
-  const setTeams = useTeamStore((state) => state.setTeams);
-  const setPlayers = usePlayerStore((state) => state.setPlayers);
+  const { leagues: storedLeagues, setLeagues } = useLeagueStore();
+  const { teams: storedTeams, setTeams } = useTeamStore();
+  const { players: storedPlayers, setPlayers } = usePlayerStore();
 
-  const { leagues, teams, players } = data;
+  useEffect(() => {
+    leagues.forEach((league) => {
+      const newLeague: League = { id: league.id, name: league.name, teams: [] };
+      storedLeagues.set(newLeague.id, newLeague);
+    });
 
-  const newLeagues: League[] = [];
-  const newTeams: Team[] = [];
-  const newPlayers: Player[] = [];
+    teams.forEach((team) => {
+      const teamsLeague = storedLeagues.get(team.leagueId);
+      if (teamsLeague) {
+        const newTeam: Team = {
+          id: team.id,
+          name: team.name,
+          shortName: team.shortName,
+          threeLetterName: team.threeLetterName,
+          goalsFor: 0,
+          goalsAgainst: 0,
+          goalDifference: 0,
+          wins: 0,
+          draws: 0,
+          loses: 0,
+          league: teamsLeague,
+          players: [],
+        };
+        storedTeams.set(newTeam.id, newTeam);
+        teamsLeague.teams.push(newTeam);
+      }
+    });
 
-  leagues.forEach((league) => {
-    const newLeague: League = { id: league.id, name: league.name, teams: [] };
-    newLeagues.push(newLeague);
-  });
+    players.forEach((player) => {
+      const playersTeam = storedTeams.get(player.teamId);
+      if (playersTeam) {
+        const newPlayer: Player = { id: player.id, name: player.name, team: playersTeam };
+        storedPlayers.set(newPlayer.id, newPlayer);
+        playersTeam.players.push(newPlayer);
+      }
+    });
 
-  teams.forEach((team) => {
-    const teamsLeague = newLeagues.find((league) => league.id === team.leagueId);
-    if (teamsLeague) {
-      const newTeam: Team = {
-        id: team.id,
-        name: team.name,
-        shortName: team.shortName,
-        threeLetterName: team.threeLetterName,
-        goalsFor: 0,
-        goalsAgainst: 0,
-        goalDifference: 0,
-        wins: 0,
-        draws: 0,
-        loses: 0,
-        league: teamsLeague,
-        players: [],
-      };
-      newTeams.push(newTeam);
-      teamsLeague.teams.push(newTeam);
-    }
-  });
-
-  players.forEach((player) => {
-    const playersTeam = newTeams.find((team) => team.id === player.teamId);
-    if (playersTeam) {
-      const newPlayer: Player = { name: player.name, team: playersTeam };
-      newPlayers.push(newPlayer);
-      playersTeam.players.push(newPlayer);
-    }
-  });
-
-  setLeagues(newLeagues);
-  setTeams(newTeams);
-  setPlayers(newPlayers);
+    setLeagues(storedLeagues);
+    setTeams(storedTeams);
+    setPlayers(storedPlayers);
+  }, []);
 }

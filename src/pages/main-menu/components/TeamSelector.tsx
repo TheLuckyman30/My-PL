@@ -31,7 +31,7 @@ function TeamSelector({ setCurrentSelectionScreen }: TeamSelectorProps) {
         </div>
       </div>
       <div className="flex flex-wrap gap-15">
-        {teams.map((team) => (
+        {Array.from(teams.values()).map((team) => (
           <Link to="/game/home" onClick={() => selectTeam(team)}>
             {team.name}
           </Link>
