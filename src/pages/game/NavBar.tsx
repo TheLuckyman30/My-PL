@@ -10,6 +10,7 @@ function NavBar() {
   const navbarOptions = [
     { name: 'Menu', link: '/' },
     { name: 'Home', link: '/game/home' },
+    { name: 'Team', link: `/game/team/${user?.selectedTeam.id}` },
     { name: 'Squad', link: `/game/squad/${user?.selectedTeam.id}` },
   ];
 
