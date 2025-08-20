@@ -8,7 +8,7 @@ function League() {
     const selectedLeague = leagues.get(leagueId);
     if (selectedLeague) {
       return (
-        <div className="mt-30">
+        <div className="flex h-full justify-center items-center">
           <div>{selectedLeague.name}</div>
         </div>
       );

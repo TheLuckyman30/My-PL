@@ -8,7 +8,7 @@ function Player() {
     const selectedPlayer = players.get(playerId);
     if (selectedPlayer) {
       return (
-        <div className="mt-30">
+        <div className="flex justify-center items-center h-full">
           <div>{selectedPlayer.name}</div>
         </div>
       );

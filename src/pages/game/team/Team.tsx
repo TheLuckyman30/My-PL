@@ -8,7 +8,7 @@ function Team() {
     const selectedTeam = teams.get(teamId);
     if (selectedTeam) {
       return (
-        <div className="mt-30">
+        <div className="flex h-full justify-center items-center">
           <div>{selectedTeam.name}</div>
         </div>
       );
