@@ -1,109 +1,109 @@
 {
   "leagues": [
-    { "id": "AURORA PREMIER LEAGUE", "name": "Aurora Premier League" },
-    { "id": "ZEPHYR NATIONAL CHAMPIONSHIP", "name": "Zephyr National Championship" }
+    { "id": "1", "name": "Aurora Premier League" },
+    { "id": "2", "name": "Zephyr National Championship" }
   ],
   "teams": [
     {
-      "id": "AURORA CITY FC",
+      "id": "1",
       "name": "Aurora City FC",
       "shortName": "Aurora City",
       "threeLetterName": "ACF",
-      "leagueId": "AURORA PREMIER LEAGUE"
+      "leagueId": "1"
     },
     {
-      "id": "NORTHERN LIGHTS SC",
+      "id": "2",
       "name": "Northern Lights SC",
       "shortName": "Northern Lights",
       "threeLetterName": "NLS",
-      "leagueId": "AURORA PREMIER LEAGUE"
+      "leagueId": "1"
     },
     {
-      "id": "FROSTVALE ATHLETIC",
+      "id": "3",
       "name": "Frostvale Athletic",
       "shortName": "Frostvale",
       "threeLetterName": "FVA",
-      "leagueId": "AURORA PREMIER LEAGUE"
+      "leagueId": "1"
     },
     {
-      "id": "GLACIER UNITED",
+      "id": "4",
       "name": "Glacier United",
       "shortName": "Glacier Utd",
       "threeLetterName": "GLU",
-      "leagueId": "AURORA PREMIER LEAGUE"
+      "leagueId": "1"
     },
     {
-      "id": "POLAR RIDGE FC",
+      "id": "5",
       "name": "Polar Ridge FC",
       "shortName": "Polar Ridge",
       "threeLetterName": "PRF",
-      "leagueId": "AURORA PREMIER LEAGUE"
+      "leagueId": "1"
     },
     {
-      "id": "ZEPHYR STRIKERS",
+      "id": "6",
       "name": "Zephyr Strikers",
       "shortName": "Strikers",
       "threeLetterName": "ZFS",
-      "leagueId": "ZEPHYR NATIONAL CHAMPIONSHIP"
+      "leagueId": "2"
     },
     {
-      "id": "SUNSET BAY FC",
+      "id": "7",
       "name": "Sunset Bay FC",
       "shortName": "Sunset Bay",
       "threeLetterName": "SBF",
-      "leagueId": "ZEPHYR NATIONAL CHAMPIONSHIP"
+      "leagueId": "2"
     },
     {
-      "id": "CRESCENT SHORES",
+      "id": "8",
       "name": "Crescent Shores",
       "shortName": "Crescent",
       "threeLetterName": "CRS",
-      "leagueId": "ZEPHYR NATIONAL CHAMPIONSHIP"
+      "leagueId": "2"
     },
     {
-      "id": "WINDHAVEN ROVERS",
+      "id": "9",
       "name": "Windhaven Rovers",
       "shortName": "Windhaven",
       "threeLetterName": "WHR",
-      "leagueId": "ZEPHYR NATIONAL CHAMPIONSHIP"
+      "leagueId": "2"
     },
     {
-      "id": "COASTAL UNITED",
+      "id": "10",
       "name": "Coastal United",
       "shortName": "Coastal Utd",
       "threeLetterName": "CSU",
-      "leagueId": "ZEPHYR NATIONAL CHAMPIONSHIP"
+      "leagueId": "2"
     }
   ],
   "players": [
-    { "name": "Liam Voss", "teamId": "AURORA CITY FC" },
-    { "name": "Ezekiel Torres", "teamId": "AURORA CITY FC" },
+    { "id": "1", "name": "Liam Voss", "teamId": "1" },
+    { "id": "2", "name": "Ezekiel Torres", "teamId": "1" },
 
-    { "name": "Kai Matsuda", "teamId": "NORTHERN LIGHTS SC" },
-    { "name": "Felix Granlund", "teamId": "NORTHERN LIGHTS SC" },
+    { "id": "3", "name": "Kai Matsuda", "teamId": "2" },
+    { "id": "4", "name": "Felix Granlund", "teamId": "2" },
 
-    { "name": "Jonas Becker", "teamId": "FROSTVALE ATHLETIC" },
-    { "name": "Silas Navarro", "teamId": "FROSTVALE ATHLETIC" },
+    { "id": "5", "name": "Jonas Becker", "teamId": "3" },
+    { "id": "6", "name": "Silas Navarro", "teamId": "3" },
 
-    { "name": "Mateo Ramires", "teamId": "GLACIER UNITED" },
-    { "name": "Ronan Blackwood", "teamId": "GLACIER UNITED" },
+    { "id": "7", "name": "Mateo Ramires", "teamId": "4" },
+    { "id": "8", "name": "Ronan Blackwood", "teamId": "4" },
 
-    { "name": "Dorian Kovač", "teamId": "POLAR RIDGE FC" },
-    { "name": "Arman Suleiman", "teamId": "POLAR RIDGE FC" },
+    { "id": "9", "name": "Dorian Kovač", "teamId": "5" },
+    { "id": "10", "name": "Arman Suleiman", "teamId": "5" },
 
-    { "name": "Tyrese Holloway", "teamId": "ZEPHYR STRIKERS" },
-    { "name": "Yuto Nakamura", "teamId": "ZEPHYR STRIKERS" },
+    { "id": "11", "name": "Tyrese Holloway", "teamId": "6" },
+    { "id": "12", "name": "Yuto Nakamura", "teamId": "6" },
 
-    { "name": "Diego Montez", "teamId": "SUNSET BAY FC" },
-    { "name": "Callum O'Neal", "teamId": "SUNSET BAY FC" },
+    { "id": "13", "name": "Diego Montez", "teamId": "7" },
+    { "id": "14", "name": "Callum O'Neal", "teamId": "7" },
 
-    { "name": "Nico Fontaine", "teamId": "CRESCENT SHORES" },
-    { "name": "Luka Ivanenko", "teamId": "CRESCENT SHORES" },
+    { "id": "15", "name": "Nico Fontaine", "teamId": "8" },
+    { "id": "16", "name": "Luka Ivanenko", "teamId": "8" },
 
-    { "name": "Malik Johnson", "teamId": "WINDHAVEN ROVERS" },
-    { "name": "Hugo Martens", "teamId": "WINDHAVEN ROVERS" },
+    { "id": "17", "name": "Malik Johnson", "teamId": "9" },
+    { "id": "18", "name": "Hugo Martens", "teamId": "9" },
 
-    { "name": "Bastien Rousseau", "teamId": "COASTAL UNITED" },
-    { "name": "Rafael Oliveira", "teamId": "COASTAL UNITED" }
+    { "id": "19", "name": "Bastien Rousseau", "teamId": "10" },
+    { "id": "20", "name": "Rafael Oliveira", "teamId": "10" }
   ]
 }
