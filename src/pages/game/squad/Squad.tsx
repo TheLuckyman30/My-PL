@@ -1,8 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 import { useTeamStore } from '../../../zustand/team-store';
 
-const TABLE_HEADERS = ['Name'];
-
 function Squad() {
   const teams = useTeamStore((state) => state.teams);
   const teamId = useParams<{ teamId: string }>().teamId;
@@ -10,21 +8,17 @@ function Squad() {
     const selectedTeam = teams.get(teamId);
     if (selectedTeam) {
       return (
-        <div className="mt-30">
-          <table className="text-left">
-            <tr>
-              {TABLE_HEADERS.map((header) => (
-                <th>{header}</th>
-              ))}
-            </tr>
+        <div className="mt-30 p-5">
+          <div className="grid grid-cols-1 gap-5 text-center md:grid-cols-2 lg:grid-cols-4">
             {selectedTeam.players.map((player) => (
-              <tr>
-                <td>
-                  <Link to={`/game/player/${player.id}`}>{player.name}</Link>
-                </td>
-              </tr>
+              <Link
+                to={`/game/player/${player.id}`}
+                className="p-10 shadow-lg rounded-md hover:-translate-y-1 duration-200 cursor-pointer"
+              >
+                {player.name}
+              </Link>
             ))}
-          </table>
+          </div>
         </div>
       );
     }
