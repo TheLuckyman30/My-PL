@@ -5,7 +5,6 @@ import { useUserStore } from '../../zustand/user-store';
 function NavBar() {
   const user = useUserStore((state) => state.user);
   const currentDay = useCalendarStore((state) => state.currentDay);
-
   const advanceDay = useCalendarStore((state) => state.advanceDay);
 
   const navbarOptions = [

@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useTeamStore } from '../../../zustand/team-store';
 
 function Team() {
@@ -8,7 +8,7 @@ function Team() {
     if (selectedTeam) {
       return (
         <div className="flex h-full justify-center items-center">
-          <div>{selectedTeam.name}</div>
+          <Link to={`/game/squad/${teamId}`}>{selectedTeam.name}</Link>
         </div>
       );
     }
