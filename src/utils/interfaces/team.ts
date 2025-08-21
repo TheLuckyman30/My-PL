@@ -1,6 +1,3 @@
-import { League } from './league';
-import { Player } from './player';
-
 export interface Team {
   id: string;
   name: string;
@@ -12,6 +9,6 @@ export interface Team {
   wins: number;
   draws: number;
   loses: number;
-  league: League;
-  players: Player[];
+  leagueId: string;
+  playerIds: string[];
 }

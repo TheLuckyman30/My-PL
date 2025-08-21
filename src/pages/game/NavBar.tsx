@@ -3,15 +3,16 @@ import { useCalendarStore } from '../../zustand/calendar-store';
 import { useUserStore } from '../../zustand/user-store';
 
 function NavBar() {
-  const currentDay = useCalendarStore((state) => state.currentDay);
   const user = useUserStore((state) => state.user);
+  const currentDay = useCalendarStore((state) => state.currentDay);
+
   const advanceDay = useCalendarStore((state) => state.advanceDay);
 
   const navbarOptions = [
     { name: 'Menu', link: '/' },
     { name: 'Home', link: '/game/home' },
-    { name: 'Team', link: `/game/team/${user?.selectedTeam.id}` },
-    { name: 'Squad', link: `/game/squad/${user?.selectedTeam.id}` },
+    { name: 'Team', link: `/game/team/${user?.selectedTeamId}` },
+    { name: 'Squad', link: `/game/squad/${user?.selectedTeamId}` },
   ];
 
   return (

@@ -17,7 +17,11 @@ export function useParseJSONData() {
 
   useEffect(() => {
     leagues.forEach((league) => {
-      const newLeague: League = { id: league.id, name: league.name, teams: [] };
+      const newLeague: League = {
+        id: league.id,
+        name: league.name,
+        teamIds: [],
+      };
       storedLeagues.set(newLeague.id, newLeague);
     });
 
@@ -35,20 +39,20 @@ export function useParseJSONData() {
           wins: 0,
           draws: 0,
           loses: 0,
-          league: teamsLeague,
-          players: [],
+          leagueId: team.leagueId,
+          playerIds: [],
         };
         storedTeams.set(newTeam.id, newTeam);
-        teamsLeague.teams.push(newTeam);
+        teamsLeague.teamIds.push(newTeam.id);
       }
     });
 
     players.forEach((player) => {
       const playersTeam = storedTeams.get(player.teamId);
       if (playersTeam) {
-        const newPlayer: Player = { id: player.id, name: player.name, team: playersTeam };
+        const newPlayer: Player = { id: player.id, name: player.name, teamId: player.teamId };
         storedPlayers.set(newPlayer.id, newPlayer);
-        playersTeam.players.push(newPlayer);
+        playersTeam.playerIds.push(newPlayer.id);
       }
     });
 
