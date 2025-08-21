@@ -11,8 +11,8 @@ function NavBar() {
   const navbarOptions = [
     { name: 'Menu', link: '/' },
     { name: 'Home', link: '/game/home' },
-    { name: 'Team', link: `/game/team/${user?.selectedTeamId}` },
-    { name: 'Squad', link: `/game/squad/${user?.selectedTeamId}` },
+    { name: 'Team', link: `/game/team/${user.selectedTeamId}` },
+    { name: 'Squad', link: `/game/squad/${user.selectedTeamId}` },
   ];
 
   return (

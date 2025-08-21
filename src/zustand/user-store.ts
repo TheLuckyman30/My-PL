@@ -2,13 +2,13 @@ import { create } from 'zustand';
 import { User } from '../utils/interfaces/user';
 
 type UserStore = {
-  user: User | null;
-  setUser: (newUser: User | null) => void;
+  user: User;
+  setUser: (newUser: User) => void;
 };
 
 export const useUserStore = create<UserStore>((set) => ({
-  user: null,
-  setUser: (newUser: User | null) => {
+  user: { firstName: 'No', lastName: 'Name', selectedTeamId: '' },
+  setUser: (newUser: User) => {
     set({ user: newUser });
   },
 }));
