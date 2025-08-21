@@ -17,8 +17,8 @@ function NavBar() {
   return (
     <div className="flex justify-center">
       <div className="flex fixed gap-5 p-3 mt-5 items-center bg-sky-700 rounded-md shadow-md text-white font-bold">
-        {navbarOptions.map((option) => (
-          <Link className="hover:-translate-y-0.5 duration-150" to={option.link}>
+        {navbarOptions.map((option, index) => (
+          <Link className="hover:-translate-y-0.5 duration-150" to={option.link} key={index}>
             {option.name}
           </Link>
         ))}

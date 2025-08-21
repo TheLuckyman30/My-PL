@@ -7,10 +7,10 @@ interface LeagueTableProps {
 
 function LeagueTable({ league }: LeagueTableProps) {
   return (
-    <div className="text-center self-center text-4xl font-bold">
-      <div className="flex flex-wrap flex-col">
-        {league.teams.map((team) => (
-          <Link to={`/game/team/${team.id}`}>{team.name}</Link>
+    <div className="flex justify-center items-center h-full w-full">
+      <div className="flex flex-wrap flex-col shadow-2xl p-8 border-2 border-zinc-500">
+        {league.teams.map((team, index) => (
+          <Link to={`/game/team/${team.id}`} key={index}>{`${index + 1}. ${team.name}`}</Link>
         ))}
       </div>
     </div>
