@@ -11,14 +11,16 @@ function TableRow({ teamId }: TableRowProps) {
   if (team) {
     return (
       <tr className="hover:scale-105 hover:shadow-2xl duration-150 bg-white">
-        <td className="p-5">
-          <Link to={`/game/team/${teamId}`}>{team.name}</Link>
+        <td>
+          <Link to={`/game/team/${teamId}`} className="p-3 md:p-5">
+            {team.name}
+          </Link>
         </td>
-        <td className="p-5">{team.wins}</td>
-        <td className="p-5">{team.draws}</td>
-        <td className="p-5">{team.loses}</td>
-        <td className="p-5">{team.goalDifference}</td>
-        <td className="p-5">0</td>
+        <td className="p-3 md:p-5">{team.wins}</td>
+        <td className="p-3 md:p-5">{team.draws}</td>
+        <td className="p-3 md:p-5">{team.loses}</td>
+        <td className="p-3 md:p-5">{team.goalDifference}</td>
+        <td className="p-3 md:p-5">{team.points}</td>
       </tr>
     );
   }

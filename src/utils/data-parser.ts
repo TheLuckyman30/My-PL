@@ -39,6 +39,7 @@ export function useParseJSONData() {
           wins: 0,
           draws: 0,
           loses: 0,
+          points: 0,
           leagueId: team.leagueId,
           playerIds: [],
         };
